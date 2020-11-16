@@ -96,7 +96,6 @@ namespace TouchLives.CRUD
                 foreach (DocumentSnapshot AlertData in ListenAlerts.Documents)
                 {
                     ModUserAlerts Alert = AlertData.ConvertTo<ModUserAlerts>();
-                    Console.WriteLine(Alert.localizaction.ToString());
                     GMC.Overlays.Add(Gmap.CreateMapMaker(Alert, UserDataNoti));
                 }
             });

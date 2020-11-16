@@ -127,7 +127,6 @@
             // 
             this.BtnMostrarT.BackColor = System.Drawing.Color.Transparent;
             this.BtnMostrarT.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.BtnMostrarT.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.BtnMostrarT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnMostrarT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.BtnMostrarT.Location = new System.Drawing.Point(10, 16);
@@ -155,7 +154,6 @@
             // 
             this.BtnMostrarH.BackColor = System.Drawing.Color.Transparent;
             this.BtnMostrarH.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.BtnMostrarH.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.BtnMostrarH.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnMostrarH.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.BtnMostrarH.Location = new System.Drawing.Point(10, 63);

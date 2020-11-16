@@ -30,8 +30,10 @@ namespace TouchLives.Map
 
         public GMapOverlay CreateMapMaker(ModUserAlerts Alert, ModTablaUser UserDataNoti)
         {
-            GMapOverlay MarkOverlay = new GMapOverlay(Alert.localizaction.ToString());
-            GMarkerGoogle marker = new GMarkerGoogle(new PointLatLng(Alert.localizaction.Latitude, Alert.localizaction.Longitude), GMarkerGoogleType.black_small);
+            Console.WriteLine(Alert.position.ToString());
+            
+            GMapOverlay MarkOverlay = new GMapOverlay(Alert.position.ToString());
+            GMarkerGoogle marker = new GMarkerGoogle(new PointLatLng(Alert.position.Latitude, Alert.position.Longitude), GMarkerGoogleType.black_small);
 
             marker.ToolTipMode = MarkerTooltipMode.OnMouseOver;
             marker.ToolTipText = string.Format("Nombre: {0}\nTeléfono: {1}",UserDataNoti.nombre, UserDataNoti.telefono);
