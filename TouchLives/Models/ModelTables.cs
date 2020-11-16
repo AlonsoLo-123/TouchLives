@@ -12,6 +12,8 @@ namespace TouchLives
     {
         //Datos del usuario
         [FirestoreProperty]
+        public string Id { get; set; }
+        [FirestoreProperty]
         public string ap_materno { get; set; }
         [FirestoreProperty]
         public string ap_paterno { get; set; }
@@ -25,8 +27,6 @@ namespace TouchLives
         public string password { get; set; }
         [FirestoreProperty]
         public string telefono { get; set; }
-        [FirestoreProperty]
-        public string Id { get; set; }
     }
     [FirestoreData]
     public class ModUserAlerts
@@ -35,7 +35,7 @@ namespace TouchLives
         [FirestoreProperty]
         public bool active { get; set; }
         [FirestoreProperty]
-        public Date fecha { get; set; }
+        public Date date { get; set; }
         [FirestoreProperty]
         public GeoPoint localizaction { get; set; }
         [FirestoreProperty]
