@@ -12,6 +12,8 @@ namespace TouchLives
     {
         //Datos del usuario
         [FirestoreProperty]
+        public string Id { get; set; }
+        [FirestoreProperty]
         public string ap_materno { get; set; }
         [FirestoreProperty]
         public string ap_paterno { get; set; }
@@ -25,8 +27,6 @@ namespace TouchLives
         public string password { get; set; }
         [FirestoreProperty]
         public string telefono { get; set; }
-        [FirestoreProperty]
-        public string Id { get; set; }
     }
     [FirestoreData]
     public class ModUserAlerts
@@ -35,9 +35,9 @@ namespace TouchLives
         [FirestoreProperty]
         public bool active { get; set; }
         [FirestoreProperty]
-        public Date fecha { get; set; }
+        public Timestamp date { get; set; }
         [FirestoreProperty]
-        public GeoPoint position { get; set; }
+        public GeoPoint localizaction { get; set; }
         [FirestoreProperty]
         public Location sendLocation { get; set; }
     }
@@ -48,9 +48,9 @@ namespace TouchLives
         [FirestoreProperty]
         public string city { get; set; }
         [FirestoreProperty]
-        public double latitude { get; set; }
+        public string country { get; set; }
         [FirestoreProperty]
-        public double longitude { get; set; }
+        public string district { get; set; }
         [FirestoreProperty]
         public string postalCode { get; set; }
         [FirestoreProperty]
