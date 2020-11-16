@@ -38,6 +38,7 @@ namespace TouchLives
         public Date date { get; set; }
         [FirestoreProperty]
         public GeoPoint localizaction { get; set; }
+
         [FirestoreProperty]
         public Location sendLocation { get; set; }
     }
