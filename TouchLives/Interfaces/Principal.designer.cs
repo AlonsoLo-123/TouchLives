@@ -33,10 +33,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TablaAll = new System.Windows.Forms.DataGridView();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ap_Paterno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ap_Materno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BtnMostrarT = new System.Windows.Forms.Button();
             this.GB_Alert = new System.Windows.Forms.GroupBox();
             this.BtnMostrarH = new System.Windows.Forms.Button();
@@ -53,6 +49,10 @@
             this.BtnCenter = new System.Windows.Forms.Button();
             this.LMun = new System.Windows.Forms.Label();
             this.GMapAlert = new GMap.NET.WindowsForms.GMapControl();
+            this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ap_Materno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ap_Paterno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.TablaAll)).BeginInit();
             this.GB_Alert.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TablaNot)).BeginInit();
@@ -70,7 +70,7 @@
             this.TablaAll.AllowUserToAddRows = false;
             this.TablaAll.AllowUserToDeleteRows = false;
             this.TablaAll.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.TablaAll.BackgroundColor = System.Drawing.Color.Gray;
+            this.TablaAll.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
             this.TablaAll.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.TablaAll.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Nombre,
@@ -97,31 +97,6 @@
             this.TablaAll.Size = new System.Drawing.Size(471, 513);
             this.TablaAll.TabIndex = 0;
             this.TablaAll.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Tabla_CellMouseClick);
-            // 
-            // Nombre
-            // 
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            this.Nombre.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // Ap_Paterno
-            // 
-            this.Ap_Paterno.HeaderText = "Ap_Paterno";
-            this.Ap_Paterno.Name = "Ap_Paterno";
-            this.Ap_Paterno.ReadOnly = true;
-            // 
-            // Ap_Materno
-            // 
-            this.Ap_Materno.HeaderText = "Ap_Materno";
-            this.Ap_Materno.Name = "Ap_Materno";
-            this.Ap_Materno.ReadOnly = true;
-            // 
-            // Telefono
-            // 
-            this.Telefono.HeaderText = "Telefono";
-            this.Telefono.Name = "Telefono";
-            this.Telefono.ReadOnly = true;
             // 
             // BtnMostrarT
             // 
@@ -354,6 +329,33 @@
             this.GMapAlert.TabIndex = 0;
             this.GMapAlert.Zoom = 0D;
             // 
+            // Telefono
+            // 
+            this.Telefono.HeaderText = "Telefono";
+            this.Telefono.Name = "Telefono";
+            this.Telefono.ReadOnly = true;
+            // 
+            // Ap_Materno
+            // 
+            this.Ap_Materno.HeaderText = "Ap_Materno";
+            this.Ap_Materno.Name = "Ap_Materno";
+            this.Ap_Materno.ReadOnly = true;
+            this.Ap_Materno.Visible = false;
+            // 
+            // Ap_Paterno
+            // 
+            this.Ap_Paterno.HeaderText = "Ap_Paterno";
+            this.Ap_Paterno.Name = "Ap_Paterno";
+            this.Ap_Paterno.ReadOnly = true;
+            this.Ap_Paterno.Visible = false;
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            this.Nombre.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -400,13 +402,13 @@
         public System.Windows.Forms.DataGridView TablaNot;
         private System.Windows.Forms.Label LabelTL;
         private System.Windows.Forms.Label LMun;
+        private GMap.NET.WindowsForms.GMapControl GMapAlert;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NombreNot;
+        private System.Windows.Forms.Button BtnCenter;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ap_Paterno;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ap_Materno;
         private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
-        private GMap.NET.WindowsForms.GMapControl GMapAlert;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NombreNot;
-        private System.Windows.Forms.Button BtnCenter;
     }
 }
 
