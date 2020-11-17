@@ -176,6 +176,7 @@
     <Compile Include="Interfaces\State.designer.cs">
       <DependentUpon>State.cs</DependentUpon>
     </Compile>
+    <None Include="Resources\Group.png" />
     <EmbeddedResource Include="Interfaces\Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
     </EmbeddedResource>

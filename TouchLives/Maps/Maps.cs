@@ -19,13 +19,25 @@ namespace TouchLives.Map
             GMap.CanDragMap = true;
             GMap.Position = new GMap.NET.PointLatLng(position.Latitude,position.Longitude);
             GMap.MinZoom = 12;
-            GMap.MaxZoom = 19;
+            GMap.MaxZoom = 20;
             GMap.Zoom = 10;
             GMap.AutoScroll = true;
         }
         public void MapPosition(GMapControl GMap, GeoPoint position)
         {
             GMap.Position = new GMap.NET.PointLatLng(position.Latitude, position.Longitude);
+        }
+
+        public bool Sat_DrawMap(GMapControl GMap)
+        {
+            GMap.MapProvider = GMapProviders.GoogleSatelliteMap;
+            return true;
+        }
+
+        public bool Map_DrawMap(GMapControl GMap)
+        {
+            GMap.MapProvider = GMapProviders.GoogleMap;
+            return false;
         }
 
         public GMapOverlay CreateMapMaker(ModUserAlerts Alert, ModTablaUser UserDataNoti)
@@ -36,7 +48,7 @@ namespace TouchLives.Map
             GMarkerGoogle marker = new GMarkerGoogle(new PointLatLng(Alert.localizaction.Latitude, Alert.localizaction.Longitude), GMarkerGoogleType.black_small);
 
             marker.ToolTipMode = MarkerTooltipMode.OnMouseOver;
-            marker.ToolTipText = string.Format("Nombre: {0}\nTeléfono: {1}",UserDataNoti.nombre, UserDataNoti.telefono);
+            marker.ToolTipText = string.Format("Nombre: {0} {1} {2}\nTeléfono: {3}",UserDataNoti.nombre, UserDataNoti.ap_paterno, UserDataNoti.ap_materno, UserDataNoti.telefono);
 
             MarkOverlay.Markers.Add(marker);
 

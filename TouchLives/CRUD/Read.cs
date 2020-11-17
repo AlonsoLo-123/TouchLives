@@ -69,9 +69,9 @@ namespace TouchLives.CRUD
                 TablaNot.Invoke((Action)(() => TablaNot.Rows.Add(UserData.nombre)));
 
             if (TablaAll.InvokeRequired)
-                TablaAll.Invoke((Action)(() => TablaAll.Rows.Add(UserData.nombre + " " + UserData.ap_paterno + " " + UserData.ap_materno, UserData.telefono)));
+                TablaAll.Invoke((Action)(() => TablaAll.Rows.Add(UserData.Id, UserData.nombre + " " + UserData.ap_paterno + " " + UserData.ap_materno, UserData.telefono)));
             else
-                TablaAll.Invoke((Action)(() => TablaAll.Rows.Add(UserData.nombre + " " + UserData.ap_paterno + " " + UserData.ap_materno, UserData.telefono)));
+                TablaAll.Invoke((Action)(() => TablaAll.Rows.Add(UserData.Id, UserData.nombre + " " + UserData.ap_paterno + " " + UserData.ap_materno, UserData.telefono)));
         }
 
         public void ClearRowsNot(DataGridView TablaNot, DataGridView TablaAll)

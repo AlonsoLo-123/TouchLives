@@ -82,6 +82,15 @@ namespace TouchLives
             Gmap.MapPosition(GMapAlert, Server.position);
         }
 
+        bool IsSat;
+        private void BtnSat_Click(object sender, EventArgs e)
+        {
+            if (IsSat)
+                IsSat = Gmap.Map_DrawMap(GMapAlert);
+            else
+                IsSat = Gmap.Sat_DrawMap(GMapAlert);
+        }
+
         /// WinBar Events
 
     }
