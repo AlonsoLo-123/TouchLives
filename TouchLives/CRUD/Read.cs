@@ -87,6 +87,12 @@ namespace TouchLives.CRUD
                 TablaAll.Invoke((Action)(() => TablaAll.Rows.Clear()));
         }
 
+        public void GetDataAlerts(DataGridView TablaAlert, ModUserAlerts Alert)
+        {
+            TablaAlert.Rows.Clear();
+
+        }
+
         public void GetAlert (ModTablaUser UserDataNoti, GMapControl GMC)
         {
             Query QAlert = data.Collection("usuarios").Document(UserDataNoti.Id).Collection("alertas").WhereEqualTo("active", true);
