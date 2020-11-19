@@ -56,7 +56,7 @@ namespace TouchLives.CRUD
                 {
                     ModTablaUser Data = UserData.ConvertTo<ModTablaUser>();
                     AddUsersInTableNot(Data, TablaN,TablaAll);
-                    GetAlert(Data, GMC);
+                    GetAlertActives(Data.Id);
                 }
             });
         }
@@ -89,22 +89,38 @@ namespace TouchLives.CRUD
 
         public void GetDataAlerts(DataGridView TablaAlert, ModUserAlerts Alert)
         {
-            TablaAlert.Rows.Clear();
+                    //GMC.Overlays.Add(Gmap.CreateMapMaker(Alert, UserDataNoti));
+
 
         }
 
-        public void GetAlert (ModTablaUser UserDataNoti, GMapControl GMC)
+        public List<ModUserAlerts> GetAlertActives (String id)
         {
-            Query QAlert = data.Collection("usuarios").Document(UserDataNoti.Id).Collection("alertas").WhereEqualTo("active", true);
+            List<ModUserAlerts> AlertasDatos = new List<ModUserAlerts>();
+            Query QAlert = data.Collection("usuarios").Document(id).Collection("alertas").WhereEqualTo("active", true);
             FirestoreChangeListener FCLAlert;
             FCLAlert = QAlert.Listen(ListenAlerts =>
             {
                 foreach (DocumentSnapshot AlertData in ListenAlerts.Documents)
                 {
                     ModUserAlerts Alert = AlertData.ConvertTo<ModUserAlerts>();
-                    GMC.Overlays.Add(Gmap.CreateMapMaker(Alert, UserDataNoti));
+                    AlertasDatos.Add(Alert);
                 }
             });
+            return AlertasDatos;
+        }
+
+        public async Task<List<ModUserAlerts>> GetAlertAll(String id)
+        {
+            List<ModUserAlerts> AlertasDatos = new List<ModUserAlerts>();
+            Query QAlert = data.Collection("usuarios").Document(id).Collection("alertas");
+            QuerySnapshot QSAlert = await QAlert.GetSnapshotAsync();
+            foreach (DocumentSnapshot AlertData in QSAlert.Documents)
+            {
+                ModUserAlerts Alert = AlertData.ConvertTo<ModUserAlerts>();
+                AlertasDatos.Add(Alert);
+            }
+            return AlertasDatos;
         }
         //private async void AllUser()
         //{

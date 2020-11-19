@@ -52,24 +52,26 @@
             this.Icon_Close = new System.Windows.Forms.PictureBox();
             this.Icon_Title = new System.Windows.Forms.PictureBox();
             this.Pan_Tables = new System.Windows.Forms.Panel();
+            this.Pan_Tables_Alert = new System.Windows.Forms.Panel();
+            this.Pan_Left_Middle = new System.Windows.Forms.Panel();
+            this.TablaAlert = new System.Windows.Forms.DataGridView();
+            this.BtnMostrarT = new System.Windows.Forms.Button();
+            this.Pan_Button = new System.Windows.Forms.Panel();
+            this.Pan_Left_Bottom = new System.Windows.Forms.Panel();
             this.Pan_Maps = new System.Windows.Forms.Panel();
+            this.Pan_Middle = new System.Windows.Forms.Panel();
             this.BtnSat = new System.Windows.Forms.Button();
             this.BtnCenter = new System.Windows.Forms.Button();
             this.LMun = new System.Windows.Forms.Label();
             this.GMapAlert = new GMap.NET.WindowsForms.GMapControl();
-            this.BtnMostrarT = new System.Windows.Forms.Button();
-            this.Pan_Button = new System.Windows.Forms.Panel();
-            this.TablaAlert = new System.Windows.Forms.DataGridView();
-            this.Pan_Middle = new System.Windows.Forms.Panel();
-            this.Pan_Left_Bottom = new System.Windows.Forms.Panel();
-            this.Pan_Tables_Alert = new System.Windows.Forms.Panel();
-            this.Pan_Left_Middle = new System.Windows.Forms.Panel();
+            this.LabelAlertas = new System.Windows.Forms.Label();
+            this.Pan_Tables_Users = new System.Windows.Forms.Panel();
             this.Activa = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Calle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Colonia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Long = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Lat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PBarLoading = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.TablaAll)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TablaNot)).BeginInit();
             this.Pan_WinBar.SuspendLayout();
@@ -78,16 +80,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.Icon_Close)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Icon_Title)).BeginInit();
             this.Pan_Tables.SuspendLayout();
-            this.Pan_Maps.SuspendLayout();
-            this.Pan_Button.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.TablaAlert)).BeginInit();
             this.Pan_Tables_Alert.SuspendLayout();
+            this.Pan_Left_Middle.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TablaAlert)).BeginInit();
+            this.Pan_Button.SuspendLayout();
+            this.Pan_Maps.SuspendLayout();
+            this.Pan_Tables_Users.SuspendLayout();
             this.SuspendLayout();
             // 
             // TablaAll
             // 
             this.TablaAll.AllowUserToAddRows = false;
             this.TablaAll.AllowUserToDeleteRows = false;
+            this.TablaAll.AllowUserToResizeRows = false;
             this.TablaAll.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.TablaAll.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
             this.TablaAll.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -118,12 +123,14 @@
             this.TablaAll.Name = "TablaAll";
             this.TablaAll.ReadOnly = true;
             this.TablaAll.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Red;
+            this.TablaAll.RowHeadersVisible = false;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
             this.TablaAll.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.TablaAll.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.TablaAll.Size = new System.Drawing.Size(380, 562);
+            this.TablaAll.Size = new System.Drawing.Size(380, 320);
             this.TablaAll.TabIndex = 0;
             this.TablaAll.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Tabla_CellMouseClick);
+            this.TablaAll.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.TablaAll_CellMouseDoubleClick);
             // 
             // UID
             // 
@@ -273,8 +280,8 @@
             // 
             // Pan_Tables
             // 
+            this.Pan_Tables.Controls.Add(this.Pan_Tables_Users);
             this.Pan_Tables.Controls.Add(this.Pan_Tables_Alert);
-            this.Pan_Tables.Controls.Add(this.TablaAll);
             this.Pan_Tables.Controls.Add(this.BtnMostrarT);
             this.Pan_Tables.Controls.Add(this.BtnMostrarH);
             this.Pan_Tables.Controls.Add(this.Pan_Button);
@@ -283,6 +290,105 @@
             this.Pan_Tables.Name = "Pan_Tables";
             this.Pan_Tables.Size = new System.Drawing.Size(380, 638);
             this.Pan_Tables.TabIndex = 7;
+            // 
+            // Pan_Tables_Alert
+            // 
+            this.Pan_Tables_Alert.Controls.Add(this.TablaAlert);
+            this.Pan_Tables_Alert.Controls.Add(this.Pan_Left_Middle);
+            this.Pan_Tables_Alert.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.Pan_Tables_Alert.Location = new System.Drawing.Point(0, 320);
+            this.Pan_Tables_Alert.Name = "Pan_Tables_Alert";
+            this.Pan_Tables_Alert.Size = new System.Drawing.Size(380, 242);
+            this.Pan_Tables_Alert.TabIndex = 4;
+            // 
+            // Pan_Left_Middle
+            // 
+            this.Pan_Left_Middle.BackColor = System.Drawing.Color.Black;
+            this.Pan_Left_Middle.Controls.Add(this.LabelAlertas);
+            this.Pan_Left_Middle.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Pan_Left_Middle.Location = new System.Drawing.Point(0, 0);
+            this.Pan_Left_Middle.Name = "Pan_Left_Middle";
+            this.Pan_Left_Middle.Size = new System.Drawing.Size(380, 27);
+            this.Pan_Left_Middle.TabIndex = 5;
+            // 
+            // TablaAlert
+            // 
+            this.TablaAlert.AllowUserToAddRows = false;
+            this.TablaAlert.AllowUserToDeleteRows = false;
+            this.TablaAlert.AllowUserToResizeRows = false;
+            this.TablaAlert.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.TablaAlert.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.TablaAlert.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.TablaAlert.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.TablaAlert.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.TablaAlert.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Activa,
+            this.Fecha,
+            this.Colonia,
+            this.Long,
+            this.Lat});
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.TablaAlert.DefaultCellStyle = dataGridViewCellStyle7;
+            this.TablaAlert.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.TablaAlert.GridColor = System.Drawing.SystemColors.ControlLight;
+            this.TablaAlert.Location = new System.Drawing.Point(0, 26);
+            this.TablaAlert.Name = "TablaAlert";
+            this.TablaAlert.ReadOnly = true;
+            this.TablaAlert.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.TablaAlert.RowHeadersVisible = false;
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
+            this.TablaAlert.RowsDefaultCellStyle = dataGridViewCellStyle9;
+            this.TablaAlert.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.TablaAlert.Size = new System.Drawing.Size(380, 216);
+            this.TablaAlert.TabIndex = 0;
+            this.TablaAlert.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.TablaAlert_CellMouseClick);
+            // 
+            // BtnMostrarT
+            // 
+            this.BtnMostrarT.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.BtnMostrarT.BackColor = System.Drawing.Color.Transparent;
+            this.BtnMostrarT.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.BtnMostrarT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnMostrarT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.BtnMostrarT.Location = new System.Drawing.Point(91, 602);
+            this.BtnMostrarT.Name = "BtnMostrarT";
+            this.BtnMostrarT.Size = new System.Drawing.Size(82, 31);
+            this.BtnMostrarT.TabIndex = 0;
+            this.BtnMostrarT.Text = "Mostrar Todo";
+            this.BtnMostrarT.UseVisualStyleBackColor = false;
+            this.BtnMostrarT.Click += new System.EventHandler(this.MostrarT_Click);
+            // 
+            // Pan_Button
+            // 
+            this.Pan_Button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Pan_Button.Controls.Add(this.Pan_Left_Bottom);
+            this.Pan_Button.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.Pan_Button.Location = new System.Drawing.Point(0, 562);
+            this.Pan_Button.Name = "Pan_Button";
+            this.Pan_Button.Size = new System.Drawing.Size(380, 76);
+            this.Pan_Button.TabIndex = 3;
+            // 
+            // Pan_Left_Bottom
+            // 
+            this.Pan_Left_Bottom.BackColor = System.Drawing.Color.Black;
+            this.Pan_Left_Bottom.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Pan_Left_Bottom.Location = new System.Drawing.Point(0, 0);
+            this.Pan_Left_Bottom.Name = "Pan_Left_Bottom";
+            this.Pan_Left_Bottom.Size = new System.Drawing.Size(380, 3);
+            this.Pan_Left_Bottom.TabIndex = 5;
             // 
             // Pan_Maps
             // 
@@ -297,6 +403,15 @@
             this.Pan_Maps.Name = "Pan_Maps";
             this.Pan_Maps.Size = new System.Drawing.Size(693, 638);
             this.Pan_Maps.TabIndex = 8;
+            // 
+            // Pan_Middle
+            // 
+            this.Pan_Middle.BackColor = System.Drawing.Color.Black;
+            this.Pan_Middle.Dock = System.Windows.Forms.DockStyle.Left;
+            this.Pan_Middle.Location = new System.Drawing.Point(0, 0);
+            this.Pan_Middle.Name = "Pan_Middle";
+            this.Pan_Middle.Size = new System.Drawing.Size(3, 638);
+            this.Pan_Middle.TabIndex = 10;
             // 
             // BtnSat
             // 
@@ -372,111 +487,25 @@
             this.GMapAlert.TabIndex = 0;
             this.GMapAlert.Zoom = 0D;
             // 
-            // BtnMostrarT
+            // LabelAlertas
             // 
-            this.BtnMostrarT.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.BtnMostrarT.BackColor = System.Drawing.Color.Transparent;
-            this.BtnMostrarT.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.BtnMostrarT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnMostrarT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.BtnMostrarT.Location = new System.Drawing.Point(91, 602);
-            this.BtnMostrarT.Name = "BtnMostrarT";
-            this.BtnMostrarT.Size = new System.Drawing.Size(82, 31);
-            this.BtnMostrarT.TabIndex = 0;
-            this.BtnMostrarT.Text = "Mostrar Todo";
-            this.BtnMostrarT.UseVisualStyleBackColor = false;
-            this.BtnMostrarT.Click += new System.EventHandler(this.MostrarT_Click);
+            this.LabelAlertas.AutoSize = true;
+            this.LabelAlertas.ForeColor = System.Drawing.Color.White;
+            this.LabelAlertas.Location = new System.Drawing.Point(3, 6);
+            this.LabelAlertas.Name = "LabelAlertas";
+            this.LabelAlertas.Size = new System.Drawing.Size(60, 13);
+            this.LabelAlertas.TabIndex = 0;
+            this.LabelAlertas.Text = "Alertas de: ";
             // 
-            // Pan_Button
+            // Pan_Tables_Users
             // 
-            this.Pan_Button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.Pan_Button.Controls.Add(this.Pan_Left_Bottom);
-            this.Pan_Button.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.Pan_Button.Location = new System.Drawing.Point(0, 562);
-            this.Pan_Button.Name = "Pan_Button";
-            this.Pan_Button.Size = new System.Drawing.Size(380, 76);
-            this.Pan_Button.TabIndex = 3;
-            // 
-            // TablaAlert
-            // 
-            this.TablaAlert.AllowUserToAddRows = false;
-            this.TablaAlert.AllowUserToDeleteRows = false;
-            this.TablaAlert.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.TablaAlert.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.TablaAlert.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.TablaAlert.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.TablaAlert.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.TablaAlert.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Activa,
-            this.Fecha,
-            this.Calle,
-            this.Colonia,
-            this.Long,
-            this.Lat});
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.TablaAlert.DefaultCellStyle = dataGridViewCellStyle7;
-            this.TablaAlert.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.TablaAlert.GridColor = System.Drawing.SystemColors.ControlLight;
-            this.TablaAlert.Location = new System.Drawing.Point(0, 3);
-            this.TablaAlert.Name = "TablaAlert";
-            this.TablaAlert.ReadOnly = true;
-            this.TablaAlert.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
-            this.TablaAlert.RowHeadersVisible = false;
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Red;
-            this.TablaAlert.RowsDefaultCellStyle = dataGridViewCellStyle9;
-            this.TablaAlert.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.TablaAlert.Size = new System.Drawing.Size(380, 239);
-            this.TablaAlert.TabIndex = 4;
-            // 
-            // Pan_Middle
-            // 
-            this.Pan_Middle.BackColor = System.Drawing.Color.Black;
-            this.Pan_Middle.Dock = System.Windows.Forms.DockStyle.Left;
-            this.Pan_Middle.Location = new System.Drawing.Point(0, 0);
-            this.Pan_Middle.Name = "Pan_Middle";
-            this.Pan_Middle.Size = new System.Drawing.Size(3, 638);
-            this.Pan_Middle.TabIndex = 10;
-            // 
-            // Pan_Left_Bottom
-            // 
-            this.Pan_Left_Bottom.BackColor = System.Drawing.Color.Black;
-            this.Pan_Left_Bottom.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Pan_Left_Bottom.Location = new System.Drawing.Point(0, 0);
-            this.Pan_Left_Bottom.Name = "Pan_Left_Bottom";
-            this.Pan_Left_Bottom.Size = new System.Drawing.Size(380, 3);
-            this.Pan_Left_Bottom.TabIndex = 5;
-            // 
-            // Pan_Tables_Alert
-            // 
-            this.Pan_Tables_Alert.Controls.Add(this.Pan_Left_Middle);
-            this.Pan_Tables_Alert.Controls.Add(this.TablaAlert);
-            this.Pan_Tables_Alert.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.Pan_Tables_Alert.Location = new System.Drawing.Point(0, 320);
-            this.Pan_Tables_Alert.Name = "Pan_Tables_Alert";
-            this.Pan_Tables_Alert.Size = new System.Drawing.Size(380, 242);
-            this.Pan_Tables_Alert.TabIndex = 4;
-            // 
-            // Pan_Left_Middle
-            // 
-            this.Pan_Left_Middle.BackColor = System.Drawing.Color.Black;
-            this.Pan_Left_Middle.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Pan_Left_Middle.Location = new System.Drawing.Point(0, 0);
-            this.Pan_Left_Middle.Name = "Pan_Left_Middle";
-            this.Pan_Left_Middle.Size = new System.Drawing.Size(380, 3);
-            this.Pan_Left_Middle.TabIndex = 5;
+            this.Pan_Tables_Users.Controls.Add(this.PBarLoading);
+            this.Pan_Tables_Users.Controls.Add(this.TablaAll);
+            this.Pan_Tables_Users.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Pan_Tables_Users.Location = new System.Drawing.Point(0, 0);
+            this.Pan_Tables_Users.Name = "Pan_Tables_Users";
+            this.Pan_Tables_Users.Size = new System.Drawing.Size(380, 320);
+            this.Pan_Tables_Users.TabIndex = 7;
             // 
             // Activa
             // 
@@ -493,12 +522,6 @@
             this.Fecha.Name = "Fecha";
             this.Fecha.ReadOnly = true;
             // 
-            // Calle
-            // 
-            this.Calle.HeaderText = "Calle";
-            this.Calle.Name = "Calle";
-            this.Calle.ReadOnly = true;
-            // 
             // Colonia
             // 
             this.Colonia.HeaderText = "Colonia";
@@ -510,12 +533,22 @@
             this.Long.HeaderText = "Long";
             this.Long.Name = "Long";
             this.Long.ReadOnly = true;
+            this.Long.Visible = false;
             // 
             // Lat
             // 
             this.Lat.HeaderText = "Lat";
             this.Lat.Name = "Lat";
             this.Lat.ReadOnly = true;
+            this.Lat.Visible = false;
+            // 
+            // PBarLoading
+            // 
+            this.PBarLoading.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.PBarLoading.Location = new System.Drawing.Point(0, 310);
+            this.PBarLoading.Name = "PBarLoading";
+            this.PBarLoading.Size = new System.Drawing.Size(380, 10);
+            this.PBarLoading.TabIndex = 1;
             // 
             // Principal
             // 
@@ -540,11 +573,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.Icon_Close)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Icon_Title)).EndInit();
             this.Pan_Tables.ResumeLayout(false);
+            this.Pan_Tables_Alert.ResumeLayout(false);
+            this.Pan_Left_Middle.ResumeLayout(false);
+            this.Pan_Left_Middle.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TablaAlert)).EndInit();
+            this.Pan_Button.ResumeLayout(false);
             this.Pan_Maps.ResumeLayout(false);
             this.Pan_Maps.PerformLayout();
-            this.Pan_Button.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.TablaAlert)).EndInit();
-            this.Pan_Tables_Alert.ResumeLayout(false);
+            this.Pan_Tables_Users.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -576,12 +612,14 @@
         private System.Windows.Forms.Panel Pan_Left_Bottom;
         private System.Windows.Forms.Panel Pan_Tables_Alert;
         private System.Windows.Forms.Panel Pan_Left_Middle;
+        private System.Windows.Forms.Label LabelAlertas;
+        private System.Windows.Forms.Panel Pan_Tables_Users;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Activa;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Calle;
         private System.Windows.Forms.DataGridViewTextBoxColumn Colonia;
         private System.Windows.Forms.DataGridViewTextBoxColumn Long;
         private System.Windows.Forms.DataGridViewTextBoxColumn Lat;
+        private System.Windows.Forms.ProgressBar PBarLoading;
     }
 }
 

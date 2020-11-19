@@ -6,6 +6,7 @@ using TouchLives.Map;
 using TouchLives.BarraSup;
 using TouchLives.Modelos;
 using TouchLives.CRUD;
+using System.Collections.Generic;
 
 namespace TouchLives
 {
@@ -43,13 +44,13 @@ namespace TouchLives
 
         private void Tabla_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            String Id = TablaAll.CurrentRow.Cells[0].Value.ToString();
+           
         }
 
 
 
-            /// WinBar Events
-            private void Close_Click(object sender, EventArgs e)
+        /// WinBar Events
+        private void Close_Click(object sender, EventArgs e)
             {
                 Bar.CloseForm();
             }
@@ -83,12 +84,38 @@ namespace TouchLives
         }
 
         bool IsSat;
+
         private void BtnSat_Click(object sender, EventArgs e)
         {
             if (IsSat)
                 IsSat = Gmap.Map_DrawMap(GMapAlert);
             else
                 IsSat = Gmap.Sat_DrawMap(GMapAlert);
+        }
+
+        private async void TablaAll_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            String Id = TablaAll.CurrentRow.Cells[0].Value.ToString();
+            String Nombre = TablaAll.CurrentRow.Cells[1].Value.ToString();
+
+            Console.WriteLine(Id);
+            TablaAlert.Rows.Clear();
+            List<ModUserAlerts> AlertasDatos = new List<ModUserAlerts>(await UserA.GetAlertAll(Id));
+            for (int i = 0; i < AlertasDatos.Count; i++)
+            {
+                TablaAlert.Rows.Add(AlertasDatos[i].active, AlertasDatos[i].date.ToDateTime(), AlertasDatos[i].sendLocation.district,
+                    AlertasDatos[i].localizaction.Longitude, AlertasDatos[i].localizaction.Latitude);
+            }
+            LabelAlertas.Text = "Alertas de: " + Nombre;
+        }
+
+        private void TablaAlert_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            Double Longitud =(Double) TablaAlert.CurrentRow.Cells[3].Value;
+            Double Latitud =(Double) TablaAlert.CurrentRow.Cells[4].Value;
+
+            GeoPoint GPAlert = new GeoPoint(Latitud, Longitud);
+            Gmap.MapPosition(GMapAlert, GPAlert);
         }
 
         /// WinBar Events
