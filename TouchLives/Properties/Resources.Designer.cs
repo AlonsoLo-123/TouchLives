@@ -103,6 +103,26 @@ namespace TouchLives.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap HFalse {
+            get {
+                object obj = ResourceManager.GetObject("HFalse", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap HTrue {
+            get {
+                object obj = ResourceManager.GetObject("HTrue", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ic_baseline_gps_fixed {
             get {
                 object obj = ResourceManager.GetObject("ic_baseline-gps-fixed", resourceCulture);

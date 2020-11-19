@@ -115,11 +115,13 @@ namespace TouchLives.CRUD
             List<ModUserAlerts> AlertasDatos = new List<ModUserAlerts>();
             Query QAlert = data.Collection("usuarios").Document(id).Collection("alertas");
             QuerySnapshot QSAlert = await QAlert.GetSnapshotAsync();
+                
             foreach (DocumentSnapshot AlertData in QSAlert.Documents)
             {
                 ModUserAlerts Alert = AlertData.ConvertTo<ModUserAlerts>();
                 AlertasDatos.Add(Alert);
             }
+            
             return AlertasDatos;
         }
         //private async void AllUser()

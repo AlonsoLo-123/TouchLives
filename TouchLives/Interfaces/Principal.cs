@@ -69,21 +69,21 @@ namespace TouchLives
             private void WinBar_MouseMove(object sender, MouseEventArgs e)
             {
                 Bar.MMove(this,MousePosition.X, MousePosition.Y);
-        }
+            }
             private void WinBar_MouseUp(object sender, MouseEventArgs e)
             {
                 Bar.MUp();
             }
+        
+        /// WinBar Events
 
-
-     
 
         private void BtnCenter_Click(object sender, EventArgs e)
         {
             Gmap.MapPosition(GMapAlert, Server.position);
         }
 
-        bool IsSat;
+        bool IsSat, PTHide;
 
         private void BtnSat_Click(object sender, EventArgs e)
         {
@@ -95,18 +95,35 @@ namespace TouchLives
 
         private async void TablaAll_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            PBarLoading.Value = 1;
+            PBarLoading.Step = 1;
+            PBarLoading.Maximum = 3;
+            
             String Id = TablaAll.CurrentRow.Cells[0].Value.ToString();
             String Nombre = TablaAll.CurrentRow.Cells[1].Value.ToString();
-
-            Console.WriteLine(Id);
+            
             TablaAlert.Rows.Clear();
-            List<ModUserAlerts> AlertasDatos = new List<ModUserAlerts>(await UserA.GetAlertAll(Id));
-            for (int i = 0; i < AlertasDatos.Count; i++)
+
+            try
             {
-                TablaAlert.Rows.Add(AlertasDatos[i].active, AlertasDatos[i].date.ToDateTime(), AlertasDatos[i].sendLocation.district,
-                    AlertasDatos[i].localizaction.Longitude, AlertasDatos[i].localizaction.Latitude);
+                PBarLoading.PerformStep();
+
+                List<ModUserAlerts> AlertasDatos = new List<ModUserAlerts>(await UserA.GetAlertAll(Id));
+                for (int i = 0; i < AlertasDatos.Count; i++)
+                {
+                    TablaAlert.Rows.Add(AlertasDatos[i].active, AlertasDatos[i].date.ToDateTime(), AlertasDatos[i].sendLocation.district,
+                        AlertasDatos[i].localizaction.Longitude, AlertasDatos[i].localizaction.Latitude);
+                }
+                LabelAlertas.Text = "Alertas de: " + Nombre;
             }
-            LabelAlertas.Text = "Alertas de: " + Nombre;
+            catch
+            {
+                LabelAlertas.Text = "Error obteniendo datos...";
+                PBarLoading.PerformStep();
+            }
+
+            if (TablaAlert.Rows.Count != 0)
+                PBarLoading.PerformStep();
         }
 
         private void TablaAlert_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -118,7 +135,31 @@ namespace TouchLives
             Gmap.MapPosition(GMapAlert, GPAlert);
         }
 
-        /// WinBar Events
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            LabelTime.Text = DateTime.Now.ToString("hh:mm:ss");
+            //LabelDate.Text = DateTime.Now.ToLongDateString();
+            _LabelDate.Text = DateTime.Now.ToShortDateString();
+
+        }
+
+        private void BtnHidePT_Click_1(object sender, EventArgs e)
+        {
+            if (PTHide)
+            {
+                Pan_Tables.Visible = true;
+                PTHide = false;
+                BtnHidePT.BackgroundImage = Properties.Resources.HFalse;
+            }
+            else
+            {
+                Pan_Tables.Visible = false;
+                PTHide = true;
+                BtnHidePT.BackgroundImage = Properties.Resources.HTrue;
+            }
+        }
+        
+
 
     }
 }

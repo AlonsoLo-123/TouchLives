@@ -206,7 +206,7 @@
             this.Icon_Title.BackColor = System.Drawing.Color.Red;
             this.Icon_Title.Location = new System.Drawing.Point(3, 3);
             this.Icon_Title.Name = "Icon_Title";
-            this.Icon_Title.Size = new System.Drawing.Size(23, 24);
+            this.Icon_Title.Size = new System.Drawing.Size(26, 26);
             this.Icon_Title.TabIndex = 11;
             this.Icon_Title.TabStop = false;
             // 
@@ -225,6 +225,7 @@
             // Icon_Close
             // 
             this.Icon_Close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Icon_Close.BackColor = System.Drawing.Color.DarkRed;
             this.Icon_Close.Image = global::TouchLives.Properties.Resources.codicon_chrome_close;
             this.Icon_Close.Location = new System.Drawing.Point(269, 3);
             this.Icon_Close.Name = "Icon_Close";
