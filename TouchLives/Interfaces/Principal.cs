@@ -42,10 +42,7 @@ namespace TouchLives
         }
 
 
-        private void Tabla_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-           
-        }
+        
 
 
 
@@ -93,6 +90,8 @@ namespace TouchLives
                 IsSat = Gmap.Sat_DrawMap(GMapAlert);
         }
 
+        /// Eventos Tabla de usuarios
+        
         private async void TablaAll_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             PBarLoading.Value = 1;
@@ -111,7 +110,7 @@ namespace TouchLives
                 List<ModUserAlerts> AlertasDatos = new List<ModUserAlerts>(await UserA.GetAlertAll(Id));
                 for (int i = 0; i < AlertasDatos.Count; i++)
                 {
-                    TablaAlert.Rows.Add(AlertasDatos[i].active, AlertasDatos[i].date.ToDateTime(), AlertasDatos[i].sendLocation.district,
+                    TablaAlert.Rows.Add(AlertasDatos[i].active, AlertasDatos[i].date.ToDateTimeOffset().ToLocalTime().DateTime, AlertasDatos[i].sendLocation.district,
                         AlertasDatos[i].localizaction.Longitude, AlertasDatos[i].localizaction.Latitude);
                 }
                 LabelAlertas.Text = "Alertas de: " + Nombre;
@@ -125,6 +124,15 @@ namespace TouchLives
             if (TablaAlert.Rows.Count != 0)
                 PBarLoading.PerformStep();
         }
+
+        private void TablaAll_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            String UId = TablaAll.CurrentRow.Cells[0].Value.ToString();
+            LabelUID.Text = "UID: " + UId;
+        }
+
+        /// Eventos Tabla de usuarios
+
 
         private void TablaAlert_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
