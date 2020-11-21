@@ -42,6 +42,21 @@ namespace TouchLives
         public Location sendLocation { get; set; }
     }
     [FirestoreData]
+    public class ModUserAlertsId
+    {
+        //Datos de las alertas
+        [FirestoreProperty]
+        public string Id { get; set; }
+        [FirestoreProperty]
+        public bool active { get; set; }
+        [FirestoreProperty]
+        public Timestamp date { get; set; }
+        [FirestoreProperty]
+        public GeoPoint localizaction { get; set; }
+        [FirestoreProperty]
+        public Location sendLocation { get; set; }
+    }
+    [FirestoreData]
     public class Location
     {
         //Datos de sendLocation

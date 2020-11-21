@@ -21,8 +21,9 @@ namespace TouchLives
             ServerData = estado;
             Server = StateCity;
         }
-
-
+        
+        /// Validar Servidor
+        /// 
         private async void BtnEnter_Click(object sender, EventArgs e)
         {
             LCargando.Text = "       Cargando...";
@@ -46,17 +47,17 @@ namespace TouchLives
                 LCargando.Text = "   Error al acceder\nVerifique sus datos";
                 LCargando.ForeColor = Color.Red;
             }
-            
         }
-
+        ///
+        /// Validar Servidor
 
         private void Login_Load(object sender, EventArgs e)
         {
             LStateCity.Text = "Estado: "+ Server.state + "\nMunicipio: " + Server.city;
         }
 
-        
-       
+        /// Retornar la existencia del usuario
+        /// 
         private static async Task<bool> ValUser(string user, string key)
         {
             CollectionReference CRVU = data.Collection("state").Document(Server.state).Collection("city").Document(Server.city).Collection("admin");
@@ -69,7 +70,8 @@ namespace TouchLives
             }
             return false;
         }
-        
+        ///
+        /// Retornar la existencia del usuario
 
         private void BtnConfig_Click(object sender, EventArgs e)
         {
@@ -79,6 +81,7 @@ namespace TouchLives
         }
 
         /// WinBar Events
+        ///
         private void Icon_Close_Click(object sender, EventArgs e)
         {
             Bar.CloseForm();
@@ -100,7 +103,7 @@ namespace TouchLives
         {
             Bar.MMove(this, MousePosition.X, MousePosition.Y);
         }
-        
+        ///
         /// WinBar Events
 
 

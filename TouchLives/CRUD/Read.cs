@@ -2,6 +2,7 @@
 using Google.Cloud.Firestore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TouchLives.Map;
@@ -12,7 +13,9 @@ namespace TouchLives.CRUD
     public class ReadState
     {
         public static FirestoreDb data = Fire.DB();
-        //Read states
+
+        /// Read States
+        ///
         public void StateRead_DataState(ComboBox CBState)
         {
             string state;
@@ -24,11 +27,15 @@ namespace TouchLives.CRUD
             }
             Estados.Close();
         }
-        //Read Cities
-        public async Task<List<ModStateData>> StateRead_ActiveCity(string cstate, string dstate, string ccity)
+        ///
+        /// Read States
+
+        /// Obtener todos las cities Activas y retornarlas (State ID.txt)
+        /// 
+        public async Task<List<ModStateData>> StateRead_ActiveCity(string dstate)
         {
             List<ModStateData> DatosCity = new List<ModStateData>();
-            CollectionReference DRCity = data.Collection(cstate).Document(dstate).Collection(ccity);
+            CollectionReference DRCity = data.Collection("state").Document(dstate).Collection("city");
             Query QId = DRCity.WhereEqualTo("active",true);
             QuerySnapshot QSCity = await QId.GetSnapshotAsync();
             foreach (DocumentSnapshot DataCity in QSCity)
@@ -38,30 +45,39 @@ namespace TouchLives.CRUD
             }
             return DatosCity;
         }
+        ///
+        /// Obtener todos las cities Activas y retornarlas (State ID.txt)
     }
+
+    /// ___________________________________________________________________________________________________________________
     public class UsersAlerts
     {
-        Maps Gmap = new Maps();
 
         public static FirestoreDb data = Fire.DB();
-        //Listener for Nortifications
+
+        /// Listener for User`s Nortifications (Server ID)
+        /// 
         public void ListenerUsersNoti(ModStateData Server, DataGridView TablaN, DataGridView TablaAll, GMapControl GMC)
         {
             Query QUser = data.Collection("usuarios").WhereEqualTo("noti", Server.Id);
             FirestoreChangeListener FCLUser;
             FCLUser = QUser.Listen(ListenerUserAlert =>
             {
-                ClearRowsNot(TablaN,TablaAll);
+                ClearTables(TablaN,TablaAll);
                 foreach (DocumentSnapshot UserData in ListenerUserAlert.Documents)
                 {
                     ModTablaUser Data = UserData.ConvertTo<ModTablaUser>();
-                    AddUsersInTableNot(Data, TablaN,TablaAll);
+                    AddUsersInTables(Data,TablaN,TablaAll);
                     GetAlertActives(Data.Id);
                 }
             });
         }
+        /// 
+        /// Listener for User`s Nortifications (Server ID)
 
-        public void AddUsersInTableNot(ModTablaUser UserData, DataGridView TablaNot, DataGridView TablaAll)
+        /// Invocar y añadir a tablas
+        /// 
+        public void AddUsersInTables(ModTablaUser UserData, DataGridView TablaNot, DataGridView TablaAll)
         {
             if (TablaNot.InvokeRequired)
                 TablaNot.Invoke((Action)(() => TablaNot.Rows.Add(UserData.nombre)));
@@ -73,8 +89,12 @@ namespace TouchLives.CRUD
             else
                 TablaAll.Invoke((Action)(() => TablaAll.Rows.Add(UserData.Id, UserData.nombre + " " + UserData.ap_paterno + " " + UserData.ap_materno, UserData.telefono)));
         }
-
-        public void ClearRowsNot(DataGridView TablaNot, DataGridView TablaAll)
+        ///
+        /// Invocar y añadir a tablas
+        
+        /// Invocar y limpiar tablas
+        /// 
+        public void ClearTables(DataGridView TablaNot, DataGridView TablaAll)
         {
             if (TablaNot.InvokeRequired) 
                 TablaNot.Invoke((Action)(() => TablaNot.Rows.Clear()));
@@ -86,12 +106,12 @@ namespace TouchLives.CRUD
              else
                 TablaAll.Invoke((Action)(() => TablaAll.Rows.Clear()));
         }
-
+        /// 
+        /// Invocar y limpiar tablas
+        
         public void GetDataAlerts(DataGridView TablaAlert, ModUserAlerts Alert)
         {
-                    //GMC.Overlays.Add(Gmap.CreateMapMaker(Alert, UserDataNoti));
-
-
+            //GMC.Overlays.Add(Gmap.CreateMapMaker(Alert, UserDataNoti));
         }
 
         public List<ModUserAlerts> GetAlertActives (String id)
@@ -110,20 +130,29 @@ namespace TouchLives.CRUD
             return AlertasDatos;
         }
 
-        public async Task<List<ModUserAlerts>> GetAlertAll(String id)
+        /// Obtener y retornar todas las Alertas de UID
+        /// 
+        public async Task<List<ModUserAlertsId>> GetAlertAll(String id)
         {
-            List<ModUserAlerts> AlertasDatos = new List<ModUserAlerts>();
+            List<ModUserAlertsId> AlertasDatos = new List<ModUserAlertsId>();
+            List<String> Ids = new List<string>();
             Query QAlert = data.Collection("usuarios").Document(id).Collection("alertas");
             QuerySnapshot QSAlert = await QAlert.GetSnapshotAsync();
                 
             foreach (DocumentSnapshot AlertData in QSAlert.Documents)
             {
-                ModUserAlerts Alert = AlertData.ConvertTo<ModUserAlerts>();
+                ModUserAlertsId Alert = AlertData.ConvertTo<ModUserAlertsId>();
+                Alert.Id = AlertData.Id;
                 AlertasDatos.Add(Alert);
             }
             
             return AlertasDatos;
         }
+        /// 
+        /// Obtener y retornar todas las Alertas de UID
+
+
+
         //private async void AllUser()
         //{
         //    int row = 0;

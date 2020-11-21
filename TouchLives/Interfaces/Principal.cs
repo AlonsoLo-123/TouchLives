@@ -30,48 +30,35 @@ namespace TouchLives
             UserA.ListenerUsersNoti(Server,TablaNot,TablaAll,GMapAlert);
             LMun.Text = "Municipio: " + Server.Id;
         }
-
-        private void MostrarT_Click(object sender, EventArgs e)
-        {
-            //UserA.AllUser();
-        }
-
-        private void MostrarH_Click(object sender, EventArgs e)
-        {
-            //Gmap.CreateMapMaker(GMapAlert,position);
-        }
-
-
         
-
-
-
+        
         /// WinBar Events
+        /// 
         private void Close_Click(object sender, EventArgs e)
-            {
-                Bar.CloseForm();
-            }
-            private void Maximize_Click(object sender, EventArgs e)
-            {
-                Bar.MaxForm(this);
-            }
-            private void Minimize_Click(object sender, EventArgs e)
-            {
-                Bar.MinForm(this);
-            }
-            private void WinBar_MouseDown(object sender, MouseEventArgs e)
-            {
-                Bar.MDown(e.X,e.Y);
-            }
-            private void WinBar_MouseMove(object sender, MouseEventArgs e)
-            {
-                Bar.MMove(this,MousePosition.X, MousePosition.Y);
-            }
-            private void WinBar_MouseUp(object sender, MouseEventArgs e)
-            {
-                Bar.MUp();
-            }
-        
+        {
+            Bar.CloseForm();
+        }
+        private void Maximize_Click(object sender, EventArgs e)
+        {
+            Bar.MaxForm(this);
+        }
+        private void Minimize_Click(object sender, EventArgs e)
+        {
+            Bar.MinForm(this);
+        }
+        private void WinBar_MouseDown(object sender, MouseEventArgs e)
+        {
+            Bar.MDown(e.X,e.Y);
+        }
+        private void WinBar_MouseMove(object sender, MouseEventArgs e)
+        {
+            Bar.MMove(this,MousePosition.X, MousePosition.Y);
+        }
+        private void WinBar_MouseUp(object sender, MouseEventArgs e)
+        {
+            Bar.MUp();
+        }
+        ///
         /// WinBar Events
 
 
@@ -91,7 +78,7 @@ namespace TouchLives
         }
 
         /// Eventos Tabla de usuarios
-        
+        ///
         private async void TablaAll_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             PBarLoading.Value = 1;
@@ -107,10 +94,14 @@ namespace TouchLives
             {
                 PBarLoading.PerformStep();
 
-                List<ModUserAlerts> AlertasDatos = new List<ModUserAlerts>(await UserA.GetAlertAll(Id));
+                List<ModUserAlertsId> AlertasDatos = new List<ModUserAlertsId>(await UserA.GetAlertAll(Id));
+                foreach (var bike in AlertasDatos)
+                {
+                    Console.WriteLine(bike.active);
+                }
                 for (int i = 0; i < AlertasDatos.Count; i++)
                 {
-                    TablaAlert.Rows.Add(AlertasDatos[i].active, AlertasDatos[i].date.ToDateTimeOffset().ToLocalTime().DateTime, AlertasDatos[i].sendLocation.district,
+                    TablaAlert.Rows.Add(AlertasDatos[i].Id, AlertasDatos[i].active, AlertasDatos[i].date.ToDateTimeOffset().ToLocalTime().DateTime, AlertasDatos[i].sendLocation.district,
                         AlertasDatos[i].localizaction.Longitude, AlertasDatos[i].localizaction.Latitude);
                 }
                 LabelAlertas.Text = "Alertas de: " + Nombre;
@@ -130,27 +121,51 @@ namespace TouchLives
             String UId = TablaAll.CurrentRow.Cells[0].Value.ToString();
             LabelUID.Text = "UID: " + UId;
         }
-
+        ///
         /// Eventos Tabla de usuarios
-
-
+        
         private void TablaAlert_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            Double Longitud =(Double) TablaAlert.CurrentRow.Cells[3].Value;
-            Double Latitud =(Double) TablaAlert.CurrentRow.Cells[4].Value;
+            Double Longitud =(Double) TablaAlert.CurrentRow.Cells[4].Value;
+            Double Latitud =(Double) TablaAlert.CurrentRow.Cells[5].Value;
 
             GeoPoint GPAlert = new GeoPoint(Latitud, Longitud);
             Gmap.MapPosition(GMapAlert, GPAlert);
         }
 
+        /// Timer Tiempo real
+        /// 
         private void Timer_Tick(object sender, EventArgs e)
         {
             LabelTime.Text = DateTime.Now.ToString("hh:mm:ss");
-            //LabelDate.Text = DateTime.Now.ToLongDateString();
             _LabelDate.Text = DateTime.Now.ToShortDateString();
+            //LabelDate.Text = DateTime.Now.ToLongDateString();
+        }
+        /// 
+        /// Timer Tiempo real
+
+        /// Eventos Botones de Alertas
+        /// 
+        private void MostrarMas_Click(object sender, EventArgs e)
+        {
 
         }
 
+        private void BtnDesactivarAll_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnDesactivar_Click(object sender, EventArgs e)
+        {
+
+        }
+        ///
+        /// Eventos Botones de Alertas
+        
+        
+        /// Ocultar/Mostrar Tabla Usuarios y Alertas
+        /// 
         private void BtnHidePT_Click_1(object sender, EventArgs e)
         {
             if (PTHide)
@@ -168,8 +183,7 @@ namespace TouchLives
                 BtnHidePT.BackgroundImage = Properties.Resources.HTrue;
             }
         }
-        
-
-
+        ///
+        /// Ocultar/Mostrar Tabla Usuarios y Alertas
     }
 }

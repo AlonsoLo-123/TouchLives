@@ -26,7 +26,8 @@ namespace TouchLives
         }
 
 
-        //WinBar Events
+        /// WinBar Events
+        ///
         private void Icon_Close_Click(object sender, EventArgs e)
         {
             Bar.CloseForm();
@@ -51,7 +52,8 @@ namespace TouchLives
         {
             Bar.MMove(this, MousePosition.X, MousePosition.Y);
         }
-        //WinBar Events
+        ///
+        /// WinBar Events
 
 
         private async void CBState_SelectedIndexChangedAsync(object sender, EventArgs e)
@@ -59,7 +61,7 @@ namespace TouchLives
             LCargando.Text = "Cargando...";
             LCargando.ForeColor = Color.Yellow;
 
-            SetData(AllDatosCity = await ReadState.StateRead_ActiveCity("state", CBState.Text, "city"));
+            SetData(AllDatosCity = await ReadState.StateRead_ActiveCity(CBState.Text));
         }
 
         private void BtnAceptar_Click(object sender, EventArgs e)
