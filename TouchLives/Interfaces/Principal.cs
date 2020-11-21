@@ -155,13 +155,15 @@ namespace TouchLives
         {
             if (PTHide)
             {
-                Pan_Tables.Visible = true;
+                Pan_Tables_Alert_Info.Visible = true;
+                Pan_TableUser_PBar.Visible = true;
                 PTHide = false;
                 BtnHidePT.BackgroundImage = Properties.Resources.HFalse;
             }
             else
             {
-                Pan_Tables.Visible = false;
+                Pan_Tables_Alert_Info.Visible = false;
+                Pan_TableUser_PBar.Visible = false;
                 PTHide = true;
                 BtnHidePT.BackgroundImage = Properties.Resources.HTrue;
             }
