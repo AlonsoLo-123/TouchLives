@@ -109,21 +109,21 @@ namespace TouchLives.CRUD
         /// 
         /// Invocar y limpiar tablas
         
-        public void GetDataAlerts(DataGridView TablaAlert, ModUserAlerts Alert)
+        public void GetDataAlerts(DataGridView TablaAlert, ModUserAlertsId Alert)
         {
             //GMC.Overlays.Add(Gmap.CreateMapMaker(Alert, UserDataNoti));
         }
 
-        public List<ModUserAlerts> GetAlertActives (String id)
+        public List<ModUserAlertsId> GetAlertActives (String id)
         {
-            List<ModUserAlerts> AlertasDatos = new List<ModUserAlerts>();
+            List<ModUserAlertsId> AlertasDatos = new List<ModUserAlertsId>();
             Query QAlert = data.Collection("usuarios").Document(id).Collection("alertas").WhereEqualTo("active", true);
             FirestoreChangeListener FCLAlert;
             FCLAlert = QAlert.Listen(ListenAlerts =>
             {
                 foreach (DocumentSnapshot AlertData in ListenAlerts.Documents)
                 {
-                    ModUserAlerts Alert = AlertData.ConvertTo<ModUserAlerts>();
+                    ModUserAlertsId Alert = AlertData.ConvertTo<ModUserAlertsId>();
                     AlertasDatos.Add(Alert);
                 }
             });
@@ -150,8 +150,7 @@ namespace TouchLives.CRUD
         }
         /// 
         /// Obtener y retornar todas las Alertas de UID
-
-
+        
 
         //private async void AllUser()
         //{

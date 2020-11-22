@@ -176,6 +176,7 @@
     <Compile Include="Interfaces\State.designer.cs">
       <DependentUpon>State.cs</DependentUpon>
     </Compile>
+    <Content Include="Maps\Markers\Marker.png" />
     <None Include="Resources\HTrue.png" />
     <None Include="Resources\HFalse.png" />
     <None Include="Resources\Group.png" />
@@ -232,6 +233,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

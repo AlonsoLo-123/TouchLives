@@ -28,19 +28,7 @@ namespace TouchLives
         [FirestoreProperty]
         public string telefono { get; set; }
     }
-    [FirestoreData]
-    public class ModUserAlerts
-    {
-        //Datos de las alertas
-        [FirestoreProperty]
-        public bool active { get; set; }
-        [FirestoreProperty]
-        public Timestamp date { get; set; }
-        [FirestoreProperty]
-        public GeoPoint localizaction { get; set; }
-        [FirestoreProperty]
-        public Location sendLocation { get; set; }
-    }
+
     [FirestoreData]
     public class ModUserAlertsId
     {
@@ -56,6 +44,7 @@ namespace TouchLives
         [FirestoreProperty]
         public Location sendLocation { get; set; }
     }
+
     [FirestoreData]
     public class Location
     {
