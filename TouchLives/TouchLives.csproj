@@ -176,6 +176,10 @@
     <Compile Include="Interfaces\State.designer.cs">
       <DependentUpon>State.cs</DependentUpon>
     </Compile>
+    <None Include="Resources\In.png" />
+    <None Include="Resources\Out.png" />
+    <None Include="Resources\ZoomOut.png" />
+    <None Include="Resources\ZoomIn.png" />
     <None Include="Resources\HTrue.png" />
     <None Include="Resources\HFalse.png" />
     <None Include="Resources\Group.png" />

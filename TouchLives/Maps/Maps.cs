@@ -18,9 +18,9 @@ namespace TouchLives.Map
             GMap.DragButton = MouseButtons.Left;
             GMap.CanDragMap = true;
             GMap.Position = new GMap.NET.PointLatLng(position.Latitude,position.Longitude);
-            GMap.MinZoom = 12;
+            GMap.MinZoom = 10;
             GMap.MaxZoom = 20;
-            GMap.Zoom = 10;
+            GMap.Zoom = 13;
             GMap.AutoScroll = true;
         }
         public void MapPosition(GMapControl GMap, GeoPoint position)
