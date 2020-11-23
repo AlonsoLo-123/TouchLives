@@ -148,6 +148,13 @@ namespace TouchLives
         /// 
         private void MostrarMas_Click(object sender, EventArgs e)
         {
+            if (TablaAlert.Rows.Count != 0)
+            {
+                String IdAlert = TablaAlert.CurrentRow.Cells[0].Value.ToString();
+
+            }
+            else
+                MessageBox.Show("Seleccione un alerta");
 
         }
 
