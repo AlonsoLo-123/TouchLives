@@ -14,7 +14,7 @@ namespace TouchLives.CRUD
     {
         public static FirestoreDb data = Fire.DB();
 
-        /// Read States
+        /// Read States de Estados.txt
         ///
         public void StateRead_DataState(ComboBox CBState)
         {
@@ -28,7 +28,7 @@ namespace TouchLives.CRUD
             Estados.Close();
         }
         ///
-        /// Read States
+        /// Read States de Estados.txt
 
         /// Obtener todos las cities Activas y retornarlas (State ID.txt)
         /// 
@@ -52,7 +52,6 @@ namespace TouchLives.CRUD
     /// ___________________________________________________________________________________________________________________
     public class UsersAlerts
     {
-
         public static FirestoreDb data = Fire.DB();
 
         /// Listener for User`s Nortifications (Server ID)
@@ -61,7 +60,7 @@ namespace TouchLives.CRUD
         {
             Query QUser = data.Collection("usuarios").WhereEqualTo("noti", Server.Id);
             FirestoreChangeListener FCLUser;
-            FCLUser = QUser.Listen(ListenerUserAlert =>
+            FCLUser = QUser.Listen(async ListenerUserAlert =>
             {
                 ClearTables(TablaN,TablaAll);
                 foreach (DocumentSnapshot UserData in ListenerUserAlert.Documents)
@@ -74,62 +73,40 @@ namespace TouchLives.CRUD
         }
         /// 
         /// Listener for User`s Nortifications (Server ID)
-
-        /// Invocar y añadir a tablas
-        /// 
-        public void AddUsersInTables(ModTablaUser UserData, DataGridView TablaNot, DataGridView TablaAll)
-        {
-            if (TablaNot.InvokeRequired)
-                TablaNot.Invoke((Action)(() => TablaNot.Rows.Add(UserData.nombre)));
-            else
-                TablaNot.Invoke((Action)(() => TablaNot.Rows.Add(UserData.nombre)));
-
-            if (TablaAll.InvokeRequired)
-                TablaAll.Invoke((Action)(() => TablaAll.Rows.Add(UserData.Id, UserData.nombre + " " + UserData.ap_paterno + " " + UserData.ap_materno, UserData.telefono)));
-            else
-                TablaAll.Invoke((Action)(() => TablaAll.Rows.Add(UserData.Id, UserData.nombre + " " + UserData.ap_paterno + " " + UserData.ap_materno, UserData.telefono)));
-        }
-        ///
-        /// Invocar y añadir a tablas
-        
-        /// Invocar y limpiar tablas
-        /// 
-        public void ClearTables(DataGridView TablaNot, DataGridView TablaAll)
-        {
-            if (TablaNot.InvokeRequired) 
-                TablaNot.Invoke((Action)(() => TablaNot.Rows.Clear()));
-            else
-                TablaNot.Invoke((Action)(() => TablaNot.Rows.Clear()));
-
-            if (TablaAll.InvokeRequired)
-                TablaAll.Invoke((Action)(() => TablaAll.Rows.Clear()));
-             else
-                TablaAll.Invoke((Action)(() => TablaAll.Rows.Clear()));
-        }
-        /// 
-        /// Invocar y limpiar tablas
         
         public void GetDataAlerts(DataGridView TablaAlert, ModUserAlertsId Alert)
         {
             //GMC.Overlays.Add(Gmap.CreateMapMaker(Alert, UserDataNoti));
         }
 
-        public List<ModUserAlertsId> GetAlertActives (String id)
+        /// Obtener y retornar las Alertas Activas de UID (UID)
+        ///
+        public List<ModUserAlertsId> GetAlertActives (String uid)
         {
             List<ModUserAlertsId> AlertasDatos = new List<ModUserAlertsId>();
-            Query QAlert = data.Collection("usuarios").Document(id).Collection("alertas").WhereEqualTo("active", true);
+            Query QAlert = data.Collection("usuarios").Document(uid).Collection("alertas").WhereEqualTo("active", true);
             FirestoreChangeListener FCLAlert;
             FCLAlert = QAlert.Listen(ListenAlerts =>
             {
                 foreach (DocumentSnapshot AlertData in ListenAlerts.Documents)
                 {
                     ModUserAlertsId Alert = AlertData.ConvertTo<ModUserAlertsId>();
+                    Alert.Id = AlertData.Id;
                     AlertasDatos.Add(Alert);
+                    Console.WriteLine(Alert.Id, Alert.active);
                 }
             });
+
+            //if(AlertasDatos.Count<=0)
+            //{
+            //    FCLAlert.StopAsync();
+            //    Console.WriteLine("Async stoped");
+            //}
             return AlertasDatos;
         }
-
+        ///
+        /// Obtener y retornar las Alertas Activas de UID (UID)
+        
         /// Obtener y retornar todas las Alertas de UID
         /// 
         public async Task<List<ModUserAlertsId>> GetAlertAll(String id)
@@ -150,7 +127,7 @@ namespace TouchLives.CRUD
         }
         /// 
         /// Obtener y retornar todas las Alertas de UID
-        
+
 
         //private async void AllUser()
         //{
@@ -172,5 +149,39 @@ namespace TouchLives.CRUD
         //        row++;
         //    }
         //}
+
+        /// Invocar y añadir a tablas
+        /// 
+        public void AddUsersInTables(ModTablaUser UserData, DataGridView TablaNot, DataGridView TablaAll)
+        {
+            if (TablaNot.InvokeRequired)
+                TablaNot.Invoke((Action)(() => TablaNot.Rows.Add(UserData.nombre)));
+            else
+                TablaNot.Invoke((Action)(() => TablaNot.Rows.Add(UserData.nombre)));
+
+            if (TablaAll.InvokeRequired)
+                TablaAll.Invoke((Action)(() => TablaAll.Rows.Add(UserData.Id, UserData.nombre + " " + UserData.ap_paterno + " " + UserData.ap_materno, UserData.telefono)));
+            else
+                TablaAll.Invoke((Action)(() => TablaAll.Rows.Add(UserData.Id, UserData.nombre + " " + UserData.ap_paterno + " " + UserData.ap_materno, UserData.telefono)));
+        }
+        ///
+        /// Invocar y añadir a tablas
+
+        /// Invocar y limpiar tablas
+        /// 
+        public void ClearTables(DataGridView TablaNot, DataGridView TablaAll)
+        {
+            if (TablaNot.InvokeRequired)
+                TablaNot.Invoke((Action)(() => TablaNot.Rows.Clear()));
+            else
+                TablaNot.Invoke((Action)(() => TablaNot.Rows.Clear()));
+
+            if (TablaAll.InvokeRequired)
+                TablaAll.Invoke((Action)(() => TablaAll.Rows.Clear()));
+            else
+                TablaAll.Invoke((Action)(() => TablaAll.Rows.Clear()));
+        }
+        /// 
+        /// Invocar y limpiar tablas
     }
 }
