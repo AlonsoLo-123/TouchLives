@@ -152,13 +152,11 @@
   <ItemGroup>
     <Compile Include="Conexion\Firestore.cs" />
     <Compile Include="CRUD\Read.cs" />
-    <Compile Include="Data\DataB.cs">
-      <DependentUpon>DataB.xsd</DependentUpon>
+    <Compile Include="Interfaces\Alerts.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Data\DataB.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataB.xsd</DependentUpon>
+    <Compile Include="Interfaces\Alerts.Designer.cs">
+      <DependentUpon>Alerts.cs</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\BarraSup\BarSup.cs" />
     <Compile Include="Interfaces\Principal.cs">
@@ -185,20 +183,12 @@
       <DependentUpon>State.cs</DependentUpon>
     </Compile>
     <Content Include="Maps\Markers\Marker.png" />
-    <None Include="Data\DataB.xsc">
-      <DependentUpon>DataB.xsd</DependentUpon>
-    </None>
-    <None Include="Data\DataB.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataB.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="Data\DataB.xss">
-      <DependentUpon>DataB.xsd</DependentUpon>
-    </None>
     <None Include="Resources\HTrue.png" />
     <None Include="Resources\HFalse.png" />
     <None Include="Resources\Group.png" />
+    <EmbeddedResource Include="Interfaces\Alerts.resx">
+      <DependentUpon>Alerts.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Interfaces\Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
     </EmbeddedResource>

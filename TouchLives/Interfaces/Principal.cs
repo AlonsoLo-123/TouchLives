@@ -172,15 +172,12 @@ namespace TouchLives
         {
             if (GMapAlert.Zoom <= 20 && GMapAlert.Zoom > 10)
                 GMapAlert.Zoom = GMapAlert.Zoom - 1;
-            Console.WriteLine(GMapAlert.Zoom);
         }
 
         private void BtnZoomIn_Click(object sender, EventArgs e)
         {
             if (GMapAlert.Zoom < 20 && GMapAlert.Zoom >= 10)
                 GMapAlert.Zoom = GMapAlert.Zoom + 1;
-            Console.WriteLine(GMapAlert.Zoom);
-
         }
 
 
