@@ -88,6 +88,7 @@
             this.LMun = new System.Windows.Forms.Label();
             this.GMapAlert = new GMap.NET.WindowsForms.GMapControl();
             this.Timer = new System.Windows.Forms.Timer(this.components);
+            this._LabelUID = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.TablaAll)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TablaNot)).BeginInit();
             this.Pan_WinBar.SuspendLayout();
@@ -152,7 +153,6 @@
             this.TablaAll.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.TablaAll.Size = new System.Drawing.Size(328, 304);
             this.TablaAll.TabIndex = 0;
-            this.TablaAll.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.TablaAll_CellMouseClick);
             this.TablaAll.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.TablaAll_CellMouseDoubleClick);
             // 
             // UID
@@ -328,6 +328,7 @@
             // Pan_UID
             // 
             this.Pan_UID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.Pan_UID.Controls.Add(this._LabelUID);
             this.Pan_UID.Controls.Add(this.LabelUID);
             this.Pan_UID.Dock = System.Windows.Forms.DockStyle.Top;
             this.Pan_UID.Location = new System.Drawing.Point(0, 0);
@@ -340,11 +341,10 @@
             this.LabelUID.AutoSize = true;
             this.LabelUID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelUID.ForeColor = System.Drawing.Color.White;
-            this.LabelUID.Location = new System.Drawing.Point(3, 6);
+            this.LabelUID.Location = new System.Drawing.Point(39, 6);
             this.LabelUID.Name = "LabelUID";
-            this.LabelUID.Size = new System.Drawing.Size(34, 16);
+            this.LabelUID.Size = new System.Drawing.Size(0, 16);
             this.LabelUID.TabIndex = 0;
-            this.LabelUID.Text = "UID:";
             // 
             // Pan_Tables_Alert_Info
             // 
@@ -760,6 +760,17 @@
             this.Timer.Interval = 200;
             this.Timer.Tick += new System.EventHandler(this.Timer_Tick);
             // 
+            // _LabelUID
+            // 
+            this._LabelUID.AutoSize = true;
+            this._LabelUID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._LabelUID.ForeColor = System.Drawing.Color.White;
+            this._LabelUID.Location = new System.Drawing.Point(7, 6);
+            this._LabelUID.Name = "_LabelUID";
+            this._LabelUID.Size = new System.Drawing.Size(34, 16);
+            this._LabelUID.TabIndex = 0;
+            this._LabelUID.Text = "UID:";
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -854,6 +865,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button BtnZoomIn;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label _LabelUID;
     }
 }
 

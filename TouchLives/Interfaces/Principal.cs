@@ -7,6 +7,8 @@ using TouchLives.BarraSup;
 using TouchLives.Modelos;
 using TouchLives.CRUD;
 using System.Collections.Generic;
+using Google.Cloud.Storage.V1;
+using TouchLives.Interfaces;
 
 namespace TouchLives
 {
@@ -16,7 +18,6 @@ namespace TouchLives
         BarSup Bar = new BarSup();
         UsersAlerts UserA = new UsersAlerts();
         private static ModStateData Server = new ModStateData();
-
 
         public Principal(ModStateData Serv)
         {
@@ -87,7 +88,8 @@ namespace TouchLives
             
             String Id = TablaAll.CurrentRow.Cells[0].Value.ToString();
             String Nombre = TablaAll.CurrentRow.Cells[1].Value.ToString();
-            
+            LabelUID.Text = Id;
+
             TablaAlert.Rows.Clear();
 
             try
@@ -114,12 +116,6 @@ namespace TouchLives
 
             if (TablaAlert.Rows.Count != 0)
                 PBarLoading.PerformStep();
-        }
-
-        private void TablaAll_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            String UId = TablaAll.CurrentRow.Cells[0].Value.ToString();
-            LabelUID.Text = "UID: " + UId;
         }
         ///
         /// Eventos Tabla de usuarios
@@ -152,6 +148,8 @@ namespace TouchLives
             {
                 String IdAlert = TablaAlert.CurrentRow.Cells[0].Value.ToString();
 
+                Alerts _Alertas = new Alerts(LabelUID.Text, IdAlert);
+                _Alertas.Show();
             }
             else
                 MessageBox.Show("Seleccione un alerta");
