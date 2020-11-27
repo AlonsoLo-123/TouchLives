@@ -15,6 +15,7 @@ using Google.Cloud.Storage.V1;
 using TouchLives.CRUD;
 using System.IO;
 using System.Threading;
+using System.Security.AccessControl;
 
 namespace TouchLives.Interfaces
 {
@@ -24,63 +25,99 @@ namespace TouchLives.Interfaces
         string BName = "touchlives-2020cj.appspot.com";
 
         GSorage GCS = new GSorage();
-        string UID,AID;
-        
+
         public Alerts(string uid, string aid)
         {
             InitializeComponent();
-            UID = uid;
-            AID = aid;
+            LabelUID.Text = uid;
+            LabelAID.Text = aid;
         }
 
-        private async void button1_Click(object sender, EventArgs e)
+        public async void button1_Click(object sender, EventArgs e)
         {
-            var dlg = new SaveFileDialog();
-            string path = "usuarios/" + UID + "/" + AID + "/" + "image" + "/";
+            string ObjRoute;
+            var ServObjPath =  $"usuarios/{LabelUID.Text}/{LabelAID.Text}/image";
             
-            foreach (var storageObject in Storage.ListObjects(BName, path))
+            string LPath = $"Archives/usuarios/{LabelUID.Text}/{LabelAID.Text}/image";
+
+            try
             {
-                dlg.FileName = storageObject.Name;
+                if (Directory.Exists(LPath))
+                {
+                    Console.WriteLine("That path exists already.");
+                    return;
+                }
+                
+                DirectoryInfo di = Directory.CreateDirectory(LPath);
 
-                string Lpath = @"Archives";
-                DownloadObject(BName, dlg.FileName, Lpath);
+                DirectorySecurity dSecurity = di.GetAccessControl();
+
+                AuthorizationRuleCollection acl = dSecurity.GetAccessRules(true, true, typeof(System.Security.Principal.NTAccount));
+
+                foreach (var storageObject in Storage.ListObjects(BName, ServObjPath))
+                {
+                    ObjRoute = storageObject.Name;
+                    Console.WriteLine(ObjRoute);
+                    if (!ObjRoute.EndsWith("/"))
+                        DownloadObject(BName, ObjRoute, LPath);
+                }
+                
+
+
+                // Delete the directory.
+                //di.Delete();
+                //Console.WriteLine("The directory was deleted successfully.");
             }
+            catch (Exception x)
+            {
+                Console.WriteLine("Error: {0}", x.ToString());
+            }
+            finally { }
 
-            //FileStream fs = new System.IO.FileStream(@"Archives\a.bmp", FileMode.Open, FileAccess.Read);
-            //pictureBox1.Image = Image.FromStream(fs);
-            //fs.Close();
-            //var token = new CancellationTokenSource().Token;
-
-            //    using (var fileStream = File.Create(dlg.FileName))
-            //    {
-
-            //        var downloadObjectOptions = new DownloadObjectOptions
-            //        {
-            //            ChunkSize = UploadObjectOptions.MinimumChunkSize
-            //        };
-            //        var progressReporter = new Progress<IDownloadProgress>();
-            //        await Storage.DownloadObjectAsync(BName, Path.GetFileName("Archives"), fileStream, downloadObjectOptions, token, progress: progressReporter).ConfigureAwait(true);
-            //    }
-
+            
 
         }
-
-        private void Alerts_Load(object sender, EventArgs e)
-        {
-            GCS.ListArchives(UID,AID,"image");
-        }
-
 
 
         private void DownloadObject(string bucketName, string objectName,
             string localPath)
         {
-            localPath = localPath +"/"+ Path.GetFileName(objectName);
+            localPath = localPath ?? Path.GetFileName(objectName);
+            Console.WriteLine(localPath);
             using (var outputFile = File.OpenWrite(localPath))
             {
                 Storage.DownloadObject(bucketName, objectName, outputFile);
             }
             Console.WriteLine($"downloaded {objectName} to {localPath}.");
         }
+
+
+
+
+        //FileStream fs = new System.IO.FileStream(@"Archives\a.bmp", FileMode.Open, FileAccess.Read);
+        //pictureBox1.Image = Image.FromStream(fs);
+        //fs.Close();
+        //var token = new CancellationTokenSource().Token;
+
+        //    using (var fileStream = File.Create(dlg.FileName))
+        //    {
+
+        //        var downloadObjectOptions = new DownloadObjectOptions
+        //        {
+        //            ChunkSize = UploadObjectOptions.MinimumChunkSize
+        //        };
+        //        var progressReporter = new Progress<IDownloadProgress>();
+        //        await Storage.DownloadObjectAsync(BName, Path.GetFileName("Archives"), fileStream, downloadObjectOptions, token, progress: progressReporter).ConfigureAwait(true);
+        //    }
+
+
+        private void Alerts_Load(object sender, EventArgs e)
+        {
+            //GCS.ListArchives(UID,AID,"image");
+        }
+
+
+
+        
     }
 }

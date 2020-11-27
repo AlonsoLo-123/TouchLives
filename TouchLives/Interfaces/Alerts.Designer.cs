@@ -30,7 +30,8 @@
         {
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.LabelUID = new System.Windows.Forms.Label();
+            this.LabelAID = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,11 +54,31 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // LabelUID
+            // 
+            this.LabelUID.AutoSize = true;
+            this.LabelUID.Location = new System.Drawing.Point(355, 32);
+            this.LabelUID.Name = "LabelUID";
+            this.LabelUID.Size = new System.Drawing.Size(52, 13);
+            this.LabelUID.TabIndex = 2;
+            this.LabelUID.Text = "LabelUID";
+            // 
+            // LabelAID
+            // 
+            this.LabelAID.AutoSize = true;
+            this.LabelAID.Location = new System.Drawing.Point(356, 76);
+            this.LabelAID.Name = "LabelAID";
+            this.LabelAID.Size = new System.Drawing.Size(51, 13);
+            this.LabelAID.TabIndex = 3;
+            this.LabelAID.Text = "LabelAID";
+            // 
             // Alerts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.LabelAID);
+            this.Controls.Add(this.LabelUID);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox1);
             this.Name = "Alerts";
@@ -65,6 +86,7 @@
             this.Load += new System.EventHandler(this.Alerts_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -72,6 +94,7 @@
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.Label LabelUID;
+        private System.Windows.Forms.Label LabelAID;
     }
 }
