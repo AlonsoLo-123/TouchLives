@@ -32,36 +32,6 @@ namespace TouchLives
             LMun.Text = "Municipio: " + Server.Id;
         }
         
-        
-        /// WinBar Events
-        /// 
-        private void Close_Click(object sender, EventArgs e)
-        {
-            Bar.CloseForm();
-        }
-        private void Maximize_Click(object sender, EventArgs e)
-        {
-            Bar.MaxForm(this);
-        }
-        private void Minimize_Click(object sender, EventArgs e)
-        {
-            Bar.MinForm(this);
-        }
-        private void WinBar_MouseDown(object sender, MouseEventArgs e)
-        {
-            Bar.MDown(e.X,e.Y);
-        }
-        private void WinBar_MouseMove(object sender, MouseEventArgs e)
-        {
-            Bar.MMove(this,MousePosition.X, MousePosition.Y);
-        }
-        private void WinBar_MouseUp(object sender, MouseEventArgs e)
-        {
-            Bar.MUp();
-        }
-        ///
-        /// WinBar Events
-
 
         private void BtnCenter_Click(object sender, EventArgs e)
         {
@@ -96,16 +66,13 @@ namespace TouchLives
             {
                 PBarLoading.PerformStep();
 
-                List<ModUserAlertsId> AlertasDatos = new List<ModUserAlertsId>(await UserA.GetAlertAll(Id));
-                foreach (var bike in AlertasDatos)
+                List<ModUserAlertsId> AlertasDatos = new List<ModUserAlertsId>(await UserA.GetAlertAll(Id,CheckBAllAlerts.Checked));
+                foreach (var Data in AlertasDatos)
                 {
-                    Console.WriteLine(bike.active);
+                    TablaAlert.Rows.Add(Data.Id, Data.active, Data.date.ToDateTimeOffset().ToLocalTime().DateTime, Data.sendLocation.district,
+                        Data.localizaction.Longitude, Data.localizaction.Latitude);
                 }
-                for (int i = 0; i < AlertasDatos.Count; i++)
-                {
-                    TablaAlert.Rows.Add(AlertasDatos[i].Id, AlertasDatos[i].active, AlertasDatos[i].date.ToDateTimeOffset().ToLocalTime().DateTime, AlertasDatos[i].sendLocation.district,
-                        AlertasDatos[i].localizaction.Longitude, AlertasDatos[i].localizaction.Latitude);
-                }
+                
                 LabelAlertas.Text = "Alertas de: " + Nombre;
             }
             catch
@@ -129,26 +96,17 @@ namespace TouchLives
             Gmap.MapPosition(GMapAlert, GPAlert);
         }
 
-        /// Timer Tiempo real
-        /// 
-        private void Timer_Tick(object sender, EventArgs e)
-        {
-            LabelTime.Text = DateTime.Now.ToString("hh:mm:ss");
-            _LabelDate.Text = DateTime.Now.ToShortDateString();
-            //LabelDate.Text = DateTime.Now.ToLongDateString();
-        }
-        /// 
-        /// Timer Tiempo real
+        
 
         /// Eventos Botones de Alertas
         /// 
-        private void MostrarMas_Click(object sender, EventArgs e)
+        private async void MostrarMas_Click(object sender, EventArgs e)
         {
             if (TablaAlert.Rows.Count != 0)
             {
                 String IdAlert = TablaAlert.CurrentRow.Cells[0].Value.ToString();
-
-                Alerts _Alertas = new Alerts(LabelUID.Text, IdAlert);
+                ModUserAlertsId Alerta = new ModUserAlertsId();
+                Alerts _Alertas = new Alerts(LabelUID.Text, Alerta = await UserA.GetOnlyAlert(LabelUID.Text, IdAlert));
                 _Alertas.Show();
             }
             else
@@ -166,19 +124,7 @@ namespace TouchLives
 
         }
 
-        private void BtnZoomOut_Click(object sender, EventArgs e)
-        {
-            if (GMapAlert.Zoom <= 20 && GMapAlert.Zoom > 10)
-                GMapAlert.Zoom = GMapAlert.Zoom - 1;
-        }
-
-        private void BtnZoomIn_Click(object sender, EventArgs e)
-        {
-            if (GMapAlert.Zoom < 20 && GMapAlert.Zoom >= 10)
-                GMapAlert.Zoom = GMapAlert.Zoom + 1;
-        }
-
-
+        
 
         ///
         /// Eventos Botones de Alertas
@@ -205,5 +151,65 @@ namespace TouchLives
         }
         ///
         /// Ocultar/Mostrar Tabla Usuarios y Alertas
+
+
+        /// Botones ZOOm Mapa
+        /// 
+        private void BtnZoomOut_Click(object sender, EventArgs e)
+        {
+            if (GMapAlert.Zoom <= 20 && GMapAlert.Zoom > 10)
+                GMapAlert.Zoom = GMapAlert.Zoom - 1;
+        }
+
+        private void BtnZoomIn_Click(object sender, EventArgs e)
+        {
+            if (GMapAlert.Zoom < 20 && GMapAlert.Zoom >= 10)
+                GMapAlert.Zoom = GMapAlert.Zoom + 1;
+        }
+        /// 
+        /// Botones ZOOm Mapa
+
+        /// Timer Tiempo real
+        /// 
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            LabelTime.Text = DateTime.Now.ToString("hh:mm:ss");
+            _LabelDate.Text = DateTime.Now.ToShortDateString();
+            //LabelDate.Text = DateTime.Now.ToLongDateString();
+        }
+        /// 
+        /// Timer Tiempo real
+        /// 
+
+
+        /// WinBar Events
+        /// 
+        private void Close_Click(object sender, EventArgs e)
+        {
+            Bar.CloseForm();
+        }
+        private void Maximize_Click(object sender, EventArgs e)
+        {
+            Bar.MaxForm(this);
+        }
+        private void Minimize_Click(object sender, EventArgs e)
+        {
+            Bar.MinForm(this);
+        }
+        private void WinBar_MouseDown(object sender, MouseEventArgs e)
+        {
+            Bar.MDown(e.X, e.Y);
+        }
+        private void WinBar_MouseMove(object sender, MouseEventArgs e)
+        {
+            Bar.MMove(this, MousePosition.X, MousePosition.Y);
+        }
+
+        private void WinBar_MouseUp(object sender, MouseEventArgs e)
+        {
+            Bar.MUp();
+        }
+        ///
+        /// WinBar Events
     }
 }

@@ -107,13 +107,17 @@ namespace TouchLives.CRUD
         ///
         /// Obtener y retornar las Alertas Activas de UID (UID)
         
-        /// Obtener y retornar todas las Alertas de UID
+        /// Obtener y retornar todas las Alertas de UID (UID, ISaCTIVE?)
         /// 
-        public async Task<List<ModUserAlertsId>> GetAlertAll(String id)
+        public async Task<List<ModUserAlertsId>> GetAlertAll(string UserId, bool IsActive)
         {
             List<ModUserAlertsId> AlertasDatos = new List<ModUserAlertsId>();
             List<String> Ids = new List<string>();
-            Query QAlert = data.Collection("usuarios").Document(id).Collection("alertas");
+            Query QAlert;
+            if(IsActive)
+                QAlert = data.Collection("usuarios").Document(UserId).Collection("alertas").WhereEqualTo("active", true);
+            else
+                QAlert = data.Collection("usuarios").Document(UserId).Collection("alertas");
             QuerySnapshot QSAlert = await QAlert.GetSnapshotAsync();
                 
             foreach (DocumentSnapshot AlertData in QSAlert.Documents)
@@ -126,8 +130,28 @@ namespace TouchLives.CRUD
             return AlertasDatos;
         }
         /// 
-        /// Obtener y retornar todas las Alertas de UID
+        /// Obtener y retornar todas las Alertas de UID (UID, ISaCTIVE?)
 
+        /// Obtener y retornar la Alerta de UID (UID)
+        /// 
+        public async Task<ModUserAlertsId> GetOnlyAlert(string UserId, string AlertId)  
+        {
+            ModUserAlertsId AlertasDatos = new ModUserAlertsId();
+            DocumentReference DRAlertOnly = data.Collection("usuarios").Document(UserId).Collection("alertas").Document(AlertId);
+            DocumentSnapshot SAlertOnly = await DRAlertOnly.GetSnapshotAsync();
+            if (SAlertOnly.Exists)
+            {
+                AlertasDatos = SAlertOnly.ConvertTo<ModUserAlertsId>();
+                AlertasDatos.Id = SAlertOnly.Id;
+            }
+            else
+            {
+                MessageBox.Show("Error Obteniendo los datos");
+            }
+            return AlertasDatos;
+        }
+        /// 
+        /// Obtener y retornar la Alerta de UID (UID)
 
         //private async void AllUser()
         //{

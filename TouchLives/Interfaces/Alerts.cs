@@ -16,50 +16,43 @@ using TouchLives.CRUD;
 using System.IO;
 using System.Threading;
 using System.Security.AccessControl;
+using TouchLives.BarraSup;
 
 namespace TouchLives.Interfaces
 {
     public partial class Alerts : Form
     {
+        BarSup Bar = new BarSup();
         StorageClient Storage = StorageClient.Create();
         string BName = "touchlives-2020cj.appspot.com";
 
         GSorage GCS = new GSorage();
 
-        public Alerts(string uid, string aid)
+        public Alerts(string uid, ModUserAlertsId aid)
         {
             InitializeComponent();
             LabelUID.Text = uid;
-            LabelAID.Text = aid;
+            LabelAID.Text = aid.Id;
         }
 
         public async void button1_Click(object sender, EventArgs e)
         {
             string ObjRoute;
+
             var ServObjPath =  $"usuarios/{LabelUID.Text}/{LabelAID.Text}/image";
             
-            string LPath = $"Archives/usuarios/{LabelUID.Text}/{LabelAID.Text}/image";
+            string LPath = $"Archives/usuarios/{LabelUID.Text}/{LabelAID.Text}/image/";
 
             try
             {
-                if (Directory.Exists(LPath))
-                {
-                    Console.WriteLine("That path exists already.");
-                    return;
-                }
-                
                 DirectoryInfo di = Directory.CreateDirectory(LPath);
-
-                DirectorySecurity dSecurity = di.GetAccessControl();
-
-                AuthorizationRuleCollection acl = dSecurity.GetAccessRules(true, true, typeof(System.Security.Principal.NTAccount));
-
+                   
                 foreach (var storageObject in Storage.ListObjects(BName, ServObjPath))
                 {
                     ObjRoute = storageObject.Name;
                     Console.WriteLine(ObjRoute);
                     if (!ObjRoute.EndsWith("/"))
-                        DownloadObject(BName, ObjRoute, LPath);
+                        await DownloadObjectAsync(BName, ObjRoute, LPath);
                 }
                 
 
@@ -79,18 +72,21 @@ namespace TouchLives.Interfaces
         }
 
 
-        private void DownloadObject(string bucketName, string objectName,
+        private async Task DownloadObjectAsync(string bucketName, string objectName,
             string localPath)
         {
-            localPath = localPath ?? Path.GetFileName(objectName);
+            localPath = localPath + Path.GetFileName(objectName);
             Console.WriteLine(localPath);
-            using (var outputFile = File.OpenWrite(localPath))
+            using (var outputFile = File.Create(localPath))
             {
-                Storage.DownloadObject(bucketName, objectName, outputFile);
+               await Storage.DownloadObjectAsync(bucketName, objectName, outputFile);
             }
             Console.WriteLine($"downloaded {objectName} to {localPath}.");
         }
 
+
+
+        
 
 
 
@@ -117,7 +113,35 @@ namespace TouchLives.Interfaces
         }
 
 
+        /// WinBar Events
+        /// 
+        private void Close_Click(object sender, EventArgs e)
+        {
+            Bar.CloseForm();
+        }
+        private void Maximize_Click(object sender, EventArgs e)
+        {
+            Bar.MaxForm(this);
+        }
+        private void Minimize_Click(object sender, EventArgs e)
+        {
+            Bar.MinForm(this);
+        }
+        private void WinBar_MouseDown(object sender, MouseEventArgs e)
+        {
+            Bar.MDown(e.X, e.Y);
+        }
+        private void WinBar_MouseMove(object sender, MouseEventArgs e)
+        {
+            Bar.MMove(this, MousePosition.X, MousePosition.Y);
+        }
+        private void WinBar_MouseUp(object sender, MouseEventArgs e)
+        {
+            Bar.MUp();
+        }
 
-        
+        ///
+        /// WinBar Events
+
     }
 }
