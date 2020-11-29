@@ -60,8 +60,15 @@ namespace TouchLives
         {
             LCargando.Text = "Cargando...";
             LCargando.ForeColor = Color.Yellow;
-
-            SetData(AllDatosCity = await ReadState.StateRead_ActiveCity(CBState.Text));
+            try
+            {
+                SetData(AllDatosCity = await ReadState.StateRead_ActiveCity(CBState.Text));
+            }
+            catch
+            {
+                LCargando.Text = "Error de conexión";
+                LCargando.ForeColor = Color.Red;
+            }
         }
 
         private void BtnAceptar_Click(object sender, EventArgs e)

@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Alerts));
-            this.button1 = new System.Windows.Forms.Button();
             this.LabelUID = new System.Windows.Forms.Label();
             this.LabelAID = new System.Windows.Forms.Label();
             this.Pan_WinBar = new System.Windows.Forms.Panel();
@@ -38,40 +37,32 @@
             this.Icon_Minimize = new System.Windows.Forms.PictureBox();
             this.Icon_Close = new System.Windows.Forms.PictureBox();
             this.Icon_Title = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Pan_WinBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Icon_Maximize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Icon_Minimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Icon_Close)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Icon_Title)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(14, 134);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // LabelUID
             // 
             this.LabelUID.AutoSize = true;
-            this.LabelUID.Location = new System.Drawing.Point(11, 45);
+            this.LabelUID.Location = new System.Drawing.Point(12, 45);
             this.LabelUID.Name = "LabelUID";
-            this.LabelUID.Size = new System.Drawing.Size(52, 13);
+            this.LabelUID.Size = new System.Drawing.Size(29, 13);
             this.LabelUID.TabIndex = 2;
-            this.LabelUID.Text = "LabelUID";
+            this.LabelUID.Text = "UID:";
             // 
             // LabelAID
             // 
             this.LabelAID.AutoSize = true;
-            this.LabelAID.Location = new System.Drawing.Point(12, 73);
+            this.LabelAID.Location = new System.Drawing.Point(13, 73);
             this.LabelAID.Name = "LabelAID";
-            this.LabelAID.Size = new System.Drawing.Size(51, 13);
+            this.LabelAID.Size = new System.Drawing.Size(28, 13);
             this.LabelAID.TabIndex = 3;
-            this.LabelAID.Text = "LabelAID";
+            this.LabelAID.Text = "AID:";
             // 
             // Pan_WinBar
             // 
@@ -150,15 +141,24 @@
             this.Icon_Title.TabIndex = 0;
             this.Icon_Title.TabStop = false;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(579, 36);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(320, 275);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
+            // 
             // Alerts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(902, 610);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.Pan_WinBar);
             this.Controls.Add(this.LabelAID);
             this.Controls.Add(this.LabelUID);
-            this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Alerts";
             this.Text = "Alerts";
@@ -169,13 +169,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.Icon_Minimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Icon_Close)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Icon_Title)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label LabelUID;
         private System.Windows.Forms.Label LabelAID;
         private System.Windows.Forms.Panel Pan_WinBar;
@@ -184,5 +184,6 @@
         private System.Windows.Forms.PictureBox Icon_Minimize;
         private System.Windows.Forms.PictureBox Icon_Close;
         private System.Windows.Forms.PictureBox Icon_Title;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

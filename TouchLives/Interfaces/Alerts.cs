@@ -35,28 +35,28 @@ namespace TouchLives.Interfaces
             LabelAID.Text = aid.Id;
         }
 
-        public async void button1_Click(object sender, EventArgs e)
-        {
-            string ObjRoute;
 
-            var ServObjPath =  $"usuarios/{LabelUID.Text}/{LabelAID.Text}/image";
-            
+        private void Alerts_Load(object sender, EventArgs e)
+        {
+            string SPath = $"usuarios/{LabelUID.Text}/{LabelAID.Text}/image";
             string LPath = $"Archives/usuarios/{LabelUID.Text}/{LabelAID.Text}/image/";
 
+            ListToDownloadAndDoit(SPath, LPath);
+        }
+
+        public async void ListToDownloadAndDoit(string SPath, string LPath)
+        {
             try
             {
                 DirectoryInfo di = Directory.CreateDirectory(LPath);
-                   
-                foreach (var storageObject in Storage.ListObjects(BName, ServObjPath))
+
+                foreach (var storageObject in Storage.ListObjects(BName, SPath))
                 {
-                    ObjRoute = storageObject.Name;
-                    Console.WriteLine(ObjRoute);
-                    if (!ObjRoute.EndsWith("/"))
-                        await DownloadObjectAsync(BName, ObjRoute, LPath);
+                    string FullPath = storageObject.Name;
+                    Console.WriteLine(FullPath);
+                    if (!FullPath.EndsWith("/"))
+                        await DownloadObjectAsync(BName, FullPath, LPath);
                 }
-                
-
-
                 // Delete the directory.
                 //di.Delete();
                 //Console.WriteLine("The directory was deleted successfully.");
@@ -66,50 +66,30 @@ namespace TouchLives.Interfaces
                 Console.WriteLine("Error: {0}", x.ToString());
             }
             finally { }
-
-            
-
         }
 
 
-        private async Task DownloadObjectAsync(string bucketName, string objectName,
-            string localPath)
+        private async Task DownloadObjectAsync(string bucketName, string FullPath, string localPath)
         {
-            localPath = localPath + Path.GetFileName(objectName);
+            localPath = localPath + Path.GetFileName(FullPath);
             Console.WriteLine(localPath);
-            using (var outputFile = File.Create(localPath))
+
+            using (var SteamFilePath = File.Create(localPath))
             {
-               await Storage.DownloadObjectAsync(bucketName, objectName, outputFile);
+                await Storage.DownloadObjectAsync(bucketName, FullPath, SteamFilePath);
             }
-            Console.WriteLine($"downloaded {objectName} to {localPath}.");
+            ShowImages(localPath);
+            Console.WriteLine($"downloaded {FullPath} to {localPath}.");
         }
 
 
-
-        
-
-
-
-        //FileStream fs = new System.IO.FileStream(@"Archives\a.bmp", FileMode.Open, FileAccess.Read);
-        //pictureBox1.Image = Image.FromStream(fs);
-        //fs.Close();
-        //var token = new CancellationTokenSource().Token;
-
-        //    using (var fileStream = File.Create(dlg.FileName))
-        //    {
-
-        //        var downloadObjectOptions = new DownloadObjectOptions
-        //        {
-        //            ChunkSize = UploadObjectOptions.MinimumChunkSize
-        //        };
-        //        var progressReporter = new Progress<IDownloadProgress>();
-        //        await Storage.DownloadObjectAsync(BName, Path.GetFileName("Archives"), fileStream, downloadObjectOptions, token, progress: progressReporter).ConfigureAwait(true);
-        //    }
-
-
-        private void Alerts_Load(object sender, EventArgs e)
+        private void ShowImages(string LocalPath)
         {
-            //GCS.ListArchives(UID,AID,"image");
+            using (FileStream fs = new System.IO.FileStream(LocalPath, FileMode.Open, FileAccess.Read))
+            {
+                pictureBox1.Image = Image.FromStream(fs);
+                fs.Close();
+            }
         }
 
 
@@ -117,7 +97,7 @@ namespace TouchLives.Interfaces
         /// 
         private void Close_Click(object sender, EventArgs e)
         {
-            Bar.CloseForm();
+            this.Dispose();
         }
         private void Maximize_Click(object sender, EventArgs e)
         {
@@ -139,7 +119,6 @@ namespace TouchLives.Interfaces
         {
             Bar.MUp();
         }
-
         ///
         /// WinBar Events
 
