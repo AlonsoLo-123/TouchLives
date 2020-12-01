@@ -22,17 +22,35 @@ namespace TouchLives.Interfaces
 {
     public partial class Alerts : Form
     {
+        ModUserAlertsId UData = new ModUserAlertsId();
         BarSup Bar = new BarSup();
         StorageClient Storage = StorageClient.Create();
         string BName = "touchlives-2020cj.appspot.com";
-
-        GSorage GCS = new GSorage();
 
         public Alerts(string uid, ModUserAlertsId aid)
         {
             InitializeComponent();
             LabelUID.Text = uid;
-            LabelAID.Text = aid.Id;
+            UData = aid;
+            PutDataUser();
+        }
+
+        private void PutDataUser()
+        {
+            LabelAID.Text = UData.Id;
+            if (UData.active)
+                labelActive.Text = "Activa";
+            else
+                labelActive.Text = "Desactivada";
+            labelDate.Text = UData.date.ToDateTimeOffset().ToLocalTime().DateTime.ToString();
+            labelLocalizaction.Text = UData.localizaction.Latitude.ToString();
+            labelLocalizaction1.Text = UData.localizaction.Longitude.ToString();
+            labelCity.Text = UData.sendLocation.city;
+            labelCountry.Text = UData.sendLocation.country;
+            labelDistrict.Text = UData.sendLocation.district;
+            labelPostalCode.Text = UData.sendLocation.postalCode;
+            labelRegion.Text = UData.sendLocation.region;
+            labelStreet.Text = UData.sendLocation.street;
         }
 
 
@@ -71,7 +89,9 @@ namespace TouchLives.Interfaces
 
         private async Task DownloadObjectAsync(string bucketName, string FullPath, string localPath)
         {
-            localPath = localPath + Path.GetFileName(FullPath);
+            string ObjName = Path.GetFileName(FullPath);
+            CBImages.Items.Add(ObjName);
+            localPath = localPath + ObjName;
             Console.WriteLine(localPath);
 
             using (var SteamFilePath = File.Create(localPath))
@@ -97,7 +117,7 @@ namespace TouchLives.Interfaces
         /// 
         private void Close_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            this.Close();
         }
         private void Maximize_Click(object sender, EventArgs e)
         {
@@ -119,6 +139,13 @@ namespace TouchLives.Interfaces
         {
             Bar.MUp();
         }
+
+        private void CBImages_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string LPath = $"Archives/usuarios/{LabelUID.Text}/{LabelAID.Text}/image/"+CBImages.Text;
+            ShowImages(LPath);
+        }
+
         ///
         /// WinBar Events
 
