@@ -57,11 +57,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.labelLocalizaction1 = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
             this.Pan_WinBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Icon_Minimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Icon_Close)).BeginInit();
@@ -72,6 +74,7 @@
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // LabelAID
@@ -163,7 +166,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Gainsboro;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 36);
+            this.pictureBox1.Location = new System.Drawing.Point(3, 34);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(318, 277);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -175,7 +178,7 @@
             this.CBImages.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBImages.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBImages.FormattingEnabled = true;
-            this.CBImages.Location = new System.Drawing.Point(116, 7);
+            this.CBImages.Location = new System.Drawing.Point(116, 2);
             this.CBImages.Name = "CBImages";
             this.CBImages.Size = new System.Drawing.Size(205, 23);
             this.CBImages.TabIndex = 8;
@@ -278,7 +281,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(3, 10);
+            this.label12.Location = new System.Drawing.Point(3, 5);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(107, 13);
             this.label12.TabIndex = 2;
@@ -286,10 +289,9 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.LightGray;
+            this.panel1.BackColor = System.Drawing.Color.Gainsboro;
+            this.panel1.Controls.Add(this.panel7);
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.label12);
-            this.panel1.Controls.Add(this.CBImages);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel1.Location = new System.Drawing.Point(517, 35);
             this.panel1.Name = "panel1";
@@ -380,6 +382,17 @@
             this.panel4.Size = new System.Drawing.Size(270, 142);
             this.panel4.TabIndex = 13;
             // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.LightGray;
+            this.panel5.Controls.Add(this._LabelAID);
+            this.panel5.Controls.Add(this.LabelAID);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel5.Location = new System.Drawing.Point(0, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(270, 28);
+            this.panel5.TabIndex = 4;
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -419,16 +432,25 @@
             this.labelLocalizaction1.TabIndex = 3;
             this.labelLocalizaction1.Text = "Localización:";
             // 
-            // panel5
+            // panel6
             // 
-            this.panel5.BackColor = System.Drawing.Color.LightGray;
-            this.panel5.Controls.Add(this._LabelAID);
-            this.panel5.Controls.Add(this.LabelAID);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(0, 0);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(270, 28);
-            this.panel5.TabIndex = 4;
+            this.panel6.BackColor = System.Drawing.Color.LightGray;
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel6.Location = new System.Drawing.Point(270, 35);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(247, 28);
+            this.panel6.TabIndex = 14;
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.LightGray;
+            this.panel7.Controls.Add(this.label12);
+            this.panel7.Controls.Add(this.CBImages);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel7.Location = new System.Drawing.Point(0, 0);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(324, 28);
+            this.panel7.TabIndex = 9;
             // 
             // Alerts
             // 
@@ -436,6 +458,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(841, 351);
+            this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -452,7 +475,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.Icon_Title)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -461,6 +483,8 @@
             this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -499,5 +523,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label labelLocalizaction1;
         private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Panel panel6;
     }
 }

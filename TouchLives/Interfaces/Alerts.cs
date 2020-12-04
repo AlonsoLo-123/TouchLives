@@ -7,16 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Google.Cloud.Storage;
-using Google.Apis.Download;
-using Google.Apis.Upload;
-using Google.Apis.Auth.OAuth2;
 using Google.Cloud.Storage.V1;
-using TouchLives.CRUD;
 using System.IO;
 using System.Threading;
 using System.Security.AccessControl;
 using TouchLives.BarraSup;
+using System.Media;
 
 namespace TouchLives.Interfaces
 {
@@ -145,7 +141,6 @@ namespace TouchLives.Interfaces
             string LPath = $"Archives/usuarios/{LabelUID.Text}/{LabelAID.Text}/image/"+CBImages.Text;
             ShowImages(LPath);
         }
-
         ///
         /// WinBar Events
 
