@@ -196,6 +196,10 @@
       <DependentUpon>State.cs</DependentUpon>
     </Compile>
     <Content Include="Maps\Markers\Marker.png" />
+    <None Include="Resources\Loop.png" />
+    <None Include="Resources\Stop.png" />
+    <None Include="Resources\Pause.png" />
+    <None Include="Resources\Play.png" />
     <None Include="Resources\HTrue.png" />
     <None Include="Resources\HFalse.png" />
     <None Include="Resources\Group.png" />
