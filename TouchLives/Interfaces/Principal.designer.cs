@@ -53,14 +53,23 @@
             this.Icon_Close = new System.Windows.Forms.PictureBox();
             this.Icon_Title = new System.Windows.Forms.PictureBox();
             this.Pan_TableUser_PBar = new System.Windows.Forms.Panel();
-            this.PBarLoading = new System.Windows.Forms.ProgressBar();
             this.Pan_UID = new System.Windows.Forms.Panel();
             this._LabelUID = new System.Windows.Forms.Label();
             this.LabelUID = new System.Windows.Forms.Label();
+            this.Pan_ONlyAlerts = new System.Windows.Forms.Panel();
+            this.GBox_ONlyAlerts = new System.Windows.Forms.GroupBox();
+            this.CheckBAllAlerts = new System.Windows.Forms.CheckBox();
+            this.PBarLoading = new System.Windows.Forms.ProgressBar();
             this.Pan_Tables_Alert_Info = new System.Windows.Forms.Panel();
             this.Pan_TableAlert_Buttons = new System.Windows.Forms.Panel();
             this.Pan_Tables_Alert = new System.Windows.Forms.Panel();
             this.TablaAlert = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Activa = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Colonia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Long = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Lat = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Pan_Buttons = new System.Windows.Forms.Panel();
             this.BtnDesactivarAll = new System.Windows.Forms.Button();
             this.BtnDesactivar = new System.Windows.Forms.Button();
@@ -83,15 +92,6 @@
             this.LMun = new System.Windows.Forms.Label();
             this.GMapAlert = new GMap.NET.WindowsForms.GMapControl();
             this.Timer = new System.Windows.Forms.Timer(this.components);
-            this.CheckBAllAlerts = new System.Windows.Forms.CheckBox();
-            this.Pan_ONlyAlerts = new System.Windows.Forms.Panel();
-            this.GBox_ONlyAlerts = new System.Windows.Forms.GroupBox();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Activa = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Colonia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Long = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Lat = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.TablaAll)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TablaNot)).BeginInit();
             this.Pan_WinBar.SuspendLayout();
@@ -101,6 +101,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.Icon_Title)).BeginInit();
             this.Pan_TableUser_PBar.SuspendLayout();
             this.Pan_UID.SuspendLayout();
+            this.Pan_ONlyAlerts.SuspendLayout();
+            this.GBox_ONlyAlerts.SuspendLayout();
             this.Pan_Tables_Alert_Info.SuspendLayout();
             this.Pan_TableAlert_Buttons.SuspendLayout();
             this.Pan_Tables_Alert.SuspendLayout();
@@ -112,8 +114,6 @@
             this.panel1.SuspendLayout();
             this.Pan_TableNot.SuspendLayout();
             this.Pan_TableNot_Top.SuspendLayout();
-            this.Pan_ONlyAlerts.SuspendLayout();
-            this.GBox_ONlyAlerts.SuspendLayout();
             this.SuspendLayout();
             // 
             // TablaAll
@@ -323,14 +323,6 @@
             this.Pan_TableUser_PBar.Size = new System.Drawing.Size(328, 334);
             this.Pan_TableUser_PBar.TabIndex = 12;
             // 
-            // PBarLoading
-            // 
-            this.PBarLoading.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.PBarLoading.Location = new System.Drawing.Point(0, 47);
-            this.PBarLoading.Name = "PBarLoading";
-            this.PBarLoading.Size = new System.Drawing.Size(328, 3);
-            this.PBarLoading.TabIndex = 1;
-            // 
             // Pan_UID
             // 
             this.Pan_UID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
@@ -362,6 +354,46 @@
             this.LabelUID.Name = "LabelUID";
             this.LabelUID.Size = new System.Drawing.Size(0, 16);
             this.LabelUID.TabIndex = 0;
+            // 
+            // Pan_ONlyAlerts
+            // 
+            this.Pan_ONlyAlerts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.Pan_ONlyAlerts.Controls.Add(this.GBox_ONlyAlerts);
+            this.Pan_ONlyAlerts.Controls.Add(this.PBarLoading);
+            this.Pan_ONlyAlerts.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.Pan_ONlyAlerts.Location = new System.Drawing.Point(0, 284);
+            this.Pan_ONlyAlerts.Name = "Pan_ONlyAlerts";
+            this.Pan_ONlyAlerts.Size = new System.Drawing.Size(328, 50);
+            this.Pan_ONlyAlerts.TabIndex = 16;
+            // 
+            // GBox_ONlyAlerts
+            // 
+            this.GBox_ONlyAlerts.Controls.Add(this.CheckBAllAlerts);
+            this.GBox_ONlyAlerts.Location = new System.Drawing.Point(6, 6);
+            this.GBox_ONlyAlerts.Name = "GBox_ONlyAlerts";
+            this.GBox_ONlyAlerts.Size = new System.Drawing.Size(131, 31);
+            this.GBox_ONlyAlerts.TabIndex = 16;
+            this.GBox_ONlyAlerts.TabStop = false;
+            // 
+            // CheckBAllAlerts
+            // 
+            this.CheckBAllAlerts.Checked = true;
+            this.CheckBAllAlerts.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.CheckBAllAlerts.ForeColor = System.Drawing.Color.White;
+            this.CheckBAllAlerts.Location = new System.Drawing.Point(6, 10);
+            this.CheckBAllAlerts.Name = "CheckBAllAlerts";
+            this.CheckBAllAlerts.Size = new System.Drawing.Size(121, 18);
+            this.CheckBAllAlerts.TabIndex = 15;
+            this.CheckBAllAlerts.Text = "Solo alertas activas";
+            this.CheckBAllAlerts.UseVisualStyleBackColor = true;
+            // 
+            // PBarLoading
+            // 
+            this.PBarLoading.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.PBarLoading.Location = new System.Drawing.Point(0, 47);
+            this.PBarLoading.Name = "PBarLoading";
+            this.PBarLoading.Size = new System.Drawing.Size(328, 3);
+            this.PBarLoading.TabIndex = 1;
             // 
             // Pan_Tables_Alert_Info
             // 
@@ -438,6 +470,47 @@
             this.TablaAlert.Size = new System.Drawing.Size(328, 201);
             this.TablaAlert.TabIndex = 0;
             this.TablaAlert.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.TablaAlert_CellMouseClick);
+            // 
+            // Id
+            // 
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Visible = false;
+            // 
+            // Activa
+            // 
+            this.Activa.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Activa.HeaderText = "Activa";
+            this.Activa.Name = "Activa";
+            this.Activa.ReadOnly = true;
+            this.Activa.Width = 40;
+            // 
+            // Fecha
+            // 
+            this.Fecha.HeaderText = "Fecha";
+            this.Fecha.Name = "Fecha";
+            this.Fecha.ReadOnly = true;
+            // 
+            // Colonia
+            // 
+            this.Colonia.HeaderText = "Colonia";
+            this.Colonia.Name = "Colonia";
+            this.Colonia.ReadOnly = true;
+            // 
+            // Long
+            // 
+            this.Long.HeaderText = "Long";
+            this.Long.Name = "Long";
+            this.Long.ReadOnly = true;
+            this.Long.Visible = false;
+            // 
+            // Lat
+            // 
+            this.Lat.HeaderText = "Lat";
+            this.Lat.Name = "Lat";
+            this.Lat.ReadOnly = true;
+            this.Lat.Visible = false;
             // 
             // Pan_Buttons
             // 
@@ -737,79 +810,6 @@
             this.Timer.Interval = 200;
             this.Timer.Tick += new System.EventHandler(this.Timer_Tick);
             // 
-            // CheckBAllAlerts
-            // 
-            this.CheckBAllAlerts.Checked = true;
-            this.CheckBAllAlerts.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.CheckBAllAlerts.ForeColor = System.Drawing.Color.White;
-            this.CheckBAllAlerts.Location = new System.Drawing.Point(6, 10);
-            this.CheckBAllAlerts.Name = "CheckBAllAlerts";
-            this.CheckBAllAlerts.Size = new System.Drawing.Size(121, 18);
-            this.CheckBAllAlerts.TabIndex = 15;
-            this.CheckBAllAlerts.Text = "Solo alertas activas";
-            this.CheckBAllAlerts.UseVisualStyleBackColor = true;
-            // 
-            // Pan_ONlyAlerts
-            // 
-            this.Pan_ONlyAlerts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.Pan_ONlyAlerts.Controls.Add(this.GBox_ONlyAlerts);
-            this.Pan_ONlyAlerts.Controls.Add(this.PBarLoading);
-            this.Pan_ONlyAlerts.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.Pan_ONlyAlerts.Location = new System.Drawing.Point(0, 284);
-            this.Pan_ONlyAlerts.Name = "Pan_ONlyAlerts";
-            this.Pan_ONlyAlerts.Size = new System.Drawing.Size(328, 50);
-            this.Pan_ONlyAlerts.TabIndex = 16;
-            // 
-            // GBox_ONlyAlerts
-            // 
-            this.GBox_ONlyAlerts.Controls.Add(this.CheckBAllAlerts);
-            this.GBox_ONlyAlerts.Location = new System.Drawing.Point(6, 6);
-            this.GBox_ONlyAlerts.Name = "GBox_ONlyAlerts";
-            this.GBox_ONlyAlerts.Size = new System.Drawing.Size(131, 31);
-            this.GBox_ONlyAlerts.TabIndex = 16;
-            this.GBox_ONlyAlerts.TabStop = false;
-            // 
-            // Id
-            // 
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Visible = false;
-            // 
-            // Activa
-            // 
-            this.Activa.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Activa.HeaderText = "Activa";
-            this.Activa.Name = "Activa";
-            this.Activa.ReadOnly = true;
-            this.Activa.Width = 40;
-            // 
-            // Fecha
-            // 
-            this.Fecha.HeaderText = "Fecha";
-            this.Fecha.Name = "Fecha";
-            this.Fecha.ReadOnly = true;
-            // 
-            // Colonia
-            // 
-            this.Colonia.HeaderText = "Colonia";
-            this.Colonia.Name = "Colonia";
-            this.Colonia.ReadOnly = true;
-            // 
-            // Long
-            // 
-            this.Long.HeaderText = "Long";
-            this.Long.Name = "Long";
-            this.Long.ReadOnly = true;
-            this.Long.Visible = false;
-            // 
-            // Lat
-            // 
-            this.Lat.HeaderText = "Lat";
-            this.Lat.Name = "Lat";
-            this.Lat.ReadOnly = true;
-            this.Lat.Visible = false;
-            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -834,6 +834,8 @@
             this.Pan_TableUser_PBar.ResumeLayout(false);
             this.Pan_UID.ResumeLayout(false);
             this.Pan_UID.PerformLayout();
+            this.Pan_ONlyAlerts.ResumeLayout(false);
+            this.GBox_ONlyAlerts.ResumeLayout(false);
             this.Pan_Tables_Alert_Info.ResumeLayout(false);
             this.Pan_TableAlert_Buttons.ResumeLayout(false);
             this.Pan_Tables_Alert.ResumeLayout(false);
@@ -850,8 +852,6 @@
             this.Pan_TableNot.ResumeLayout(false);
             this.Pan_TableNot_Top.ResumeLayout(false);
             this.Pan_TableNot_Top.PerformLayout();
-            this.Pan_ONlyAlerts.ResumeLayout(false);
-            this.GBox_ONlyAlerts.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
