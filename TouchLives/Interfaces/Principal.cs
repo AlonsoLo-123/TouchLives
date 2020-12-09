@@ -29,7 +29,7 @@ namespace TouchLives
         {
             Gmap.DrawMap(GMapAlert, Server.position);
             UserA.ListenerUsersNoti(Server,TablaNot,TablaAll,GMapAlert);
-            LMun.Text = "Municipio: " + Server.Id;
+            LabelMun.Text = "Municipio: " + Server.Id;
         }
         
 
@@ -69,8 +69,9 @@ namespace TouchLives
                 List<ModUserAlertsId> AlertasDatos = new List<ModUserAlertsId>(await UserA.GetAlertAll(Id,CheckBAllAlerts.Checked));
                 foreach (var Data in AlertasDatos)
                 {
-                    TablaAlert.Rows.Add(Data.Id, Data.active, Data.date.ToDateTimeOffset().ToLocalTime().DateTime, Data.sendLocation.district,
-                        Data.localizaction.Longitude, Data.localizaction.Latitude);
+                    TablaAlert.Rows.Add(Data.Id, Data.active, Data.date.ToDateTimeOffset().ToLocalTime().DateTime,
+                        Data.localizaction.Longitude, Data.localizaction.Latitude, Data.sendLocation.city, Data.sendLocation.district,
+                        Data.sendLocation.postalCode, Data.sendLocation.street);
                 }
                 
                 LabelAlertas.Text = "Alertas de: " + Nombre;
@@ -86,18 +87,40 @@ namespace TouchLives
         }
         ///
         /// Eventos Tabla de usuarios
-        
         private void TablaAlert_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            Double Longitud =(Double) TablaAlert.CurrentRow.Cells[4].Value;
-            Double Latitud =(Double) TablaAlert.CurrentRow.Cells[5].Value;
+            Double Longitud =(Double) TablaAlert.CurrentRow.Cells[3].Value;
+            Double Latitud =(Double) TablaAlert.CurrentRow.Cells[4].Value;
 
             GeoPoint GPAlert = new GeoPoint(Latitud, Longitud);
             Gmap.MapPosition(GMapAlert, GPAlert);
+
         }
 
-        
+        private void TablaAlert_CurrentCellChanged(object sender, EventArgs e)
+        {
+            PutDataUser();
+        }
 
+        public void PutDataUser()
+        {
+            try
+            {
+                LabelAID.Text = TablaAlert.CurrentRow.Cells[0].Value.ToString();
+                labelActive.Text = (bool)TablaAlert.CurrentRow.Cells[1].Value ? "Activa" : "Desactivada";
+                labelDate.Text = TablaAlert.CurrentRow.Cells[2].Value.ToString();
+                labelLocalizaction.Text = TablaAlert.CurrentRow.Cells[3].Value.ToString();
+                labelLocalizaction1.Text = TablaAlert.CurrentRow.Cells[4].Value.ToString();
+                labelCity.Text = TablaAlert.CurrentRow.Cells[5].Value.ToString();
+                labelDistrict.Text = TablaAlert.CurrentRow.Cells[6].Value.ToString();
+                labelPostalCode.Text = TablaAlert.CurrentRow.Cells[7].Value.ToString();
+                labelStreet.Text = TablaAlert.CurrentRow.Cells[8].Value.ToString();
+            }
+            catch
+            {
+                LabelAID.Text = "Cargando...";
+            }
+        }
         /// Eventos Botones de Alertas
         /// 
         private async void MostrarMas_Click(object sender, EventArgs e)
@@ -173,8 +196,8 @@ namespace TouchLives
         /// 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            LabelTime.Text = DateTime.Now.ToString("hh:mm:ss");
-            _LabelDate.Text = DateTime.Now.ToShortDateString();
+            LabelTimeSystem.Text = DateTime.Now.ToString("hh:mm:ss");
+            LabelDateSystem.Text = DateTime.Now.ToShortDateString();
             //LabelDate.Text = DateTime.Now.ToLongDateString();
         }
         /// 
@@ -204,12 +227,18 @@ namespace TouchLives
         {
             Bar.MMove(this, MousePosition.X, MousePosition.Y);
         }
-
         private void WinBar_MouseUp(object sender, MouseEventArgs e)
         {
             Bar.MUp();
         }
         ///
         /// WinBar Events
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Bar.CloseForm();
+        }
+
+
     }
 }

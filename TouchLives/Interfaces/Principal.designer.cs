@@ -57,7 +57,6 @@
             this._LabelUID = new System.Windows.Forms.Label();
             this.LabelUID = new System.Windows.Forms.Label();
             this.Pan_ONlyAlerts = new System.Windows.Forms.Panel();
-            this.GBox_ONlyAlerts = new System.Windows.Forms.GroupBox();
             this.CheckBAllAlerts = new System.Windows.Forms.CheckBox();
             this.PBarLoading = new System.Windows.Forms.ProgressBar();
             this.Pan_Tables_Alert_Info = new System.Windows.Forms.Panel();
@@ -65,33 +64,70 @@
             this.Pan_Tables_Alert = new System.Windows.Forms.Panel();
             this.TablaAlert = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Activa = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Colonia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.active = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Long = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Lat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.city = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.district = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.postalCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.street = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Pan_Buttons = new System.Windows.Forms.Panel();
             this.BtnDesactivarAll = new System.Windows.Forms.Button();
             this.BtnDesactivar = new System.Windows.Forms.Button();
             this.Pan_Left_Top = new System.Windows.Forms.Panel();
             this.LabelAlertas = new System.Windows.Forms.Label();
-            this.Pan_Left_Bottom = new System.Windows.Forms.Panel();
-            this.LabelTime = new System.Windows.Forms.Label();
-            this._LabelDate = new System.Windows.Forms.Label();
+            this.Pan_Info_SystemDate = new System.Windows.Forms.Panel();
+            this.LabelTimeSystem = new System.Windows.Forms.Label();
+            this.LabelDateSystem = new System.Windows.Forms.Label();
             this.Pan_Maps = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.label10 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.CBAudio = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this._LabelAID = new System.Windows.Forms.Label();
+            this.LabelAID = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.CBImages = new System.Windows.Forms.ComboBox();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Pan_Info_Alert = new System.Windows.Forms.Panel();
+            this._labelStreet = new System.Windows.Forms.Label();
+            this._labelActive = new System.Windows.Forms.Label();
+            this.labelStreet = new System.Windows.Forms.Label();
+            this.labelActive = new System.Windows.Forms.Label();
+            this._labelCity = new System.Windows.Forms.Label();
+            this.labelDate = new System.Windows.Forms.Label();
+            this._labelDistrict = new System.Windows.Forms.Label();
+            this.labelLocalizaction = new System.Windows.Forms.Label();
+            this._labelPostalCode = new System.Windows.Forms.Label();
+            this._labelDate = new System.Windows.Forms.Label();
+            this.labelPostalCode = new System.Windows.Forms.Label();
+            this.labelLocalizaction1 = new System.Windows.Forms.Label();
+            this.labelCity = new System.Windows.Forms.Label();
+            this._labelLocalizaction = new System.Windows.Forms.Label();
+            this.labelDistrict = new System.Windows.Forms.Label();
+            this.Pan_Zoom = new System.Windows.Forms.Panel();
             this.BtnZoomOut = new System.Windows.Forms.Button();
             this.BtnZoomIn = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.labelDivZoom = new System.Windows.Forms.Label();
             this.Pan_TableNot = new System.Windows.Forms.Panel();
             this.Pan_TableNot_Top = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.LabelNotifiIn = new System.Windows.Forms.Label();
             this.BtnHidePT = new System.Windows.Forms.Button();
             this.BtnSat = new System.Windows.Forms.Button();
             this.BtnCenter = new System.Windows.Forms.Button();
-            this.LMun = new System.Windows.Forms.Label();
+            this.LabelMun = new System.Windows.Forms.Label();
             this.GMapAlert = new GMap.NET.WindowsForms.GMapControl();
             this.Timer = new System.Windows.Forms.Timer(this.components);
+            this.MenuStripPrincipal = new System.Windows.Forms.MenuStrip();
+            this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.TablaAll)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TablaNot)).BeginInit();
             this.Pan_WinBar.SuspendLayout();
@@ -102,18 +138,24 @@
             this.Pan_TableUser_PBar.SuspendLayout();
             this.Pan_UID.SuspendLayout();
             this.Pan_ONlyAlerts.SuspendLayout();
-            this.GBox_ONlyAlerts.SuspendLayout();
             this.Pan_Tables_Alert_Info.SuspendLayout();
             this.Pan_TableAlert_Buttons.SuspendLayout();
             this.Pan_Tables_Alert.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TablaAlert)).BeginInit();
             this.Pan_Buttons.SuspendLayout();
             this.Pan_Left_Top.SuspendLayout();
-            this.Pan_Left_Bottom.SuspendLayout();
+            this.Pan_Info_SystemDate.SuspendLayout();
             this.Pan_Maps.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
+            this.panel6.SuspendLayout();
+            this.panel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.Pan_Info_Alert.SuspendLayout();
+            this.Pan_Zoom.SuspendLayout();
             this.Pan_TableNot.SuspendLayout();
             this.Pan_TableNot_Top.SuspendLayout();
+            this.MenuStripPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
             // TablaAll
@@ -156,7 +198,7 @@
             dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
             this.TablaAll.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.TablaAll.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.TablaAll.Size = new System.Drawing.Size(328, 257);
+            this.TablaAll.Size = new System.Drawing.Size(328, 248);
             this.TablaAll.TabIndex = 0;
             this.TablaAll.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.TablaAll_CellMouseDoubleClick);
             // 
@@ -188,7 +230,7 @@
             this.BtnMostrarMas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnMostrarMas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnMostrarMas.ForeColor = System.Drawing.Color.White;
-            this.BtnMostrarMas.Location = new System.Drawing.Point(6, 3);
+            this.BtnMostrarMas.Location = new System.Drawing.Point(6, 4);
             this.BtnMostrarMas.Name = "BtnMostrarMas";
             this.BtnMostrarMas.Size = new System.Drawing.Size(72, 42);
             this.BtnMostrarMas.TabIndex = 2;
@@ -224,7 +266,7 @@
             this.TablaNot.RowHeadersVisible = false;
             this.TablaNot.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.TablaNot.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.TablaNot.Size = new System.Drawing.Size(172, 196);
+            this.TablaNot.Size = new System.Drawing.Size(172, 169);
             this.TablaNot.TabIndex = 0;
             // 
             // NombreNot
@@ -318,9 +360,9 @@
             this.Pan_TableUser_PBar.Controls.Add(this.TablaAll);
             this.Pan_TableUser_PBar.Controls.Add(this.Pan_UID);
             this.Pan_TableUser_PBar.Controls.Add(this.Pan_ONlyAlerts);
-            this.Pan_TableUser_PBar.Location = new System.Drawing.Point(6, 6);
+            this.Pan_TableUser_PBar.Location = new System.Drawing.Point(6, 33);
             this.Pan_TableUser_PBar.Name = "Pan_TableUser_PBar";
-            this.Pan_TableUser_PBar.Size = new System.Drawing.Size(328, 334);
+            this.Pan_TableUser_PBar.Size = new System.Drawing.Size(328, 307);
             this.Pan_TableUser_PBar.TabIndex = 12;
             // 
             // Pan_UID
@@ -358,29 +400,20 @@
             // Pan_ONlyAlerts
             // 
             this.Pan_ONlyAlerts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.Pan_ONlyAlerts.Controls.Add(this.GBox_ONlyAlerts);
+            this.Pan_ONlyAlerts.Controls.Add(this.CheckBAllAlerts);
             this.Pan_ONlyAlerts.Controls.Add(this.PBarLoading);
             this.Pan_ONlyAlerts.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.Pan_ONlyAlerts.Location = new System.Drawing.Point(0, 284);
+            this.Pan_ONlyAlerts.Location = new System.Drawing.Point(0, 275);
             this.Pan_ONlyAlerts.Name = "Pan_ONlyAlerts";
-            this.Pan_ONlyAlerts.Size = new System.Drawing.Size(328, 50);
+            this.Pan_ONlyAlerts.Size = new System.Drawing.Size(328, 32);
             this.Pan_ONlyAlerts.TabIndex = 16;
-            // 
-            // GBox_ONlyAlerts
-            // 
-            this.GBox_ONlyAlerts.Controls.Add(this.CheckBAllAlerts);
-            this.GBox_ONlyAlerts.Location = new System.Drawing.Point(6, 6);
-            this.GBox_ONlyAlerts.Name = "GBox_ONlyAlerts";
-            this.GBox_ONlyAlerts.Size = new System.Drawing.Size(131, 31);
-            this.GBox_ONlyAlerts.TabIndex = 16;
-            this.GBox_ONlyAlerts.TabStop = false;
             // 
             // CheckBAllAlerts
             // 
             this.CheckBAllAlerts.Checked = true;
             this.CheckBAllAlerts.CheckState = System.Windows.Forms.CheckState.Checked;
             this.CheckBAllAlerts.ForeColor = System.Drawing.Color.White;
-            this.CheckBAllAlerts.Location = new System.Drawing.Point(6, 10);
+            this.CheckBAllAlerts.Location = new System.Drawing.Point(3, 6);
             this.CheckBAllAlerts.Name = "CheckBAllAlerts";
             this.CheckBAllAlerts.Size = new System.Drawing.Size(121, 18);
             this.CheckBAllAlerts.TabIndex = 15;
@@ -390,7 +423,7 @@
             // PBarLoading
             // 
             this.PBarLoading.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.PBarLoading.Location = new System.Drawing.Point(0, 47);
+            this.PBarLoading.Location = new System.Drawing.Point(0, 29);
             this.PBarLoading.Name = "PBarLoading";
             this.PBarLoading.Size = new System.Drawing.Size(328, 3);
             this.PBarLoading.TabIndex = 1;
@@ -443,11 +476,14 @@
             this.TablaAlert.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.TablaAlert.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
-            this.Activa,
-            this.Fecha,
-            this.Colonia,
+            this.active,
+            this.date,
             this.Long,
-            this.Lat});
+            this.Lat,
+            this.city,
+            this.district,
+            this.postalCode,
+            this.street});
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = System.Drawing.Color.Gainsboro;
             dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -470,6 +506,7 @@
             this.TablaAlert.Size = new System.Drawing.Size(328, 201);
             this.TablaAlert.TabIndex = 0;
             this.TablaAlert.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.TablaAlert_CellMouseClick);
+            this.TablaAlert.CurrentCellChanged += new System.EventHandler(this.TablaAlert_CurrentCellChanged);
             // 
             // Id
             // 
@@ -478,25 +515,19 @@
             this.Id.ReadOnly = true;
             this.Id.Visible = false;
             // 
-            // Activa
+            // active
             // 
-            this.Activa.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Activa.HeaderText = "Activa";
-            this.Activa.Name = "Activa";
-            this.Activa.ReadOnly = true;
-            this.Activa.Width = 40;
+            this.active.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.active.HeaderText = "Activa";
+            this.active.Name = "active";
+            this.active.ReadOnly = true;
+            this.active.Width = 40;
             // 
-            // Fecha
+            // date
             // 
-            this.Fecha.HeaderText = "Fecha";
-            this.Fecha.Name = "Fecha";
-            this.Fecha.ReadOnly = true;
-            // 
-            // Colonia
-            // 
-            this.Colonia.HeaderText = "Colonia";
-            this.Colonia.Name = "Colonia";
-            this.Colonia.ReadOnly = true;
+            this.date.HeaderText = "Fecha";
+            this.date.Name = "date";
+            this.date.ReadOnly = true;
             // 
             // Long
             // 
@@ -511,6 +542,33 @@
             this.Lat.Name = "Lat";
             this.Lat.ReadOnly = true;
             this.Lat.Visible = false;
+            // 
+            // city
+            // 
+            this.city.HeaderText = "Ciudad";
+            this.city.Name = "city";
+            this.city.ReadOnly = true;
+            this.city.Visible = false;
+            // 
+            // district
+            // 
+            this.district.HeaderText = "Colonia";
+            this.district.Name = "district";
+            this.district.ReadOnly = true;
+            // 
+            // postalCode
+            // 
+            this.postalCode.HeaderText = "CodigoPostal";
+            this.postalCode.Name = "postalCode";
+            this.postalCode.ReadOnly = true;
+            this.postalCode.Visible = false;
+            // 
+            // street
+            // 
+            this.street.HeaderText = "Calle";
+            this.street.Name = "street";
+            this.street.ReadOnly = true;
+            this.street.Visible = false;
             // 
             // Pan_Buttons
             // 
@@ -532,7 +590,7 @@
             this.BtnDesactivarAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnDesactivarAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnDesactivarAll.ForeColor = System.Drawing.Color.White;
-            this.BtnDesactivarAll.Location = new System.Drawing.Point(169, 4);
+            this.BtnDesactivarAll.Location = new System.Drawing.Point(169, 5);
             this.BtnDesactivarAll.Name = "BtnDesactivarAll";
             this.BtnDesactivarAll.Size = new System.Drawing.Size(76, 42);
             this.BtnDesactivarAll.TabIndex = 0;
@@ -547,7 +605,7 @@
             this.BtnDesactivar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.BtnDesactivar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnDesactivar.ForeColor = System.Drawing.Color.White;
-            this.BtnDesactivar.Location = new System.Drawing.Point(251, 4);
+            this.BtnDesactivar.Location = new System.Drawing.Point(251, 5);
             this.BtnDesactivar.Name = "BtnDesactivar";
             this.BtnDesactivar.Size = new System.Drawing.Size(71, 42);
             this.BtnDesactivar.TabIndex = 0;
@@ -576,67 +634,435 @@
             this.LabelAlertas.TabIndex = 0;
             this.LabelAlertas.Text = "Alertas de: ";
             // 
-            // Pan_Left_Bottom
+            // Pan_Info_SystemDate
             // 
-            this.Pan_Left_Bottom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.Pan_Left_Bottom.BackColor = System.Drawing.Color.Black;
-            this.Pan_Left_Bottom.Controls.Add(this.LabelTime);
-            this.Pan_Left_Bottom.Controls.Add(this._LabelDate);
-            this.Pan_Left_Bottom.Location = new System.Drawing.Point(6, 671);
-            this.Pan_Left_Bottom.Name = "Pan_Left_Bottom";
-            this.Pan_Left_Bottom.Size = new System.Drawing.Size(328, 41);
-            this.Pan_Left_Bottom.TabIndex = 12;
+            this.Pan_Info_SystemDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.Pan_Info_SystemDate.BackColor = System.Drawing.Color.Black;
+            this.Pan_Info_SystemDate.Controls.Add(this.LabelTimeSystem);
+            this.Pan_Info_SystemDate.Controls.Add(this.LabelDateSystem);
+            this.Pan_Info_SystemDate.Location = new System.Drawing.Point(6, 671);
+            this.Pan_Info_SystemDate.Name = "Pan_Info_SystemDate";
+            this.Pan_Info_SystemDate.Size = new System.Drawing.Size(328, 41);
+            this.Pan_Info_SystemDate.TabIndex = 12;
             // 
-            // LabelTime
+            // LabelTimeSystem
             // 
-            this.LabelTime.AutoSize = true;
-            this.LabelTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelTime.ForeColor = System.Drawing.Color.LightGray;
-            this.LabelTime.Location = new System.Drawing.Point(242, 8);
-            this.LabelTime.Name = "LabelTime";
-            this.LabelTime.Size = new System.Drawing.Size(80, 24);
-            this.LabelTime.TabIndex = 0;
-            this.LabelTime.Text = "00:00:00";
+            this.LabelTimeSystem.AutoSize = true;
+            this.LabelTimeSystem.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelTimeSystem.ForeColor = System.Drawing.Color.LightGray;
+            this.LabelTimeSystem.Location = new System.Drawing.Point(242, 8);
+            this.LabelTimeSystem.Name = "LabelTimeSystem";
+            this.LabelTimeSystem.Size = new System.Drawing.Size(80, 24);
+            this.LabelTimeSystem.TabIndex = 0;
+            this.LabelTimeSystem.Text = "00:00:00";
             // 
-            // _LabelDate
+            // LabelDateSystem
             // 
-            this._LabelDate.AutoSize = true;
-            this._LabelDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._LabelDate.ForeColor = System.Drawing.Color.White;
-            this._LabelDate.Location = new System.Drawing.Point(5, 8);
-            this._LabelDate.Name = "_LabelDate";
-            this._LabelDate.Size = new System.Drawing.Size(100, 24);
-            this._LabelDate.TabIndex = 0;
-            this._LabelDate.Text = "00/00/0000";
+            this.LabelDateSystem.AutoSize = true;
+            this.LabelDateSystem.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelDateSystem.ForeColor = System.Drawing.Color.White;
+            this.LabelDateSystem.Location = new System.Drawing.Point(5, 8);
+            this.LabelDateSystem.Name = "LabelDateSystem";
+            this.LabelDateSystem.Size = new System.Drawing.Size(100, 24);
+            this.LabelDateSystem.TabIndex = 0;
+            this.LabelDateSystem.Text = "00/00/0000";
             // 
             // Pan_Maps
             // 
-            this.Pan_Maps.Controls.Add(this.panel1);
+            this.Pan_Maps.Controls.Add(this.panel7);
+            this.Pan_Maps.Controls.Add(this._LabelAID);
+            this.Pan_Maps.Controls.Add(this.LabelAID);
+            this.Pan_Maps.Controls.Add(this.panel6);
+            this.Pan_Maps.Controls.Add(this.Pan_Info_Alert);
+            this.Pan_Maps.Controls.Add(this.Pan_Zoom);
             this.Pan_Maps.Controls.Add(this.Pan_TableNot);
             this.Pan_Maps.Controls.Add(this.Pan_TableUser_PBar);
-            this.Pan_Maps.Controls.Add(this.Pan_Left_Bottom);
+            this.Pan_Maps.Controls.Add(this.Pan_Info_SystemDate);
             this.Pan_Maps.Controls.Add(this.BtnHidePT);
             this.Pan_Maps.Controls.Add(this.Pan_Tables_Alert_Info);
             this.Pan_Maps.Controls.Add(this.BtnSat);
             this.Pan_Maps.Controls.Add(this.BtnCenter);
-            this.Pan_Maps.Controls.Add(this.LMun);
+            this.Pan_Maps.Controls.Add(this.LabelMun);
             this.Pan_Maps.Controls.Add(this.GMapAlert);
+            this.Pan_Maps.Controls.Add(this.MenuStripPrincipal);
             this.Pan_Maps.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Pan_Maps.Location = new System.Drawing.Point(0, 35);
             this.Pan_Maps.Name = "Pan_Maps";
             this.Pan_Maps.Size = new System.Drawing.Size(1360, 715);
             this.Pan_Maps.TabIndex = 8;
             // 
-            // panel1
+            // panel7
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Controls.Add(this.BtnZoomOut);
-            this.panel1.Controls.Add(this.BtnZoomIn);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Location = new System.Drawing.Point(1326, 590);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(31, 72);
-            this.panel1.TabIndex = 14;
+            this.panel7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel7.BackColor = System.Drawing.Color.Gainsboro;
+            this.panel7.Controls.Add(this.trackBar1);
+            this.panel7.Controls.Add(this.label10);
+            this.panel7.Controls.Add(this.button4);
+            this.panel7.Controls.Add(this.button2);
+            this.panel7.Controls.Add(this.CBAudio);
+            this.panel7.Controls.Add(this.button1);
+            this.panel7.Controls.Add(this.button3);
+            this.panel7.Location = new System.Drawing.Point(1185, 450);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(172, 129);
+            this.panel7.TabIndex = 14;
+            this.panel7.Visible = false;
+            // 
+            // trackBar1
+            // 
+            this.trackBar1.Location = new System.Drawing.Point(6, 39);
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Size = new System.Drawing.Size(162, 45);
+            this.trackBar1.TabIndex = 16;
+            this.trackBar1.TickStyle = System.Windows.Forms.TickStyle.Both;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.ForeColor = System.Drawing.Color.Black;
+            this.label10.Location = new System.Drawing.Point(7, 14);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(34, 13);
+            this.label10.TabIndex = 2;
+            this.label10.Text = "Audio";
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.White;
+            this.button4.BackgroundImage = global::TouchLives.Properties.Resources.Loop;
+            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button4.FlatAppearance.BorderSize = 2;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Location = new System.Drawing.Point(200, 90);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(35, 35);
+            this.button4.TabIndex = 15;
+            this.button4.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.White;
+            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button2.FlatAppearance.BorderSize = 2;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Location = new System.Drawing.Point(52, 90);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(35, 35);
+            this.button2.TabIndex = 15;
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // CBAudio
+            // 
+            this.CBAudio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CBAudio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBAudio.FormattingEnabled = true;
+            this.CBAudio.Location = new System.Drawing.Point(47, 10);
+            this.CBAudio.Name = "CBAudio";
+            this.CBAudio.Size = new System.Drawing.Size(121, 23);
+            this.CBAudio.TabIndex = 8;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.BackgroundImage = global::TouchLives.Properties.Resources.Play;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button1.FlatAppearance.BorderSize = 2;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(6, 90);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(35, 35);
+            this.button1.TabIndex = 15;
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.White;
+            this.button3.BackgroundImage = global::TouchLives.Properties.Resources.Stop;
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button3.FlatAppearance.BorderSize = 2;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Location = new System.Drawing.Point(98, 90);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(35, 35);
+            this.button3.TabIndex = 15;
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // _LabelAID
+            // 
+            this._LabelAID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this._LabelAID.AutoSize = true;
+            this._LabelAID.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this._LabelAID.ForeColor = System.Drawing.Color.White;
+            this._LabelAID.Location = new System.Drawing.Point(343, 652);
+            this._LabelAID.Name = "_LabelAID";
+            this._LabelAID.Size = new System.Drawing.Size(77, 13);
+            this._LabelAID.TabIndex = 3;
+            this._LabelAID.Text = "ID de la Alerta:";
+            // 
+            // LabelAID
+            // 
+            this.LabelAID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.LabelAID.AutoSize = true;
+            this.LabelAID.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.LabelAID.ForeColor = System.Drawing.Color.White;
+            this.LabelAID.Location = new System.Drawing.Point(424, 652);
+            this.LabelAID.Name = "LabelAID";
+            this.LabelAID.Size = new System.Drawing.Size(0, 13);
+            this.LabelAID.TabIndex = 3;
+            // 
+            // panel6
+            // 
+            this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel6.BackColor = System.Drawing.Color.Gainsboro;
+            this.panel6.Controls.Add(this.CBImages);
+            this.panel6.Controls.Add(this.panel8);
+            this.panel6.Controls.Add(this.pictureBox1);
+            this.panel6.Location = new System.Drawing.Point(1185, 235);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(172, 209);
+            this.panel6.TabIndex = 12;
+            this.panel6.Visible = false;
+            // 
+            // CBImages
+            // 
+            this.CBImages.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CBImages.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBImages.FormattingEnabled = true;
+            this.CBImages.Location = new System.Drawing.Point(9, 34);
+            this.CBImages.Name = "CBImages";
+            this.CBImages.Size = new System.Drawing.Size(154, 23);
+            this.CBImages.TabIndex = 8;
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.panel8.Controls.Add(this.label12);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel8.Location = new System.Drawing.Point(0, 0);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(172, 28);
+            this.panel8.TabIndex = 9;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.ForeColor = System.Drawing.Color.White;
+            this.label12.Location = new System.Drawing.Point(6, 7);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(107, 13);
+            this.label12.TabIndex = 2;
+            this.label12.Text = "Evidencia fotográfica";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.pictureBox1.Location = new System.Drawing.Point(9, 63);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(154, 132);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
+            // 
+            // Pan_Info_Alert
+            // 
+            this.Pan_Info_Alert.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Pan_Info_Alert.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.Pan_Info_Alert.Controls.Add(this._labelStreet);
+            this.Pan_Info_Alert.Controls.Add(this._labelActive);
+            this.Pan_Info_Alert.Controls.Add(this.labelStreet);
+            this.Pan_Info_Alert.Controls.Add(this.labelActive);
+            this.Pan_Info_Alert.Controls.Add(this._labelCity);
+            this.Pan_Info_Alert.Controls.Add(this.labelDate);
+            this.Pan_Info_Alert.Controls.Add(this._labelDistrict);
+            this.Pan_Info_Alert.Controls.Add(this.labelLocalizaction);
+            this.Pan_Info_Alert.Controls.Add(this._labelPostalCode);
+            this.Pan_Info_Alert.Controls.Add(this._labelDate);
+            this.Pan_Info_Alert.Controls.Add(this.labelPostalCode);
+            this.Pan_Info_Alert.Controls.Add(this.labelLocalizaction1);
+            this.Pan_Info_Alert.Controls.Add(this.labelCity);
+            this.Pan_Info_Alert.Controls.Add(this._labelLocalizaction);
+            this.Pan_Info_Alert.Controls.Add(this.labelDistrict);
+            this.Pan_Info_Alert.Location = new System.Drawing.Point(340, 671);
+            this.Pan_Info_Alert.Name = "Pan_Info_Alert";
+            this.Pan_Info_Alert.Size = new System.Drawing.Size(874, 41);
+            this.Pan_Info_Alert.TabIndex = 15;
+            // 
+            // _labelStreet
+            // 
+            this._labelStreet.AutoSize = true;
+            this._labelStreet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._labelStreet.ForeColor = System.Drawing.Color.White;
+            this._labelStreet.Location = new System.Drawing.Point(281, 22);
+            this._labelStreet.Name = "_labelStreet";
+            this._labelStreet.Size = new System.Drawing.Size(39, 13);
+            this._labelStreet.TabIndex = 3;
+            this._labelStreet.Text = "Calle:";
+            // 
+            // _labelActive
+            // 
+            this._labelActive.AutoSize = true;
+            this._labelActive.BackColor = System.Drawing.Color.Transparent;
+            this._labelActive.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._labelActive.ForeColor = System.Drawing.Color.White;
+            this._labelActive.Location = new System.Drawing.Point(3, 6);
+            this._labelActive.Name = "_labelActive";
+            this._labelActive.Size = new System.Drawing.Size(50, 13);
+            this._labelActive.TabIndex = 3;
+            this._labelActive.Text = "Estado:";
+            // 
+            // labelStreet
+            // 
+            this.labelStreet.AutoSize = true;
+            this.labelStreet.ForeColor = System.Drawing.Color.White;
+            this.labelStreet.Location = new System.Drawing.Point(320, 22);
+            this.labelStreet.Name = "labelStreet";
+            this.labelStreet.Size = new System.Drawing.Size(0, 13);
+            this.labelStreet.TabIndex = 3;
+            // 
+            // labelActive
+            // 
+            this.labelActive.AutoSize = true;
+            this.labelActive.BackColor = System.Drawing.Color.Transparent;
+            this.labelActive.ForeColor = System.Drawing.Color.White;
+            this.labelActive.Location = new System.Drawing.Point(52, 6);
+            this.labelActive.Name = "labelActive";
+            this.labelActive.Size = new System.Drawing.Size(0, 13);
+            this.labelActive.TabIndex = 3;
+            // 
+            // _labelCity
+            // 
+            this._labelCity.AutoSize = true;
+            this._labelCity.BackColor = System.Drawing.Color.Transparent;
+            this._labelCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._labelCity.ForeColor = System.Drawing.Color.White;
+            this._labelCity.Location = new System.Drawing.Point(281, 6);
+            this._labelCity.Name = "_labelCity";
+            this._labelCity.Size = new System.Drawing.Size(50, 13);
+            this._labelCity.TabIndex = 3;
+            this._labelCity.Text = "Ciudad:";
+            // 
+            // labelDate
+            // 
+            this.labelDate.AutoSize = true;
+            this.labelDate.BackColor = System.Drawing.Color.Transparent;
+            this.labelDate.ForeColor = System.Drawing.Color.White;
+            this.labelDate.Location = new System.Drawing.Point(49, 22);
+            this.labelDate.Name = "labelDate";
+            this.labelDate.Size = new System.Drawing.Size(0, 13);
+            this.labelDate.TabIndex = 3;
+            // 
+            // _labelDistrict
+            // 
+            this._labelDistrict.AutoSize = true;
+            this._labelDistrict.BackColor = System.Drawing.Color.Transparent;
+            this._labelDistrict.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._labelDistrict.ForeColor = System.Drawing.Color.White;
+            this._labelDistrict.Location = new System.Drawing.Point(467, 6);
+            this._labelDistrict.Name = "_labelDistrict";
+            this._labelDistrict.Size = new System.Drawing.Size(53, 13);
+            this._labelDistrict.TabIndex = 3;
+            this._labelDistrict.Text = "Colonia:";
+            // 
+            // labelLocalizaction
+            // 
+            this.labelLocalizaction.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelLocalizaction.AutoSize = true;
+            this.labelLocalizaction.BackColor = System.Drawing.Color.Transparent;
+            this.labelLocalizaction.ForeColor = System.Drawing.Color.White;
+            this.labelLocalizaction.Location = new System.Drawing.Point(731, 22);
+            this.labelLocalizaction.Name = "labelLocalizaction";
+            this.labelLocalizaction.Size = new System.Drawing.Size(0, 13);
+            this.labelLocalizaction.TabIndex = 3;
+            // 
+            // _labelPostalCode
+            // 
+            this._labelPostalCode.AutoSize = true;
+            this._labelPostalCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._labelPostalCode.ForeColor = System.Drawing.Color.White;
+            this._labelPostalCode.Location = new System.Drawing.Point(467, 22);
+            this._labelPostalCode.Name = "_labelPostalCode";
+            this._labelPostalCode.Size = new System.Drawing.Size(92, 13);
+            this._labelPostalCode.TabIndex = 3;
+            this._labelPostalCode.Text = "Código postal :";
+            // 
+            // _labelDate
+            // 
+            this._labelDate.AutoSize = true;
+            this._labelDate.BackColor = System.Drawing.Color.Transparent;
+            this._labelDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._labelDate.ForeColor = System.Drawing.Color.White;
+            this._labelDate.Location = new System.Drawing.Point(3, 22);
+            this._labelDate.Name = "_labelDate";
+            this._labelDate.Size = new System.Drawing.Size(46, 13);
+            this._labelDate.TabIndex = 3;
+            this._labelDate.Text = "Fecha:";
+            // 
+            // labelPostalCode
+            // 
+            this.labelPostalCode.AutoSize = true;
+            this.labelPostalCode.ForeColor = System.Drawing.Color.White;
+            this.labelPostalCode.Location = new System.Drawing.Point(559, 24);
+            this.labelPostalCode.Name = "labelPostalCode";
+            this.labelPostalCode.Size = new System.Drawing.Size(0, 13);
+            this.labelPostalCode.TabIndex = 3;
+            // 
+            // labelLocalizaction1
+            // 
+            this.labelLocalizaction1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelLocalizaction1.AutoSize = true;
+            this.labelLocalizaction1.BackColor = System.Drawing.Color.Transparent;
+            this.labelLocalizaction1.ForeColor = System.Drawing.Color.White;
+            this.labelLocalizaction1.Location = new System.Drawing.Point(807, 22);
+            this.labelLocalizaction1.Name = "labelLocalizaction1";
+            this.labelLocalizaction1.Size = new System.Drawing.Size(0, 13);
+            this.labelLocalizaction1.TabIndex = 3;
+            // 
+            // labelCity
+            // 
+            this.labelCity.AutoSize = true;
+            this.labelCity.BackColor = System.Drawing.Color.Transparent;
+            this.labelCity.ForeColor = System.Drawing.Color.White;
+            this.labelCity.Location = new System.Drawing.Point(330, 6);
+            this.labelCity.Name = "labelCity";
+            this.labelCity.Size = new System.Drawing.Size(0, 13);
+            this.labelCity.TabIndex = 3;
+            // 
+            // _labelLocalizaction
+            // 
+            this._labelLocalizaction.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this._labelLocalizaction.AutoSize = true;
+            this._labelLocalizaction.BackColor = System.Drawing.Color.Transparent;
+            this._labelLocalizaction.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._labelLocalizaction.ForeColor = System.Drawing.Color.White;
+            this._labelLocalizaction.Location = new System.Drawing.Point(731, 6);
+            this._labelLocalizaction.Name = "_labelLocalizaction";
+            this._labelLocalizaction.Size = new System.Drawing.Size(82, 13);
+            this._labelLocalizaction.TabIndex = 3;
+            this._labelLocalizaction.Text = "Localización:";
+            // 
+            // labelDistrict
+            // 
+            this.labelDistrict.AutoSize = true;
+            this.labelDistrict.BackColor = System.Drawing.Color.Transparent;
+            this.labelDistrict.ForeColor = System.Drawing.Color.White;
+            this.labelDistrict.Location = new System.Drawing.Point(518, 6);
+            this.labelDistrict.Name = "labelDistrict";
+            this.labelDistrict.Size = new System.Drawing.Size(0, 13);
+            this.labelDistrict.TabIndex = 3;
+            // 
+            // Pan_Zoom
+            // 
+            this.Pan_Zoom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.Pan_Zoom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Pan_Zoom.Controls.Add(this.BtnZoomOut);
+            this.Pan_Zoom.Controls.Add(this.BtnZoomIn);
+            this.Pan_Zoom.Controls.Add(this.labelDivZoom);
+            this.Pan_Zoom.Location = new System.Drawing.Point(1326, 590);
+            this.Pan_Zoom.Name = "Pan_Zoom";
+            this.Pan_Zoom.Size = new System.Drawing.Size(31, 72);
+            this.Pan_Zoom.TabIndex = 14;
             // 
             // BtnZoomOut
             // 
@@ -672,15 +1098,15 @@
             this.BtnZoomIn.UseVisualStyleBackColor = false;
             this.BtnZoomIn.Click += new System.EventHandler(this.BtnZoomIn_Click);
             // 
-            // label2
+            // labelDivZoom
             // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(1, 24);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(31, 13);
-            this.label2.TabIndex = 14;
-            this.label2.Text = "____";
+            this.labelDivZoom.AutoSize = true;
+            this.labelDivZoom.ForeColor = System.Drawing.Color.White;
+            this.labelDivZoom.Location = new System.Drawing.Point(1, 24);
+            this.labelDivZoom.Name = "labelDivZoom";
+            this.labelDivZoom.Size = new System.Drawing.Size(31, 13);
+            this.labelDivZoom.TabIndex = 14;
+            this.labelDivZoom.Text = "____";
             // 
             // Pan_TableNot
             // 
@@ -688,31 +1114,31 @@
             this.Pan_TableNot.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.Pan_TableNot.Controls.Add(this.TablaNot);
             this.Pan_TableNot.Controls.Add(this.Pan_TableNot_Top);
-            this.Pan_TableNot.Location = new System.Drawing.Point(1185, 6);
+            this.Pan_TableNot.Location = new System.Drawing.Point(1185, 33);
             this.Pan_TableNot.Name = "Pan_TableNot";
-            this.Pan_TableNot.Size = new System.Drawing.Size(172, 223);
+            this.Pan_TableNot.Size = new System.Drawing.Size(172, 196);
             this.Pan_TableNot.TabIndex = 8;
             // 
             // Pan_TableNot_Top
             // 
             this.Pan_TableNot_Top.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.Pan_TableNot_Top.Controls.Add(this.label1);
+            this.Pan_TableNot_Top.Controls.Add(this.LabelNotifiIn);
             this.Pan_TableNot_Top.Dock = System.Windows.Forms.DockStyle.Top;
             this.Pan_TableNot_Top.Location = new System.Drawing.Point(0, 0);
             this.Pan_TableNot_Top.Name = "Pan_TableNot_Top";
             this.Pan_TableNot_Top.Size = new System.Drawing.Size(172, 27);
             this.Pan_TableNot_Top.TabIndex = 7;
             // 
-            // label1
+            // LabelNotifiIn
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(3, 6);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(152, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Notificaciones Entrantes";
+            this.LabelNotifiIn.AutoSize = true;
+            this.LabelNotifiIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelNotifiIn.ForeColor = System.Drawing.Color.White;
+            this.LabelNotifiIn.Location = new System.Drawing.Point(3, 6);
+            this.LabelNotifiIn.Name = "LabelNotifiIn";
+            this.LabelNotifiIn.Size = new System.Drawing.Size(152, 16);
+            this.LabelNotifiIn.TabIndex = 0;
+            this.LabelNotifiIn.Text = "Notificaciones Entrantes";
             // 
             // BtnHidePT
             // 
@@ -734,48 +1160,49 @@
             // BtnSat
             // 
             this.BtnSat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnSat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BtnSat.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.BtnSat.FlatAppearance.BorderSize = 2;
             this.BtnSat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnSat.ForeColor = System.Drawing.Color.White;
             this.BtnSat.Image = global::TouchLives.Properties.Resources.Group;
             this.BtnSat.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnSat.Location = new System.Drawing.Point(1223, 671);
+            this.BtnSat.Location = new System.Drawing.Point(1220, 671);
             this.BtnSat.Name = "BtnSat";
-            this.BtnSat.Size = new System.Drawing.Size(91, 37);
+            this.BtnSat.Size = new System.Drawing.Size(91, 41);
             this.BtnSat.TabIndex = 3;
-            this.BtnSat.Text = "Satélite";
+            this.BtnSat.Text = "Vista\r\nsatelital";
             this.BtnSat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnSat.UseVisualStyleBackColor = true;
+            this.BtnSat.UseVisualStyleBackColor = false;
             this.BtnSat.Click += new System.EventHandler(this.BtnSat_Click);
             // 
             // BtnCenter
             // 
             this.BtnCenter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnCenter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.BtnCenter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BtnCenter.BackgroundImage = global::TouchLives.Properties.Resources.GPs;
             this.BtnCenter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BtnCenter.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.BtnCenter.FlatAppearance.BorderSize = 2;
             this.BtnCenter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnCenter.ForeColor = System.Drawing.Color.White;
-            this.BtnCenter.Location = new System.Drawing.Point(1320, 671);
+            this.BtnCenter.Location = new System.Drawing.Point(1316, 671);
             this.BtnCenter.Name = "BtnCenter";
-            this.BtnCenter.Size = new System.Drawing.Size(37, 37);
+            this.BtnCenter.Size = new System.Drawing.Size(41, 41);
             this.BtnCenter.TabIndex = 9;
             this.BtnCenter.UseVisualStyleBackColor = false;
             this.BtnCenter.Click += new System.EventHandler(this.BtnCenter_Click);
             // 
-            // LMun
+            // LabelMun
             // 
-            this.LMun.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.LMun.AutoSize = true;
-            this.LMun.ForeColor = System.Drawing.Color.White;
-            this.LMun.Location = new System.Drawing.Point(45, 632);
-            this.LMun.Name = "LMun";
-            this.LMun.Size = new System.Drawing.Size(55, 13);
-            this.LMun.TabIndex = 7;
-            this.LMun.Text = "Municipio:";
+            this.LabelMun.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.LabelMun.AutoSize = true;
+            this.LabelMun.ForeColor = System.Drawing.Color.White;
+            this.LabelMun.Location = new System.Drawing.Point(45, 652);
+            this.LabelMun.Name = "LabelMun";
+            this.LabelMun.Size = new System.Drawing.Size(55, 13);
+            this.LabelMun.TabIndex = 7;
+            this.LabelMun.Text = "Municipio:";
             // 
             // GMapAlert
             // 
@@ -786,7 +1213,7 @@
             this.GMapAlert.GrayScaleMode = false;
             this.GMapAlert.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
             this.GMapAlert.LevelsKeepInMemory = 5;
-            this.GMapAlert.Location = new System.Drawing.Point(0, 0);
+            this.GMapAlert.Location = new System.Drawing.Point(0, 24);
             this.GMapAlert.MarkersEnabled = true;
             this.GMapAlert.MaxZoom = 2;
             this.GMapAlert.MinZoom = 2;
@@ -800,7 +1227,7 @@
             this.GMapAlert.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
             this.GMapAlert.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
             this.GMapAlert.ShowTileGridLines = false;
-            this.GMapAlert.Size = new System.Drawing.Size(1360, 715);
+            this.GMapAlert.Size = new System.Drawing.Size(1360, 691);
             this.GMapAlert.TabIndex = 0;
             this.GMapAlert.Zoom = 0D;
             // 
@@ -809,6 +1236,35 @@
             this.Timer.Enabled = true;
             this.Timer.Interval = 200;
             this.Timer.Tick += new System.EventHandler(this.Timer_Tick);
+            // 
+            // MenuStripPrincipal
+            // 
+            this.MenuStripPrincipal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.MenuStripPrincipal.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MenuStripPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.archivoToolStripMenuItem});
+            this.MenuStripPrincipal.Location = new System.Drawing.Point(0, 0);
+            this.MenuStripPrincipal.Name = "MenuStripPrincipal";
+            this.MenuStripPrincipal.Size = new System.Drawing.Size(1360, 24);
+            this.MenuStripPrincipal.TabIndex = 16;
+            this.MenuStripPrincipal.Text = "menuStrip1";
+            // 
+            // archivoToolStripMenuItem
+            // 
+            this.archivoToolStripMenuItem.BackColor = System.Drawing.Color.LightGray;
+            this.archivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.salirToolStripMenuItem});
+            this.archivoToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
+            this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
+            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+            this.archivoToolStripMenuItem.Text = "Archivo";
+            // 
+            // salirToolStripMenuItem
+            // 
+            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.salirToolStripMenuItem.Text = "Salir";
+            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
             // Principal
             // 
@@ -820,6 +1276,7 @@
             this.Controls.Add(this.Pan_Maps);
             this.Controls.Add(this.Pan_WinBar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MainMenuStrip = this.MenuStripPrincipal;
             this.Name = "Principal";
             this.Text = "TouchLives";
             this.Load += new System.EventHandler(this.TouchLives_Load);
@@ -835,7 +1292,6 @@
             this.Pan_UID.ResumeLayout(false);
             this.Pan_UID.PerformLayout();
             this.Pan_ONlyAlerts.ResumeLayout(false);
-            this.GBox_ONlyAlerts.ResumeLayout(false);
             this.Pan_Tables_Alert_Info.ResumeLayout(false);
             this.Pan_TableAlert_Buttons.ResumeLayout(false);
             this.Pan_Tables_Alert.ResumeLayout(false);
@@ -843,15 +1299,26 @@
             this.Pan_Buttons.ResumeLayout(false);
             this.Pan_Left_Top.ResumeLayout(false);
             this.Pan_Left_Top.PerformLayout();
-            this.Pan_Left_Bottom.ResumeLayout(false);
-            this.Pan_Left_Bottom.PerformLayout();
+            this.Pan_Info_SystemDate.ResumeLayout(false);
+            this.Pan_Info_SystemDate.PerformLayout();
             this.Pan_Maps.ResumeLayout(false);
             this.Pan_Maps.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
+            this.panel6.ResumeLayout(false);
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.Pan_Info_Alert.ResumeLayout(false);
+            this.Pan_Info_Alert.PerformLayout();
+            this.Pan_Zoom.ResumeLayout(false);
+            this.Pan_Zoom.PerformLayout();
             this.Pan_TableNot.ResumeLayout(false);
             this.Pan_TableNot_Top.ResumeLayout(false);
             this.Pan_TableNot_Top.PerformLayout();
+            this.MenuStripPrincipal.ResumeLayout(false);
+            this.MenuStripPrincipal.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -867,7 +1334,7 @@
         private System.Windows.Forms.Panel Pan_Maps;
         public System.Windows.Forms.DataGridView TablaNot;
         private System.Windows.Forms.Label LabelTL;
-        private System.Windows.Forms.Label LMun;
+        private System.Windows.Forms.Label LabelMun;
         private GMap.NET.WindowsForms.GMapControl GMapAlert;
         private System.Windows.Forms.DataGridViewTextBoxColumn NombreNot;
         private System.Windows.Forms.Button BtnCenter;
@@ -879,10 +1346,10 @@
         private System.Windows.Forms.Label LabelAlertas;
         private System.Windows.Forms.ProgressBar PBarLoading;
         private System.Windows.Forms.Button BtnHidePT;
-        private System.Windows.Forms.Panel Pan_Left_Bottom;
-        private System.Windows.Forms.Label LabelTime;
+        private System.Windows.Forms.Panel Pan_Info_SystemDate;
+        private System.Windows.Forms.Label LabelTimeSystem;
         private System.Windows.Forms.Timer Timer;
-        private System.Windows.Forms.Label _LabelDate;
+        private System.Windows.Forms.Label LabelDateSystem;
         private System.Windows.Forms.Panel Pan_Tables_Alert;
         private System.Windows.Forms.Panel Pan_Buttons;
         private System.Windows.Forms.Panel Pan_TableAlert_Buttons;
@@ -894,22 +1361,58 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
         private System.Windows.Forms.Button BtnDesactivarAll;
         private System.Windows.Forms.Panel Pan_TableNot_Top;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label LabelNotifiIn;
         private System.Windows.Forms.Panel Pan_TableNot;
         private System.Windows.Forms.Button BtnZoomOut;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel Pan_Zoom;
         private System.Windows.Forms.Button BtnZoomIn;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelDivZoom;
         private System.Windows.Forms.Label _LabelUID;
         private System.Windows.Forms.CheckBox CheckBAllAlerts;
         private System.Windows.Forms.Panel Pan_ONlyAlerts;
-        private System.Windows.Forms.GroupBox GBox_ONlyAlerts;
+        private System.Windows.Forms.Panel Pan_Info_Alert;
+        private System.Windows.Forms.Label _labelActive;
+        private System.Windows.Forms.Label _labelDate;
+        private System.Windows.Forms.Label labelActive;
+        private System.Windows.Forms.Label _labelLocalizaction;
+        private System.Windows.Forms.Label labelDate;
+        private System.Windows.Forms.Label labelLocalizaction1;
+        private System.Windows.Forms.Label labelLocalizaction;
+        private System.Windows.Forms.Label _labelCity;
+        private System.Windows.Forms.Label labelCity;
+        private System.Windows.Forms.Label _labelStreet;
+        private System.Windows.Forms.Label _labelDistrict;
+        private System.Windows.Forms.Label labelStreet;
+        private System.Windows.Forms.Label labelDistrict;
+        private System.Windows.Forms.Label _labelPostalCode;
+        private System.Windows.Forms.Label labelPostalCode;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.TrackBar trackBar1;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ComboBox CBAudio;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.ComboBox CBImages;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label _LabelAID;
+        private System.Windows.Forms.Label LabelAID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Activa;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Colonia;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn active;
+        private System.Windows.Forms.DataGridViewTextBoxColumn date;
         private System.Windows.Forms.DataGridViewTextBoxColumn Long;
         private System.Windows.Forms.DataGridViewTextBoxColumn Lat;
+        private System.Windows.Forms.DataGridViewTextBoxColumn city;
+        private System.Windows.Forms.DataGridViewTextBoxColumn district;
+        private System.Windows.Forms.DataGridViewTextBoxColumn postalCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn street;
+        private System.Windows.Forms.MenuStrip MenuStripPrincipal;
+        private System.Windows.Forms.ToolStripMenuItem archivoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
     }
 }
 

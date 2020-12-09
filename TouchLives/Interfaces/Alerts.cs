@@ -28,34 +28,16 @@ namespace TouchLives.Interfaces
             InitializeComponent();
             LabelUID.Text = uid;
             UData = aid;
-            PutDataUser();
         }
 
-        private void PutDataUser()
-        {
-            LabelAID.Text = UData.Id;
-            if (UData.active)
-                labelActive.Text = "Activa";
-            else
-                labelActive.Text = "Desactivada";
-            labelDate.Text = UData.date.ToDateTimeOffset().ToLocalTime().DateTime.ToString();
-            labelLocalizaction.Text = UData.localizaction.Latitude.ToString();
-            labelLocalizaction1.Text = UData.localizaction.Longitude.ToString();
-            labelCity.Text = UData.sendLocation.city;
-            labelCountry.Text = UData.sendLocation.country;
-            labelDistrict.Text = UData.sendLocation.district;
-            labelPostalCode.Text = UData.sendLocation.postalCode;
-            labelRegion.Text = UData.sendLocation.region;
-            labelStreet.Text = UData.sendLocation.street;
-        }
 
 
         private void Alerts_Load(object sender, EventArgs e)
         {
-            string SPath = $"usuarios/{LabelUID.Text}/{LabelAID.Text}/image";
-            string LPath = $"Archives/usuarios/{LabelUID.Text}/{LabelAID.Text}/image/";
+            string SPath; //= $"usuarios/{LabelUID.Text}/{LabelAID.Text}/image";
+            string LPath; //= $"Archives/usuarios/{LabelUID.Text}/{LabelAID.Text}/image/";
 
-            ListToDownloadAndDoit(SPath, LPath);
+            //ListToDownloadAndDoit(SPath, LPath);
         }
 
         public async void ListToDownloadAndDoit(string SPath, string LPath)
@@ -138,9 +120,10 @@ namespace TouchLives.Interfaces
 
         private void CBImages_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string LPath = $"Archives/usuarios/{LabelUID.Text}/{LabelAID.Text}/image/"+CBImages.Text;
+            string LPath ="";// = $"Archives/usuarios/{LabelUID.Text}/{LabelAID.Text}/image/"+CBImages.Text;
             ShowImages(LPath);
         }
+
         ///
         /// WinBar Events
 
