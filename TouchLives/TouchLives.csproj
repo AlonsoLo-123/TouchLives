@@ -196,6 +196,16 @@
       <DependentUpon>State.cs</DependentUpon>
     </Compile>
     <Content Include="Maps\Markers\Marker.png" />
+    <None Include="Resources\ElStopWhite.png" />
+    <None Include="Resources\ElPlayWhite.png" />
+    <None Include="Resources\ElPauseWhite.png" />
+    <None Include="Resources\CilLoopWhite.png" />
+    <None Include="Resources\CilLoopOnWhite.png" />
+    <None Include="Resources\ElStop.png" />
+    <None Include="Resources\ElPlay.png" />
+    <None Include="Resources\ElPause.png" />
+    <None Include="Resources\CilLoopOn.png" />
+    <None Include="Resources\CilLoop.png" />
     <None Include="Resources\Loop.png" />
     <None Include="Resources\Stop.png" />
     <None Include="Resources\Pause.png" />

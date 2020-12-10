@@ -27,7 +27,7 @@ namespace TouchLives
         private async void BtnEnter_Click(object sender, EventArgs e)
         {
             LCargando.Text = "       Cargando...";
-            LCargando.ForeColor = Color.GreenYellow;
+            LCargando.ForeColor = Color.Yellow;
             if (TBUser.TextLength != 0 && TBPassword.TextLength != 0)
             {
                 if(await ValUser(TBUser.Text, TBPassword.Text))

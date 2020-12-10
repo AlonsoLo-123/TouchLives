@@ -121,10 +121,24 @@ namespace TouchLives
                 LabelAID.Text = "Cargando...";
             }
         }
+
+
+        private void PB_Close_MoreAlert_Click(object sender, EventArgs e)
+        {
+            CloseMoreFromAlert(false);
+        }
+
+        public void CloseMoreFromAlert(bool estado)
+        {
+            Pan_Audio.Visible = estado;
+            Pan_Image.Visible = estado;
+            PB_Close_MoreAlert.Visible = estado;
+        }
         /// Eventos Botones de Alertas
         /// 
         private async void MostrarMas_Click(object sender, EventArgs e)
         {
+            CloseMoreFromAlert(true);
             if (TablaAlert.Rows.Count != 0)
             {
                 String IdAlert = TablaAlert.CurrentRow.Cells[0].Value.ToString();
@@ -231,6 +245,7 @@ namespace TouchLives
         {
             Bar.MUp();
         }
+
         ///
         /// WinBar Events
 
