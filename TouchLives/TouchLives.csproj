@@ -164,6 +164,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Conexion\Firestore.cs" />
+    <Compile Include="CRUD\DownloadObject.cs" />
     <Compile Include="CRUD\Read.cs" />
     <Compile Include="Interfaces\Alerts.cs">
       <SubType>Form</SubType>

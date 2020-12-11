@@ -56,8 +56,8 @@ namespace TouchLives
             PBarLoading.Step = 1;
             PBarLoading.Maximum = 3;
             
-            String Id = TablaAll.CurrentRow.Cells[0].Value.ToString();
-            String Nombre = TablaAll.CurrentRow.Cells[1].Value.ToString();
+            string Id = TablaAll.CurrentRow.Cells[0].Value.ToString();
+            string Nombre = TablaAll.CurrentRow.Cells[1].Value.ToString();
             LabelUID.Text = Id;
 
             TablaAlert.Rows.Clear();
@@ -89,8 +89,8 @@ namespace TouchLives
         /// Eventos Tabla de usuarios
         private void TablaAlert_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            Double Longitud =(Double) TablaAlert.CurrentRow.Cells[3].Value;
-            Double Latitud =(Double) TablaAlert.CurrentRow.Cells[4].Value;
+            double Longitud =(double) TablaAlert.CurrentRow.Cells[3].Value;
+            double Latitud =(double) TablaAlert.CurrentRow.Cells[4].Value;
 
             GeoPoint GPAlert = new GeoPoint(Latitud, Longitud);
             Gmap.MapPosition(GMapAlert, GPAlert);
@@ -99,27 +99,22 @@ namespace TouchLives
 
         private void TablaAlert_CurrentCellChanged(object sender, EventArgs e)
         {
-            PutDataUser();
+           
+            if(TablaAlert.CurrentRow != null)
+                PutDataUser();
         }
 
         public void PutDataUser()
         {
-            try
-            {
-                LabelAID.Text = TablaAlert.CurrentRow.Cells[0].Value.ToString();
-                labelActive.Text = (bool)TablaAlert.CurrentRow.Cells[1].Value ? "Activa" : "Desactivada";
-                labelDate.Text = TablaAlert.CurrentRow.Cells[2].Value.ToString();
-                labelLocalizaction.Text = TablaAlert.CurrentRow.Cells[3].Value.ToString();
-                labelLocalizaction1.Text = TablaAlert.CurrentRow.Cells[4].Value.ToString();
-                labelCity.Text = TablaAlert.CurrentRow.Cells[5].Value.ToString();
-                labelDistrict.Text = TablaAlert.CurrentRow.Cells[6].Value.ToString();
-                labelPostalCode.Text = TablaAlert.CurrentRow.Cells[7].Value.ToString();
-                labelStreet.Text = TablaAlert.CurrentRow.Cells[8].Value.ToString();
-            }
-            catch
-            {
-                LabelAID.Text = "Cargando...";
-            }
+            LabelAID.Text = TablaAlert.CurrentRow.Cells[0].Value.ToString();
+            labelActive.Text = (bool)TablaAlert.CurrentRow.Cells[1].Value ? "Activa" : "Desactivada";
+            labelDate.Text = TablaAlert.CurrentRow.Cells[2].Value.ToString();
+            labelLocalizaction.Text = TablaAlert.CurrentRow.Cells[3].Value.ToString();
+            labelLocalizaction1.Text = TablaAlert.CurrentRow.Cells[4].Value.ToString();
+            labelCity.Text = TablaAlert.CurrentRow.Cells[5].Value.ToString();
+            labelDistrict.Text = TablaAlert.CurrentRow.Cells[6].Value.ToString();
+            labelPostalCode.Text = TablaAlert.CurrentRow.Cells[7].Value.ToString();
+            labelStreet.Text = TablaAlert.CurrentRow.Cells[8].Value.ToString();
         }
 
 
@@ -138,13 +133,16 @@ namespace TouchLives
         /// 
         private async void MostrarMas_Click(object sender, EventArgs e)
         {
-            CloseMoreFromAlert(true);
             if (TablaAlert.Rows.Count != 0)
             {
-                String IdAlert = TablaAlert.CurrentRow.Cells[0].Value.ToString();
-                ModUserAlertsId Alerta = new ModUserAlertsId();
-                Alerts _Alertas = new Alerts(LabelUID.Text, Alerta = await UserA.GetOnlyAlert(LabelUID.Text, IdAlert));
-                _Alertas.Show();
+                CloseMoreFromAlert(true);
+                DownloadObject lol = new DownloadObject();
+                string SPath = $"usuarios/{LabelUID.Text}/{LabelAID.Text}/image";
+                CBImages.DataSource = lol.ListToDownload(SPath);
+                //string IdAlert = TablaAlert.CurrentRow.Cells[0].Value.ToString();
+                //ModUserAlertsId Alerta = new ModUserAlertsId();
+                //Alerts _Alertas = new Alerts(LabelUID.Text, Alerta = await UserA.GetOnlyAlert(LabelUID.Text, IdAlert));
+                //_Alertas.Show();
             }
             else
                 MessageBox.Show("Seleccione un alerta");
@@ -160,9 +158,6 @@ namespace TouchLives
         {
 
         }
-
-        
-
         ///
         /// Eventos Botones de Alertas
 
@@ -245,7 +240,6 @@ namespace TouchLives
         {
             Bar.MUp();
         }
-
         ///
         /// WinBar Events
 
@@ -253,7 +247,5 @@ namespace TouchLives
         {
             Bar.CloseForm();
         }
-
-
     }
 }
