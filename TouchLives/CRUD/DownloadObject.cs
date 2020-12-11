@@ -5,13 +5,12 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TouchLives.Models;
 
 namespace TouchLives.CRUD
 {
     class DownloadObject
     {
-        string BName = "touchlives-2020cj.appspot.com";
-        
         StorageClient Storage = StorageClient.Create();
 
         public DirectoryInfo CreateDirectory(string LPath)
@@ -19,48 +18,38 @@ namespace TouchLives.CRUD
             DirectoryInfo di = Directory.CreateDirectory(LPath);
             return di;
         }
+
         public void DeleteDirectory(DirectoryInfo di)
         {
             di.Delete();
             Console.WriteLine("El directorio :" + di.FullName + " ah sido borrado");
         }
-        public List<string> ListToDownload(string SPath)
-        {
-            List<string> ObjList = new List<string>();
-            try
-            {
-                foreach (var storageObject in Storage.ListObjects(BName, SPath))
-                {
-                    string FullPath = storageObject.Name;
-                    Console.WriteLine(FullPath);
-                    if (!FullPath.EndsWith("/"))
-                        ObjList.Add(FullPath);
-                        //await DownloadObjectAsync(BName, FullPath, LPath);
-                }
-            }
-            catch (Exception x)
-            {
-                Console.WriteLine("Error: {0}", x.ToString());
-            }
-            finally { }
 
+        public List<ModelImage> ListToDownload(string BName, string SPath)
+        {
+            List<ModelImage> ObjList = new List<ModelImage>();
+            foreach (var StorageObj in Storage.ListObjects(BName, SPath))
+            {
+                var SObjOne = new ModelImage();
+                SObjOne.Date = (DateTime)StorageObj.TimeCreated;
+                SObjOne.Size = (ulong)StorageObj.Size;
+                SObjOne.Name = Path.GetFileName(StorageObj.Name);
+                ObjList.Add(SObjOne);
+            }
             return ObjList;
         }
 
-        //private async Task DownloadObjectAsync(string bucketName, string FullPath, string localPath)
-        //{
-        //    string ObjName = Path.GetFileName(FullPath);
-        //    CBImages.Items.Add(ObjName);
-        //    localPath = localPath + ObjName;
-        //    Console.WriteLine(localPath);
+        public async Task<string> DownloadObjectAsync(string BName, string Path, string Name)
+        {
+            CreateDirectory(Path);
+            string FileDown = Path + Name;
+            using (var SteamFilePath = File.Create(FileDown))
+            {
+                await Storage.DownloadObjectAsync(BName, FileDown, SteamFilePath);
+            }
+            return Name;
+        }
 
-        //    using (var SteamFilePath = File.Create(localPath))
-        //    {
-        //        await Storage.DownloadObjectAsync(bucketName, FullPath, SteamFilePath);
-        //    }
-        //    ShowImages(localPath);
-        //    Console.WriteLine($"downloaded {FullPath} to {localPath}.");
-        //}
 
     }
 }

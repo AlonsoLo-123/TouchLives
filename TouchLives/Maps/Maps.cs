@@ -23,6 +23,7 @@ namespace TouchLives.Map
             GMap.MaxZoom = 20;
             GMap.Zoom = 13;
             GMap.AutoScroll = true;
+            GMap.ShowCenter = true;
         }
         public void MapPosition(GMapControl GMap, GeoPoint position)
         {

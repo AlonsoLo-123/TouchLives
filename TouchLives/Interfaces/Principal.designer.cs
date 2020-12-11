@@ -82,7 +82,7 @@
             this.LabelDateSystem = new System.Windows.Forms.Label();
             this.Pan_Maps = new System.Windows.Forms.Panel();
             this.Pan_Audio = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.Pan_Audio_Buttons = new System.Windows.Forms.Panel();
             this.TrackBAudioEvi = new System.Windows.Forms.TrackBar();
             this.BtnPlayEvi = new System.Windows.Forms.Button();
             this.BtnPauseEvi = new System.Windows.Forms.Button();
@@ -130,6 +130,8 @@
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Timer = new System.Windows.Forms.Timer(this.components);
+            this.labelInfoImage = new System.Windows.Forms.Label();
+            this.labelInfoImageItems = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.TablaAll)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TablaNot)).BeginInit();
             this.Pan_WinBar.SuspendLayout();
@@ -149,7 +151,7 @@
             this.Pan_Info_SystemDate.SuspendLayout();
             this.Pan_Maps.SuspendLayout();
             this.Pan_Audio.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.Pan_Audio_Buttons.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TrackBAudioEvi)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Close_MoreAlert)).BeginInit();
@@ -205,7 +207,7 @@
             this.TablaAll.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.TablaAll.Size = new System.Drawing.Size(328, 254);
             this.TablaAll.TabIndex = 0;
-            this.TablaAll.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.TablaAll_CellMouseDoubleClick);
+            this.TablaAll.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.TablaAll_CellMouseClick);
             // 
             // UID
             // 
@@ -701,7 +703,7 @@
             // 
             this.Pan_Audio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Pan_Audio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.Pan_Audio.Controls.Add(this.panel2);
+            this.Pan_Audio.Controls.Add(this.Pan_Audio_Buttons);
             this.Pan_Audio.Controls.Add(this.panel1);
             this.Pan_Audio.Controls.Add(this.CBAudio);
             this.Pan_Audio.Location = new System.Drawing.Point(1141, 426);
@@ -710,18 +712,18 @@
             this.Pan_Audio.TabIndex = 14;
             this.Pan_Audio.Visible = false;
             // 
-            // panel2
+            // Pan_Audio_Buttons
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.panel2.Controls.Add(this.TrackBAudioEvi);
-            this.panel2.Controls.Add(this.BtnPlayEvi);
-            this.panel2.Controls.Add(this.BtnPauseEvi);
-            this.panel2.Controls.Add(this.BtnLoopEvi);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 65);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(216, 47);
-            this.panel2.TabIndex = 18;
+            this.Pan_Audio_Buttons.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.Pan_Audio_Buttons.Controls.Add(this.TrackBAudioEvi);
+            this.Pan_Audio_Buttons.Controls.Add(this.BtnPlayEvi);
+            this.Pan_Audio_Buttons.Controls.Add(this.BtnPauseEvi);
+            this.Pan_Audio_Buttons.Controls.Add(this.BtnLoopEvi);
+            this.Pan_Audio_Buttons.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.Pan_Audio_Buttons.Location = new System.Drawing.Point(0, 65);
+            this.Pan_Audio_Buttons.Name = "Pan_Audio_Buttons";
+            this.Pan_Audio_Buttons.Size = new System.Drawing.Size(216, 47);
+            this.Pan_Audio_Buttons.TabIndex = 18;
             // 
             // TrackBAudioEvi
             // 
@@ -741,9 +743,9 @@
             this.BtnPlayEvi.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.BtnPlayEvi.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
             this.BtnPlayEvi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnPlayEvi.Location = new System.Drawing.Point(3, 19);
+            this.BtnPlayEvi.Location = new System.Drawing.Point(3, 17);
             this.BtnPlayEvi.Name = "BtnPlayEvi";
-            this.BtnPlayEvi.Size = new System.Drawing.Size(51, 25);
+            this.BtnPlayEvi.Size = new System.Drawing.Size(51, 27);
             this.BtnPlayEvi.TabIndex = 15;
             this.BtnPlayEvi.UseVisualStyleBackColor = false;
             // 
@@ -755,9 +757,9 @@
             this.BtnPauseEvi.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.BtnPauseEvi.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
             this.BtnPauseEvi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnPauseEvi.Location = new System.Drawing.Point(62, 19);
+            this.BtnPauseEvi.Location = new System.Drawing.Point(62, 17);
             this.BtnPauseEvi.Name = "BtnPauseEvi";
-            this.BtnPauseEvi.Size = new System.Drawing.Size(31, 25);
+            this.BtnPauseEvi.Size = new System.Drawing.Size(31, 27);
             this.BtnPauseEvi.TabIndex = 15;
             this.BtnPauseEvi.UseVisualStyleBackColor = false;
             // 
@@ -846,6 +848,8 @@
             // 
             this.Pan_Image.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Pan_Image.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Pan_Image.Controls.Add(this.labelInfoImageItems);
+            this.Pan_Image.Controls.Add(this.labelInfoImage);
             this.Pan_Image.Controls.Add(this.CBImages);
             this.Pan_Image.Controls.Add(this.panel8);
             this.Pan_Image.Controls.Add(this.PicBoxImageAlert);
@@ -864,6 +868,7 @@
             this.CBImages.Name = "CBImages";
             this.CBImages.Size = new System.Drawing.Size(198, 23);
             this.CBImages.TabIndex = 8;
+            this.CBImages.SelectedIndexChanged += new System.EventHandler(this.CBImages_SelectedIndexChanged);
             // 
             // panel8
             // 
@@ -887,13 +892,14 @@
             // 
             // PicBoxImageAlert
             // 
-            this.PicBoxImageAlert.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.PicBoxImageAlert.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.PicBoxImageAlert.Location = new System.Drawing.Point(9, 63);
             this.PicBoxImageAlert.Name = "PicBoxImageAlert";
             this.PicBoxImageAlert.Size = new System.Drawing.Size(198, 119);
-            this.PicBoxImageAlert.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PicBoxImageAlert.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PicBoxImageAlert.TabIndex = 7;
             this.PicBoxImageAlert.TabStop = false;
+            this.PicBoxImageAlert.Click += new System.EventHandler(this.PicBoxImageAlert_Click);
             // 
             // Pan_Info_Alert
             // 
@@ -1297,6 +1303,31 @@
             this.Timer.Interval = 200;
             this.Timer.Tick += new System.EventHandler(this.Timer_Tick);
             // 
+            // labelInfoImage
+            // 
+            this.labelInfoImage.AutoSize = true;
+            this.labelInfoImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.labelInfoImage.ForeColor = System.Drawing.Color.White;
+            this.labelInfoImage.Location = new System.Drawing.Point(10, 168);
+            this.labelInfoImage.Name = "labelInfoImage";
+            this.labelInfoImage.Size = new System.Drawing.Size(25, 13);
+            this.labelInfoImage.TabIndex = 10;
+            this.labelInfoImage.Text = "Info";
+            // 
+            // labelInfoImageItems
+            // 
+            this.labelInfoImageItems.AutoSize = true;
+            this.labelInfoImageItems.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.labelInfoImageItems.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelInfoImageItems.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.labelInfoImageItems.ForeColor = System.Drawing.Color.Lime;
+            this.labelInfoImageItems.Location = new System.Drawing.Point(191, 166);
+            this.labelInfoImageItems.Name = "labelInfoImageItems";
+            this.labelInfoImageItems.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.labelInfoImageItems.Size = new System.Drawing.Size(15, 15);
+            this.labelInfoImageItems.TabIndex = 11;
+            this.labelInfoImageItems.Text = "0";
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1335,12 +1366,13 @@
             this.Pan_Maps.ResumeLayout(false);
             this.Pan_Maps.PerformLayout();
             this.Pan_Audio.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
+            this.Pan_Audio_Buttons.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.TrackBAudioEvi)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Close_MoreAlert)).EndInit();
             this.Pan_Image.ResumeLayout(false);
+            this.Pan_Image.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicBoxImageAlert)).EndInit();
@@ -1447,8 +1479,10 @@
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label labelAudioEvidence;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel Pan_Audio_Buttons;
         private System.Windows.Forms.PictureBox PB_Close_MoreAlert;
+        private System.Windows.Forms.Label labelInfoImage;
+        private System.Windows.Forms.Label labelInfoImageItems;
     }
 }
 

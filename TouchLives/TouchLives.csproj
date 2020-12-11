@@ -180,6 +180,7 @@
       <DependentUpon>Principal.cs</DependentUpon>
     </Compile>
     <Compile Include="Maps\Maps.cs" />
+    <Compile Include="Models\ModelImage.cs" />
     <Compile Include="Models\ModelLogin.cs" />
     <Compile Include="Models\ModelTables.cs" />
     <Compile Include="Program.cs" />

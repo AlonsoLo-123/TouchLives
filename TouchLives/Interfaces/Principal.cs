@@ -7,8 +7,10 @@ using TouchLives.BarraSup;
 using TouchLives.Modelos;
 using TouchLives.CRUD;
 using System.Collections.Generic;
-using Google.Cloud.Storage.V1;
-using TouchLives.Interfaces;
+using System.IO;
+using TouchLives.Models;
+using System.ComponentModel;
+using System.Diagnostics;
 
 namespace TouchLives
 {
@@ -50,12 +52,12 @@ namespace TouchLives
 
         /// Eventos Tabla de usuarios
         ///
-        private async void TablaAll_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        private async void TablaAll_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             PBarLoading.Value = 1;
             PBarLoading.Step = 1;
             PBarLoading.Maximum = 3;
-            
+
             string Id = TablaAll.CurrentRow.Cells[0].Value.ToString();
             string Nombre = TablaAll.CurrentRow.Cells[1].Value.ToString();
             LabelUID.Text = Id;
@@ -66,14 +68,14 @@ namespace TouchLives
             {
                 PBarLoading.PerformStep();
 
-                List<ModUserAlertsId> AlertasDatos = new List<ModUserAlertsId>(await UserA.GetAlertAll(Id,CheckBAllAlerts.Checked));
+                List<ModUserAlertsId> AlertasDatos = new List<ModUserAlertsId>(await UserA.GetAlertAll(Id, CheckBAllAlerts.Checked));
                 foreach (var Data in AlertasDatos)
                 {
                     TablaAlert.Rows.Add(Data.Id, Data.active, Data.date.ToDateTimeOffset().ToLocalTime().DateTime,
                         Data.localizaction.Longitude, Data.localizaction.Latitude, Data.sendLocation.city, Data.sendLocation.district,
                         Data.sendLocation.postalCode, Data.sendLocation.street);
                 }
-                
+                TablaAlert.Sort(this.TablaAlert.Columns[2], ListSortDirection.Descending);
                 LabelAlertas.Text = "Alertas de: " + Nombre;
             }
             catch
@@ -129,24 +131,48 @@ namespace TouchLives
             Pan_Image.Visible = estado;
             PB_Close_MoreAlert.Visible = estado;
         }
+
+
         /// Eventos Botones de Alertas
         /// 
+        List<ModelImage> DataImages = new List<ModelImage>();
+        string Path;
+        DownloadObject DownObj = new DownloadObject();
+
         private async void MostrarMas_Click(object sender, EventArgs e)
         {
             if (TablaAlert.Rows.Count != 0)
             {
+                CBImages.Enabled = false;
+                BtnMostrarMas.Enabled = false;
+                labelInfoImage.Text = "Cargando...";
+                labelInfoImage.ForeColor = Color.Yellow;
+                CBImages.Items.Clear();
+                PicBoxImageAlert.Image = null;
                 CloseMoreFromAlert(true);
-                DownloadObject lol = new DownloadObject();
-                string SPath = $"usuarios/{LabelUID.Text}/{LabelAID.Text}/image";
-                CBImages.DataSource = lol.ListToDownload(SPath);
-                //string IdAlert = TablaAlert.CurrentRow.Cells[0].Value.ToString();
-                //ModUserAlertsId Alerta = new ModUserAlertsId();
-                //Alerts _Alertas = new Alerts(LabelUID.Text, Alerta = await UserA.GetOnlyAlert(LabelUID.Text, IdAlert));
-                //_Alertas.Show();
+                Path = $"usuarios/{LabelUID.Text}/{LabelAID.Text}/image/";
+                string BName = "touchlives-2020cj.appspot.com";
+                DataImages = DownObj.ListToDownload(BName, Path);
+                labelInfoImageItems.Text = DataImages.Count.ToString();
+                foreach (var ObjData in DataImages)
+                {
+                    CBImages.Items.Add(await DownObj.DownloadObjectAsync(BName, Path, ObjData.Name));
+                    if (CBImages.Items.Count == 1)
+                    {
+                        labelInfoImage.Text = "Seleccione una imágen";
+                        labelInfoImage.ForeColor = Color.GreenYellow;
+                        CBImages.Enabled = true;
+                    }
+                }
+                if (CBImages.Items.Count < 1)
+                {
+                    labelInfoImage.Text = "Sin imágen aún";
+                    labelInfoImage.ForeColor = Color.Red;
+                }
+                BtnMostrarMas.Enabled = true;
             }
             else
                 MessageBox.Show("Seleccione un alerta");
-
         }
 
         private void BtnDesactivarAll_Click(object sender, EventArgs e)
@@ -157,6 +183,41 @@ namespace TouchLives
         private void BtnDesactivar_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void CBImages_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string FullLPath = Path + CBImages.Text;
+                using (FileStream fs = new System.IO.FileStream(FullLPath, FileMode.Open, FileAccess.Read))
+                {
+                    PicBoxImageAlert.Image = Image.FromStream(fs);
+                    fs.Close();
+                }
+            }
+            catch
+            {
+                labelInfoImage.Text = "Error...";
+            }
+
+            int Indx = CBImages.SelectedIndex;
+            labelInfoImage.Text = DataImages[Indx].Date.ToString();
+        }
+
+        private void PicBoxImageAlert_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string FullLPath = "S:/TRABAJO/DESARROLLO/VS17/TouchLives/TouchLives/bin/Debug/" + Path + CBImages.Text;
+                Process p = new Process();
+                p.StartInfo.FileName = FullLPath;
+                p.Start();
+            }
+            catch
+            {
+
+            }
         }
         ///
         /// Eventos Botones de Alertas
