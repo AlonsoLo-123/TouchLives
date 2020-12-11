@@ -94,6 +94,8 @@
             this.LabelAID = new System.Windows.Forms.Label();
             this.PB_Close_MoreAlert = new System.Windows.Forms.PictureBox();
             this.Pan_Image = new System.Windows.Forms.Panel();
+            this.labelInfoImageItems = new System.Windows.Forms.Label();
+            this.labelInfoImage = new System.Windows.Forms.Label();
             this.CBImages = new System.Windows.Forms.ComboBox();
             this.panel8 = new System.Windows.Forms.Panel();
             this.labelPhotoEvidence = new System.Windows.Forms.Label();
@@ -130,8 +132,6 @@
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Timer = new System.Windows.Forms.Timer(this.components);
-            this.labelInfoImage = new System.Windows.Forms.Label();
-            this.labelInfoImageItems = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.TablaAll)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TablaNot)).BeginInit();
             this.Pan_WinBar.SuspendLayout();
@@ -728,7 +728,7 @@
             // TrackBAudioEvi
             // 
             this.TrackBAudioEvi.AutoSize = false;
-            this.TrackBAudioEvi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.TrackBAudioEvi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.TrackBAudioEvi.Location = new System.Drawing.Point(0, 3);
             this.TrackBAudioEvi.Name = "TrackBAudioEvi";
             this.TrackBAudioEvi.Size = new System.Drawing.Size(213, 10);
@@ -858,6 +858,31 @@
             this.Pan_Image.Size = new System.Drawing.Size(216, 191);
             this.Pan_Image.TabIndex = 12;
             this.Pan_Image.Visible = false;
+            // 
+            // labelInfoImageItems
+            // 
+            this.labelInfoImageItems.AutoSize = true;
+            this.labelInfoImageItems.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.labelInfoImageItems.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelInfoImageItems.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.labelInfoImageItems.ForeColor = System.Drawing.Color.Lime;
+            this.labelInfoImageItems.Location = new System.Drawing.Point(191, 166);
+            this.labelInfoImageItems.Name = "labelInfoImageItems";
+            this.labelInfoImageItems.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.labelInfoImageItems.Size = new System.Drawing.Size(15, 15);
+            this.labelInfoImageItems.TabIndex = 11;
+            this.labelInfoImageItems.Text = "0";
+            // 
+            // labelInfoImage
+            // 
+            this.labelInfoImage.AutoSize = true;
+            this.labelInfoImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.labelInfoImage.ForeColor = System.Drawing.Color.White;
+            this.labelInfoImage.Location = new System.Drawing.Point(10, 168);
+            this.labelInfoImage.Name = "labelInfoImage";
+            this.labelInfoImage.Size = new System.Drawing.Size(25, 13);
+            this.labelInfoImage.TabIndex = 10;
+            this.labelInfoImage.Text = "Info";
             // 
             // CBImages
             // 
@@ -1302,31 +1327,6 @@
             this.Timer.Enabled = true;
             this.Timer.Interval = 200;
             this.Timer.Tick += new System.EventHandler(this.Timer_Tick);
-            // 
-            // labelInfoImage
-            // 
-            this.labelInfoImage.AutoSize = true;
-            this.labelInfoImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.labelInfoImage.ForeColor = System.Drawing.Color.White;
-            this.labelInfoImage.Location = new System.Drawing.Point(10, 168);
-            this.labelInfoImage.Name = "labelInfoImage";
-            this.labelInfoImage.Size = new System.Drawing.Size(25, 13);
-            this.labelInfoImage.TabIndex = 10;
-            this.labelInfoImage.Text = "Info";
-            // 
-            // labelInfoImageItems
-            // 
-            this.labelInfoImageItems.AutoSize = true;
-            this.labelInfoImageItems.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.labelInfoImageItems.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelInfoImageItems.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.labelInfoImageItems.ForeColor = System.Drawing.Color.Lime;
-            this.labelInfoImageItems.Location = new System.Drawing.Point(191, 166);
-            this.labelInfoImageItems.Name = "labelInfoImageItems";
-            this.labelInfoImageItems.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.labelInfoImageItems.Size = new System.Drawing.Size(15, 15);
-            this.labelInfoImageItems.TabIndex = 11;
-            this.labelInfoImageItems.Text = "0";
             // 
             // Principal
             // 
