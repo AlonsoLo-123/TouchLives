@@ -10,7 +10,10 @@ using System.Collections.Generic;
 using System.IO;
 using TouchLives.Models;
 using System.ComponentModel;
+using TouchLives.Interfaces;
 using System.Diagnostics;
+using System.Reflection;
+using System.Linq;
 
 namespace TouchLives
 {
@@ -136,7 +139,7 @@ namespace TouchLives
         /// Eventos Botones de Alertas
         /// 
         List<ModelImage> DataImages = new List<ModelImage>();
-        string Path;
+        string LocPath;
         DownloadObject DownObj = new DownloadObject();
 
         private async void MostrarMas_Click(object sender, EventArgs e)
@@ -150,23 +153,23 @@ namespace TouchLives
                 CBImages.Items.Clear();
                 PicBoxImageAlert.Image = null;
                 CloseMoreFromAlert(true);
-                Path = $"usuarios/{LabelUID.Text}/{LabelAID.Text}/image/";
+                LocPath = $"usuarios/{LabelUID.Text}/{LabelAID.Text}/image/";
                 string BName = "touchlives-2020cj.appspot.com";
-                DataImages = DownObj.ListToDownload(BName, Path);
+                DataImages = DownObj.ListToDownload(BName, LocPath);
                 labelInfoImageItems.Text = DataImages.Count.ToString();
                 foreach (var ObjData in DataImages)
                 {
-                    CBImages.Items.Add(await DownObj.DownloadObjectAsync(BName, Path, ObjData.Name));
+                    CBImages.Items.Add(await DownObj.DownloadObjectAsync(BName, LocPath, ObjData.Name));
                     if (CBImages.Items.Count == 1)
                     {
-                        labelInfoImage.Text = "Seleccione una imágen";
+                        labelInfoImage.Text = "Seleccione una imagen";
                         labelInfoImage.ForeColor = Color.GreenYellow;
                         CBImages.Enabled = true;
                     }
                 }
                 if (CBImages.Items.Count < 1)
                 {
-                    labelInfoImage.Text = "Sin imágen aún";
+                    labelInfoImage.Text = "Sin imagen aún";
                     labelInfoImage.ForeColor = Color.Red;
                 }
                 BtnMostrarMas.Enabled = true;
@@ -189,10 +192,10 @@ namespace TouchLives
         {
             try
             {
-                string FullLPath = Path + CBImages.Text;
+                string FullLPath = LocPath + CBImages.Text;
                 using (FileStream fs = new System.IO.FileStream(FullLPath, FileMode.Open, FileAccess.Read))
                 {
-                    PicBoxImageAlert.Image = Image.FromStream(fs);
+                    PicBoxImageAlert.Image = System.Drawing.Image.FromStream(fs);
                     fs.Close();
                 }
             }
@@ -207,17 +210,19 @@ namespace TouchLives
 
         private void PicBoxImageAlert_Click(object sender, EventArgs e)
         {
-            try
+            if(CBImages.Text.Length != 0)
             {
-                string FullLPath = "S:/TRABAJO/DESARROLLO/VS17/TouchLives/TouchLives/bin/Debug/" + Path + CBImages.Text;
+                var outPutDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase);
+                string FullLPath = Path.Combine(outPutDirectory, LocPath + CBImages.Text);
+                Console.WriteLine(FullLPath);
                 Process p = new Process();
                 p.StartInfo.FileName = FullLPath;
                 p.Start();
             }
-            catch
-            {
-
-            }
+            
+            //string FullLPath = Path + CBImages.Text;
+            //ImgAlert ImageX = new ImgAlert(FullLPath);
+            //ImageX.Show();
         }
         ///
         /// Eventos Botones de Alertas
@@ -300,6 +305,10 @@ namespace TouchLives
         private void WinBar_MouseUp(object sender, MouseEventArgs e)
         {
             Bar.MUp();
+        }
+        private void Pan_WinBar_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            Bar.MaxForm(this);
         }
         ///
         /// WinBar Events

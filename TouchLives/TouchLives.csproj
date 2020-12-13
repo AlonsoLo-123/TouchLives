@@ -166,13 +166,13 @@
     <Compile Include="Conexion\Firestore.cs" />
     <Compile Include="CRUD\DownloadObject.cs" />
     <Compile Include="CRUD\Read.cs" />
-    <Compile Include="Interfaces\Alerts.cs">
+    <Compile Include="Interfaces\BarraSup\BarSup.cs" />
+    <Compile Include="Interfaces\ImgAlert.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Interfaces\Alerts.Designer.cs">
-      <DependentUpon>Alerts.cs</DependentUpon>
+    <Compile Include="Interfaces\ImgAlert.Designer.cs">
+      <DependentUpon>ImgAlert.cs</DependentUpon>
     </Compile>
-    <Compile Include="Interfaces\BarraSup\BarSup.cs" />
     <Compile Include="Interfaces\Principal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -215,8 +215,8 @@
     <None Include="Resources\HTrue.png" />
     <None Include="Resources\HFalse.png" />
     <None Include="Resources\Group.png" />
-    <EmbeddedResource Include="Interfaces\Alerts.resx">
-      <DependentUpon>Alerts.cs</DependentUpon>
+    <EmbeddedResource Include="Interfaces\ImgAlert.resx">
+      <DependentUpon>ImgAlert.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaces\Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>

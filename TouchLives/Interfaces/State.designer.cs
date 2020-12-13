@@ -53,7 +53,7 @@
             this.WinBarLogin.Controls.Add(this.Icon_Minimize);
             this.WinBarLogin.Controls.Add(this.Icon_Close);
             this.WinBarLogin.Controls.Add(this.LabelTL);
-            this.WinBarLogin.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.WinBarLogin.Cursor = System.Windows.Forms.Cursors.Default;
             this.WinBarLogin.Dock = System.Windows.Forms.DockStyle.Top;
             this.WinBarLogin.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.WinBarLogin.Location = new System.Drawing.Point(0, 0);

@@ -35,15 +35,15 @@
             this.BtnEnter = new System.Windows.Forms.Button();
             this.WinBarLogin = new System.Windows.Forms.Panel();
             this.LabelTL = new System.Windows.Forms.Label();
+            this.Icon_Title = new System.Windows.Forms.PictureBox();
+            this.Icon_Minimize = new System.Windows.Forms.PictureBox();
+            this.Icon_Close = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.BtnConfig = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.LStateCity = new System.Windows.Forms.Label();
             this.LCargando = new System.Windows.Forms.Label();
-            this.Icon_Title = new System.Windows.Forms.PictureBox();
-            this.Icon_Minimize = new System.Windows.Forms.PictureBox();
-            this.Icon_Close = new System.Windows.Forms.PictureBox();
             this.WinBarLogin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Icon_Title)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Icon_Minimize)).BeginInit();
@@ -116,7 +116,7 @@
             this.WinBarLogin.Controls.Add(this.Icon_Title);
             this.WinBarLogin.Controls.Add(this.Icon_Minimize);
             this.WinBarLogin.Controls.Add(this.Icon_Close);
-            this.WinBarLogin.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.WinBarLogin.Cursor = System.Windows.Forms.Cursors.Default;
             this.WinBarLogin.Dock = System.Windows.Forms.DockStyle.Top;
             this.WinBarLogin.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.WinBarLogin.Location = new System.Drawing.Point(0, 0);
@@ -137,6 +137,41 @@
             this.LabelTL.Size = new System.Drawing.Size(93, 19);
             this.LabelTL.TabIndex = 13;
             this.LabelTL.Text = "Touch Lives";
+            // 
+            // Icon_Title
+            // 
+            this.Icon_Title.BackColor = System.Drawing.Color.Red;
+            this.Icon_Title.Location = new System.Drawing.Point(3, 3);
+            this.Icon_Title.Name = "Icon_Title";
+            this.Icon_Title.Size = new System.Drawing.Size(26, 26);
+            this.Icon_Title.TabIndex = 11;
+            this.Icon_Title.TabStop = false;
+            // 
+            // Icon_Minimize
+            // 
+            this.Icon_Minimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Icon_Minimize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.Icon_Minimize.Image = global::TouchLives.Properties.Resources.Minimize;
+            this.Icon_Minimize.Location = new System.Drawing.Point(237, 3);
+            this.Icon_Minimize.Name = "Icon_Minimize";
+            this.Icon_Minimize.Size = new System.Drawing.Size(26, 26);
+            this.Icon_Minimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Icon_Minimize.TabIndex = 12;
+            this.Icon_Minimize.TabStop = false;
+            this.Icon_Minimize.Click += new System.EventHandler(this.Icon_Minimize_Click);
+            // 
+            // Icon_Close
+            // 
+            this.Icon_Close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Icon_Close.BackColor = System.Drawing.Color.DarkRed;
+            this.Icon_Close.Image = global::TouchLives.Properties.Resources.Close;
+            this.Icon_Close.Location = new System.Drawing.Point(269, 3);
+            this.Icon_Close.Name = "Icon_Close";
+            this.Icon_Close.Size = new System.Drawing.Size(26, 26);
+            this.Icon_Close.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Icon_Close.TabIndex = 11;
+            this.Icon_Close.TabStop = false;
+            this.Icon_Close.Click += new System.EventHandler(this.Icon_Close_Click);
             // 
             // label6
             // 
@@ -200,41 +235,6 @@
             this.LCargando.Name = "LCargando";
             this.LCargando.Size = new System.Drawing.Size(0, 16);
             this.LCargando.TabIndex = 18;
-            // 
-            // Icon_Title
-            // 
-            this.Icon_Title.BackColor = System.Drawing.Color.Red;
-            this.Icon_Title.Location = new System.Drawing.Point(3, 3);
-            this.Icon_Title.Name = "Icon_Title";
-            this.Icon_Title.Size = new System.Drawing.Size(26, 26);
-            this.Icon_Title.TabIndex = 11;
-            this.Icon_Title.TabStop = false;
-            // 
-            // Icon_Minimize
-            // 
-            this.Icon_Minimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Icon_Minimize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.Icon_Minimize.Image = global::TouchLives.Properties.Resources.Minimize;
-            this.Icon_Minimize.Location = new System.Drawing.Point(237, 3);
-            this.Icon_Minimize.Name = "Icon_Minimize";
-            this.Icon_Minimize.Size = new System.Drawing.Size(26, 26);
-            this.Icon_Minimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.Icon_Minimize.TabIndex = 12;
-            this.Icon_Minimize.TabStop = false;
-            this.Icon_Minimize.Click += new System.EventHandler(this.Icon_Minimize_Click);
-            // 
-            // Icon_Close
-            // 
-            this.Icon_Close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Icon_Close.BackColor = System.Drawing.Color.DarkRed;
-            this.Icon_Close.Image = global::TouchLives.Properties.Resources.Close;
-            this.Icon_Close.Location = new System.Drawing.Point(269, 3);
-            this.Icon_Close.Name = "Icon_Close";
-            this.Icon_Close.Size = new System.Drawing.Size(26, 26);
-            this.Icon_Close.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.Icon_Close.TabIndex = 11;
-            this.Icon_Close.TabStop = false;
-            this.Icon_Close.Click += new System.EventHandler(this.Icon_Close_Click);
             // 
             // Login
             // 
