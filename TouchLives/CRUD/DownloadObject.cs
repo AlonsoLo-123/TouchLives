@@ -49,7 +49,5 @@ namespace TouchLives.CRUD
             }
             return Name;
         }
-
-
     }
 }

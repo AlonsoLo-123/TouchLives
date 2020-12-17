@@ -144,17 +144,15 @@ namespace TouchLives
 
         private async void MostrarMas_Click(object sender, EventArgs e)
         {
+            string BName = "touchlives-2020cj.appspot.com";
+
             if (TablaAlert.Rows.Count != 0)
             {
-                CBImages.Enabled = false;
-                BtnMostrarMas.Enabled = false;
+                IniEvi();
                 labelInfoImage.Text = "Cargando...";
                 labelInfoImage.ForeColor = Color.Yellow;
-                CBImages.Items.Clear();
-                PicBoxImageAlert.Image = null;
-                CloseMoreFromAlert(true);
+
                 LocPath = $"usuarios/{LabelUID.Text}/{LabelAID.Text}/image/";
-                string BName = "touchlives-2020cj.appspot.com";
                 DataImages = DownObj.ListToDownload(BName, LocPath);
                 labelInfoImageItems.Text = DataImages.Count.ToString();
                 foreach (var ObjData in DataImages)
@@ -178,12 +176,38 @@ namespace TouchLives
                 MessageBox.Show("Seleccione un alerta");
         }
 
+        private void BtnPlayEvi_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnPauseEvi_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public void IniEvi()
+        {
+            CBImages.Enabled = false;
+            CBAudio.Enabled = false;
+            BtnMostrarMas.Enabled = false;
+            CBImages.Items.Clear();
+            CBAudio.Items.Clear();
+            PicBoxImageAlert.Image = null;
+            CloseMoreFromAlert(true);
+        }
+
         private void BtnDesactivarAll_Click(object sender, EventArgs e)
         {
 
         }
 
         private void BtnDesactivar_Click(object sender, EventArgs e)
+        {
+
+        }
+        
+        private void CBAudio_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
