@@ -20,7 +20,7 @@ namespace TouchLives.CRUD
         {
             string state;
             System.IO.StreamReader Estados =
-                new System.IO.StreamReader(@"Data\Estados.txt");
+                new System.IO.StreamReader(@"Data\Estados");
             while ((state = Estados.ReadLine()) != null)
             {
                 CBState.Items.Add(state);
@@ -67,7 +67,7 @@ namespace TouchLives.CRUD
                 {
                     ModTablaUser Data = UserData.ConvertTo<ModTablaUser>();
                     AddUsersInTables(Data,TablaN,TablaAll);
-                    GetAlertActives(Data.Id);
+                    GetAlertActives(Data.Id, Data);
                 }
             });
         }
@@ -81,7 +81,7 @@ namespace TouchLives.CRUD
 
         /// Obtener y retornar las Alertas Activas de UID (UID)
         ///
-        public List<ModUserAlertsId> GetAlertActives (String uid)
+        public List<ModUserAlertsId> GetAlertActives (String uid, ModTablaUser infoUser)
         {
             List<ModUserAlertsId> AlertasDatos = new List<ModUserAlertsId>();
             Query QAlert = data.Collection("usuarios").Document(uid).Collection("alertas").WhereEqualTo("active", true);
@@ -92,6 +92,9 @@ namespace TouchLives.CRUD
                 {
                     ModUserAlertsId Alert = AlertData.ConvertTo<ModUserAlertsId>();
                     Alert.Id = AlertData.Id;
+                    //--------------------------------------------------------------------Edit
+                    Maps alo = new Maps();
+                    alo.CreateMapMaker(Alert, infoUser);
                     AlertasDatos.Add(Alert);
                     Console.WriteLine(Alert.Id, Alert.active);
                 }
@@ -152,28 +155,7 @@ namespace TouchLives.CRUD
         }
         /// 
         /// Obtener y retornar la Alerta de UID (UID)
-
-        //private async void AllUser()
-        //{
-        //    int row = 0;
-        //    CollectionReference users = data.Collection("usuarios");
-        //    QuerySnapshot SnapshotUsers;
-        //    SnapshotUsers = await users.GetSnapshotAsync();
-        //    Tabla.Rows.Clear();
-        //    foreach (DocumentSnapshot AllUsers in SnapshotUsers.Documents)
-        //    {
-        //        Console.WriteLine(AllUsers.Id);
-        //        ModTablaUser UserDataAll = AllUsers.ConvertTo<ModTablaUser>();
-        //        Tabla.Rows.Add(UserDataAll.nombre, UserDataAll.ap_paterno,
-        //            UserDataAll.ap_materno, UserDataAll.telefono, UserDataAll.email);
-        //        if (UserDataAll.noti == Server.Id)
-        //            Tabla.Rows[row].DefaultCellStyle.ForeColor = Color.Red;
-        //        else
-        //            Tabla.Rows[row].DefaultCellStyle.ForeColor = Color.Black;
-        //        row++;
-        //    }
-        //}
-
+        
         /// Invocar y añadir a tablas
         /// 
         public void AddUsersInTables(ModTablaUser UserData, DataGridView TablaNot, DataGridView TablaAll)

@@ -267,9 +267,9 @@
     <None Include="Resources\GPs.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Data\Estados.txt">
+    <None Include="Data\Estados">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    </None>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

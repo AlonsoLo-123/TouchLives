@@ -186,7 +186,7 @@ namespace TouchLives
 
         }
 
-        public void IniEvi()
+        private void IniEvi()
         {
             CBImages.Enabled = false;
             CBAudio.Enabled = false;
@@ -194,6 +194,8 @@ namespace TouchLives
             CBImages.Items.Clear();
             CBAudio.Items.Clear();
             PicBoxImageAlert.Image = null;
+            BtnPlayEvi.Enabled = false;
+            BtnPauseEvi.Enabled = false;
             CloseMoreFromAlert(true);
         }
 

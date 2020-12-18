@@ -51,7 +51,7 @@ namespace TouchLives.Map
 
         public GMapOverlay CreateMapMaker(ModUserAlertsId Alert, ModTablaUser UserDataNoti)
         {
-            Bitmap MarkerAlert = (Bitmap)Image.FromFile("Markers/Marker.png");
+            Bitmap MarkerAlert = (Bitmap)Image.FromFile(@"Maps/Markers/Marker.png");
             Console.WriteLine(Alert.date.ToString());
             
             GMapOverlay MarkOverlay = new GMapOverlay(Alert.Id);
@@ -59,10 +59,10 @@ namespace TouchLives.Map
 
             marker.ToolTipMode = MarkerTooltipMode.OnMouseOver;
 
-            marker.ToolTip.Fill = Brushes.Black;
-            marker.ToolTip.Foreground = Brushes.White;
-            marker.ToolTip.Stroke = Pens.Black;
-            marker.ToolTip.TextPadding = new Size(20, 20);
+            //marker.ToolTip.Fill = Brushes.Black;
+            //marker.ToolTip.Foreground = Brushes.White;
+            //marker.ToolTip.Stroke = Pens.Black;
+            //marker.ToolTip.TextPadding = new Size(20, 20);
 
             marker.ToolTipText = string.Format("Nombre: {0} {1} {2}\nTeléfono: {3}",UserDataNoti.nombre, UserDataNoti.ap_paterno, UserDataNoti.ap_materno, UserDataNoti.telefono);
 
