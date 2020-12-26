@@ -92,9 +92,9 @@ namespace TouchLives.CRUD
                 {
                     ModUserAlertsId Alert = AlertData.ConvertTo<ModUserAlertsId>();
                     Alert.Id = AlertData.Id;
-                    //--------------------------------------------------------------------Edit
-                    Maps alo = new Maps();
-                    alo.CreateMapMaker(Alert, infoUser);
+                    ////--------------------------------------------------------------------Edit
+                    //Maps alo = new Maps();
+                    //alo.CreateMapMaker(Alert, infoUser);
                     AlertasDatos.Add(Alert);
                     Console.WriteLine(Alert.Id, Alert.active);
                 }

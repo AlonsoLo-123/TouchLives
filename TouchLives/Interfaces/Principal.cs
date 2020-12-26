@@ -14,6 +14,7 @@ using TouchLives.Interfaces;
 using System.Diagnostics;
 using System.Reflection;
 using System.Linq;
+using System.Media;
 
 namespace TouchLives
 {
@@ -138,9 +139,44 @@ namespace TouchLives
 
         /// Eventos Botones de Alertas
         /// 
-        List<ModelImage> DataImages = new List<ModelImage>();
+        List<ModelImage> DataImg = new List<ModelImage>();
+        List<ModelImage> DataAud = new List<ModelImage>();
         string LocPath;
         DownloadObject DownObj = new DownloadObject();
+
+
+        private async void Btn1(object sender, EventArgs e)
+        {
+            string BName = "touchlives-2020cj.appspot.com";
+
+            if (TablaAlert.Rows.Count != 0)
+            {
+                labelInfoAudio.Text = "Cargando...";
+                labelInfoAudio.ForeColor = Color.Yellow;
+
+                LocPath = $"usuarios/{LabelUID.Text}/{LabelAID.Text}/audio/";
+                DataAud = DownObj.ListToDownload(BName, LocPath);
+                labelInfoAudioItems.Text = DataAud.Count.ToString();
+                foreach (var ObjData in DataAud)
+                {
+                    CBAudio.Items.Add(await DownObj.DownloadObjectAsync(BName, LocPath, ObjData.Name));
+                    if (CBAudio.Items.Count == 1)
+                    {
+                        labelInfoAudio.Text = "Seleccione un audio";
+                        labelInfoAudio.ForeColor = Color.GreenYellow;
+                        CBAudio.Enabled = true;
+                    }
+                }
+                if (CBAudio.Items.Count < 1)
+                {
+                    labelInfoAudio.Text = "Sin audio aún";
+                    labelInfoAudio.ForeColor = Color.Red;
+                }
+                //Btn1.Enabled = true;
+            }
+            else
+                MessageBox.Show("Seleccione un alerta");
+        }
 
         private async void MostrarMas_Click(object sender, EventArgs e)
         {
@@ -153,9 +189,9 @@ namespace TouchLives
                 labelInfoImage.ForeColor = Color.Yellow;
 
                 LocPath = $"usuarios/{LabelUID.Text}/{LabelAID.Text}/image/";
-                DataImages = DownObj.ListToDownload(BName, LocPath);
-                labelInfoImageItems.Text = DataImages.Count.ToString();
-                foreach (var ObjData in DataImages)
+                DataImg = DownObj.ListToDownload(BName, LocPath);
+                labelInfoImageItems.Text = DataImg.Count.ToString();
+                foreach (var ObjData in DataImg)
                 {
                     CBImages.Items.Add(await DownObj.DownloadObjectAsync(BName, LocPath, ObjData.Name));
                     if (CBImages.Items.Count == 1)
@@ -174,16 +210,6 @@ namespace TouchLives
             }
             else
                 MessageBox.Show("Seleccione un alerta");
-        }
-
-        private void BtnPlayEvi_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void BtnPauseEvi_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void IniEvi()
@@ -208,8 +234,37 @@ namespace TouchLives
         {
 
         }
-        
+
+        SoundPlayer simpleSound = new SoundPlayer();
+
         private void CBAudio_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string FullLPath = LocPath + CBAudio.Text;
+                simpleSound.SoundLocation = FullLPath;
+                simpleSound.LoadAsync();
+                BtnPlayEvi.Enabled = true;
+
+            }
+            catch
+            {
+                labelInfoAudio.Text = "Error...";
+            }
+
+            int Indx = CBAudio.SelectedIndex;
+            labelInfoAudio.Text = DataAud[Indx].Date.ToString();
+        }
+
+        private void BtnPlayEvi_Click(object sender, EventArgs e)
+        {
+            if (this.simpleSound.IsLoadCompleted)
+            {
+                this.simpleSound.PlaySync();
+            }
+        }
+
+        private void BtnPauseEvi_Click(object sender, EventArgs e)
         {
 
         }
@@ -231,7 +286,7 @@ namespace TouchLives
             }
 
             int Indx = CBImages.SelectedIndex;
-            labelInfoImage.Text = DataImages[Indx].Date.ToString();
+            labelInfoImage.Text = DataImg[Indx].Date.ToString();
         }
 
         private void PicBoxImageAlert_Click(object sender, EventArgs e)
